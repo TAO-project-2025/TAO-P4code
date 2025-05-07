@@ -1,0 +1,13 @@
+{
+  "port_maps":[
+  {
+    "port_id": 1,
+    "hostif_name": "Eth100GE1",
+    "fec":"rs"
+  },
+  {
+    "port_id": 5,
+    "hostif_name": "Eth100GE5",
+    "fec":"rs"
+  }]
+}

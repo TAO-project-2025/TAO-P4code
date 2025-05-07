@@ -1,0 +1,34 @@
+digraph ShcIngressDeparser {
+subgraph cluster {
+graph [
+label="", labeljust=r, style=bold];
+0[label=__START__, margin="", shape=rectangle, style=solid];
+1[label=__EXIT__, margin="", shape=rectangle, style=solid];
+2[label="ig_dprsr_md.digest_type == 1;", margin="", shape=rectangle, style=solid];
+3[label="flowkey_digest_0/flowkey_digest.pack({
+  src_ip_digest:hdr.ipv4.src_addr;
+  dst_ip_digest:hdr.ipv4.dst_addr;
+  time_stamp:ig_md.time_stamp;
+  count:ig_md.pkt_n_c; });", margin="", shape=rectangle, style=solid];
+4[label="hdr.ipv4.hdr_checksum = ipv4_checksum_0/ipv4_checksum.update<tuple_2>({
+  f0:hdr.ipv4.version;
+  f1:hdr.ipv4.ihl;
+  f2:hdr.ipv4.dscp;
+  f3:hdr.ipv4.ecn;
+  f4:hdr.ipv4.total_len;
+  f5:hdr.ipv4.identification;
+  f6:hdr.ipv4.flags;
+  f7:hdr.ipv4.frag_offset;
+  f8:hdr.ipv4.ttl;
+  f9:hdr.ipv4.protocol;
+  f10:hdr.ipv4.src_addr;
+  f11:hdr.ipv4.dst_addr; });
+...
+pkt.emit<ipv4_h>(hdr.inner_ipv4);", margin="", shape=rectangle, style=solid];
+0 -> 2[label=""];
+2 -> 3[label=TRUE];
+2 -> 4[label=FALSE];
+3 -> 4[label=""];
+4 -> 1[label=""];
+}
+}

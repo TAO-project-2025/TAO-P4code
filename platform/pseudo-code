@@ -1,0 +1,32 @@
+
+// start lookup flow table and get cuckoo hashes
+flow_id = extrct(pkt)
+if(flow_table(flow_id).hit){
+    hit = true
+}
+else{
+    miss = true
+}
+cuckoo_hash_values[] = flow_table.cuckoo_hash(flow_id)
+
+// chose one of the cuckoo_hash_values as fixed hash of this flow to update bucket
+offset = hash1(flow_id)
+index = cuckoo_hash_values[offset]
+
+// compute a Fingerprint of this flow to shrink RAM footprint
+Fingerprint = hash2(flow_id)
+
+// update bucket according to index which is corresponding to entry
+if(bucket[index].FP == Fingerprint){
+    bucket[index].consecutive_arrival ++
+}
+else{
+    bucket[index].FP = Fingerprint
+    bucket[index].consecutive_arrival = 1
+}
+
+// check whehter it is an active flow
+if(bucket[index].consecutive_arrival == K && hit){ // equal to K to get rid of repeated active flow
+    info = pack(flow_id, index)
+    report_to_control_plane(info)
+}

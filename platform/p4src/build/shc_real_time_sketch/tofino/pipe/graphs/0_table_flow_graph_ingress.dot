@@ -1,0 +1,79 @@
+digraph ingress {
+cond_5 [ shape=record, style="filled", fillcolor=cornsilk, label="hdr.ipv4.$valid == 1\l\l
+ "];
+sk_count_pkt_num_table [ shape=record, style="filled", fillcolor=cornsilk, label="sk_count_pkt_num_table\l\l
+W:\l
+ ig_md.pkt_n_c\l
+ "];
+sk_get_hash_value_table [ shape=record, style="filled", fillcolor=cornsilk, label="sk_get_hash_value_table\l\l
+W:\l
+ ig_md.hash_index\l
+ ig_md.fingerprint\l
+ "];
+sk_update_pkt_1_table [ shape=record, style="filled", fillcolor=cornsilk, label="sk_update_pkt_1_table\l\l
+R:\l
+ ig_md.fingerprint\l
+\lW:\l
+ ig_md.fp_cmp_re\l
+ ig_md.hash_index_done\l
+ "];
+cond_6 [ shape=record, style="filled", fillcolor=cornsilk, label="ig_md.hash_index_done == 1\l\l
+ "];
+sk_update_pkt_num_1_table [ shape=record, style="filled", fillcolor=cornsilk, label="sk_update_pkt_num_1_table\l\l
+R:\l
+ ig_md.fp_cmp_re\l
+\lW:\l
+ ig_md.cs_count\l
+ "];
+route_tbl_0 [ shape=record, style="filled", fillcolor=cornsilk, label="route_tbl_0\l\l
+M:\l
+ hdr.ipv4.src_addr\l
+ hdr.ipv4.dst_addr\l
+\lR:\l
+ ig_intr_md.ingress_port\l
+ ig_intr_md.ingress_mac_tstamp\l
+\lW:\l
+ ig_intr_md_for_tm.ucast_egress_port\l
+ ig_md.time_stamp\l
+ ig_intr_md_for_tm.bypass_egress\l
+ "];
+cond_7 [ shape=record, style="filled", fillcolor=cornsilk, label="ig_md.cs_count == 15\l\l
+ "];
+tbl_shc_real_time_sketch266 [ shape=record, style="filled", fillcolor=cornsilk, label="tbl_shc_real_time_sketch266\l\l
+W:\l
+ ig_md.eflag\l
+ "];
+tbl_shc_real_time_sketch269 [ shape=record, style="filled", fillcolor=cornsilk, label="tbl_shc_real_time_sketch269\l\l
+W:\l
+ ig_md.eflag\l
+ "];
+cond_8 [ shape=record, style="filled", fillcolor=cornsilk, label="ig_md.eflag == 1 && ig_intr_md_for_tm.bypass_egress == 1\l\l
+ "];
+tbl_shc_real_time_sketch322 [ shape=record, style="filled", fillcolor=cornsilk, label="tbl_shc_real_time_sketch322\l\l
+W:\l
+ ig_intr_md_for_dprsr.digest_type\l
+ "];
+tbl_shc_real_time_sketch325 [ shape=record, style="filled", fillcolor=cornsilk, label="tbl_shc_real_time_sketch325\l\l
+W:\l
+ ig_intr_md_for_dprsr.digest_type\l
+ "];
+    PARSER -> cond_5
+    cond_5 -> sk_count_pkt_num_table
+    PARSER -> cond_5
+    cond_5 -> DEPARSER
+    sk_count_pkt_num_table -> sk_get_hash_value_table
+    sk_get_hash_value_table -> sk_update_pkt_1_table
+    sk_update_pkt_1_table -> cond_6
+    cond_6 -> sk_update_pkt_num_1_table
+    cond_6 -> route_tbl_0
+    sk_update_pkt_num_1_table -> cond_7
+    cond_7 -> tbl_shc_real_time_sketch266
+    cond_7 -> tbl_shc_real_time_sketch269
+    tbl_shc_real_time_sketch266 -> route_tbl_0
+    tbl_shc_real_time_sketch269 -> route_tbl_0
+    route_tbl_0 -> cond_8
+    cond_8 -> tbl_shc_real_time_sketch322
+    cond_8 -> tbl_shc_real_time_sketch325
+    tbl_shc_real_time_sketch322 -> DEPARSER
+    tbl_shc_real_time_sketch325 -> DEPARSER
+}

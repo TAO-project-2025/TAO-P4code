@@ -1,0 +1,290 @@
+Table Placement ignores container conflicts? 0
+table placement starting pipe
+ingress: [1964342]
+  cond-5(ingress::hdr.ipv4.$valid == 1; => $true, 1 => $false)
+    $true: [1964347] 0 01 011 0000 01111
+      sk_count_pkt_num_table
+        stateful ShcIngress.sk.pkt_num    1
+      sk_get_hash_value_table
+      sk_update_pkt_1_table
+        stateful ShcIngress.sk.hash1_1  66K
+      cond-6(ingress::ig_md.hash_index_done == 1; => $true, 1 => $false)
+        $true: [1964611] 1
+          sk_update_pkt_num_1_table
+            stateful ShcIngress.sk.hash1_1_n  66K
+          cond-7(ingress::ig_md.cs_count == 15; => $true, 1 => $false)
+            $true: [1964805]
+              tbl_shc_real_time_sketch266
+            $false: [1964807]
+              tbl_shc_real_time_sketch269
+      route_tbl_0{ E 54+1, 0 64K }
+      cond-8(ingress::ig_md.eflag == 1 && ingress::ig_intr_md_for_tm.bypass_egress == 1; => $true, 1 => $false)
+        $true: [1965071]
+          tbl_shc_real_time_sketch322
+        $false: [1965073]
+          tbl_shc_real_time_sketch325
+egress: [1971426]
+
+stage 0, work: [ 1964342 ], partly placed 0, placed 0
+    { id=0 ram=0 tcam=0 mram=0 eixb=0 tixb=0 malu=0 salu=0 }
+  Group table: cond-5
+try_place_table(cond-5, stage=0)
+  Merging with match table sk_count_pkt_num_table
+  Initial stage is 0, initial entries is 1
+  Selected stage: 0    Furthest stage: 0
+  try_place_table returning 1 of sk_count_pkt_num_table in stage 0
+  Merging with match table sk_get_hash_value_table
+  Initial stage is 0, initial entries is 1
+  Selected stage: 0    Furthest stage: 0
+  try_place_table returning 1 of sk_get_hash_value_table in stage 0
+  Merging with match table route_tbl_0
+  Initial stage is 0, initial entries is 65536
+  Selected stage: 0    Furthest stage: 0
+  try_place_table returning 65536 of route_tbl_0 in stage 0
+    Pl vector: [ sk_count_pkt_num_table, sk_get_hash_value_table, route_tbl_0 ]
+found 3 tables that could be placed: [ sk_count_pkt_num_table, sk_get_hash_value_table, route_tbl_0 ]
+Initial best is first table seen: sk_count_pkt_num_table
+For trial t : sk_get_hash_value_table with best: sk_count_pkt_num_table
+    Updating best to sk_get_hash_value_table from sk_count_pkt_num_table for reason: longer downward prop control-included dependence tail chain
+For trial t : route_tbl_0 with best: sk_get_hash_value_table
+    Keeping best sk_get_hash_value_table for reason: longer downward prop control-included dependence tail chain
+placing 1 entries of sk_get_hash_value_table (with gw cond-5) in stage 0(0) FormatType(02)
+stage 0, work: [ 1964347 ], partly placed 0, placed 1
+    { id=0 ram=0 tcam=0 mram=0 eixb=0 tixb=0 malu=0 salu=0 }
+  Group table: sk_count_pkt_num_table
+  Group table: sk_get_hash_value_table
+  Group table: sk_update_pkt_1_table
+  Group table: cond-6
+  Group table: route_tbl_0
+  Group table: cond-8
+sk_count_pkt_num_table is not a gateway! Aborting search for merge choices
+try_place_table(sk_count_pkt_num_table, stage=0)
+  Initial stage is 0, initial entries is 1
+  Selected stage: 0    Furthest stage: 1
+  try_place_table returning 1 of sk_count_pkt_num_table in stage 0
+    Pl vector: [ sk_count_pkt_num_table ]
+    - skipping sk_get_hash_value_table as its already done
+sk_update_pkt_1_table is not a gateway! Aborting search for merge choices
+try_place_table(sk_update_pkt_1_table, stage=0)
+  - dependency between sk_get_hash_value_table and table advances stage
+  Initial stage is 1, initial entries is 1
+  Selected stage: 1    Furthest stage: 1
+  try_place_table returning 1 of sk_update_pkt_1_table in stage 1
+    Pl vector: [ sk_update_pkt_1_table ]
+  - skipping cond-6 due to in-sequence control dependence on sk_update_pkt_1_table
+route_tbl_0 is not a gateway! Aborting search for merge choices
+try_place_table(route_tbl_0, stage=0)
+  Initial stage is 0, initial entries is 65536
+  Selected stage: 0    Furthest stage: 1
+  try_place_table returning 65536 of route_tbl_0 in stage 0
+    Pl vector: [ route_tbl_0 ]
+  - skipping cond-8 due to in-sequence control dependence on sk_update_pkt_1_table
+found 3 tables that could be placed: [ sk_count_pkt_num_table, sk_update_pkt_1_table, route_tbl_0 ]
+Initial best is first table seen: sk_count_pkt_num_table
+For trial t : sk_update_pkt_1_table with best: sk_count_pkt_num_table
+    Keeping best sk_count_pkt_num_table for reason: earlier stage calculated
+For trial t : route_tbl_0 with best: sk_count_pkt_num_table
+    Updating best to route_tbl_0 from sk_count_pkt_num_table for reason: longer downward prop control-included dependence tail chain
+placing 65536 entries of route_tbl_0 in stage 0(1) FormatType(02)
+stage 0, work: [ 1964347 ], partly placed 0, placed 2
+    { id=1 ram=32 tcam=0 mram=32 eixb=8 tixb=0 malu=0 salu=0 }
+  Group table: sk_count_pkt_num_table
+  Group table: sk_get_hash_value_table
+  Group table: sk_update_pkt_1_table
+  Group table: cond-6
+  Group table: route_tbl_0
+  Group table: cond-8
+sk_count_pkt_num_table is not a gateway! Aborting search for merge choices
+try_place_table(sk_count_pkt_num_table, stage=0)
+  Initial stage is 0, initial entries is 1
+  Selected stage: 0    Furthest stage: 1
+  try_place_table returning 1 of sk_count_pkt_num_table in stage 0
+    Pl vector: [ sk_count_pkt_num_table ]
+    - skipping sk_get_hash_value_table as its already done
+sk_update_pkt_1_table is not a gateway! Aborting search for merge choices
+try_place_table(sk_update_pkt_1_table, stage=0)
+  - action dependency between route_tbl_0 and table sk_update_pkt_1_table due to PHV allocation advances stage to 1
+  Initial stage is 1, initial entries is 1
+  Selected stage: 1    Furthest stage: 1
+  try_place_table returning 1 of sk_update_pkt_1_table in stage 1
+    Pl vector: [ sk_update_pkt_1_table ]
+  - skipping cond-6 due to in-sequence control dependence on sk_update_pkt_1_table
+    - skipping route_tbl_0 as its already done
+  - skipping cond-8 due to in-sequence control dependence on sk_update_pkt_1_table
+found 2 tables that could be placed: [ sk_count_pkt_num_table, sk_update_pkt_1_table ]
+Initial best is first table seen: sk_count_pkt_num_table
+For trial t : sk_update_pkt_1_table with best: sk_count_pkt_num_table
+    Keeping best sk_count_pkt_num_table for reason: earlier stage calculated
+placing 1 entries of sk_count_pkt_num_table in stage 0(2) FormatType(022)
+stage 0, work: [ 1964347 ], partly placed 0, placed 3
+    { id=1 ram=32 tcam=0 mram=32 eixb=8 tixb=0 malu=0 salu=0 }
+  Group table: sk_count_pkt_num_table
+  Group table: sk_get_hash_value_table
+  Group table: sk_update_pkt_1_table
+  Group table: cond-6
+  Group table: route_tbl_0
+  Group table: cond-8
+    - skipping sk_count_pkt_num_table as its already done
+    - skipping sk_get_hash_value_table as its already done
+sk_update_pkt_1_table is not a gateway! Aborting search for merge choices
+try_place_table(sk_update_pkt_1_table, stage=0)
+  - action dependency between route_tbl_0 and table sk_update_pkt_1_table due to PHV allocation advances stage to 1
+  Initial stage is 1, initial entries is 1
+  Selected stage: 1    Furthest stage: 1
+  try_place_table returning 1 of sk_update_pkt_1_table in stage 1
+    Pl vector: [ sk_update_pkt_1_table ]
+  - skipping cond-6 due to in-sequence control dependence on sk_update_pkt_1_table
+    - skipping route_tbl_0 as its already done
+  - skipping cond-8 due to in-sequence control dependence on sk_update_pkt_1_table
+found 1 tables that could be placed: [ sk_update_pkt_1_table ]
+Initial best is first table seen: sk_update_pkt_1_table
+placing 1 entries of sk_update_pkt_1_table in stage 1(10) FormatType(022)
+stage 1, work: [ 1964347 ], partly placed 0, placed 4
+    { id=0 ram=0 tcam=0 mram=0 eixb=0 tixb=0 malu=0 salu=0 }
+  Group table: sk_count_pkt_num_table
+  Group table: sk_get_hash_value_table
+  Group table: sk_update_pkt_1_table
+  Group table: cond-6
+  Group table: route_tbl_0
+  Group table: cond-8
+    - skipping sk_count_pkt_num_table as its already done
+    - skipping sk_get_hash_value_table as its already done
+    - skipping sk_update_pkt_1_table as its already done
+try_place_table(cond-6, stage=1)
+  Merging with match table sk_update_pkt_num_1_table
+  - dependency between sk_update_pkt_1_table and table advances stage
+  Initial stage is 2, initial entries is 1
+  Selected stage: 2    Furthest stage: 2
+  try_place_table returning 1 of sk_update_pkt_num_1_table in stage 2
+    Pl vector: [ sk_update_pkt_num_1_table ]
+    - skipping route_tbl_0 as its already done
+  - skipping cond-8 due to in-sequence control dependence on cond-6
+found 1 tables that could be placed: [ sk_update_pkt_num_1_table ]
+Initial best is first table seen: sk_update_pkt_num_1_table
+placing 1 entries of sk_update_pkt_num_1_table (with gw cond-6) in stage 2(20) FormatType(022)
+stage 2, work: [ 1964611 ], partly placed 0, placed 5
+    { id=0 ram=0 tcam=0 mram=0 eixb=0 tixb=0 malu=0 salu=0 }
+  Group table: sk_update_pkt_num_1_table
+  Group table: cond-7
+    - skipping sk_update_pkt_num_1_table as its already done
+try_place_table(cond-7, stage=2)
+  Merging with match table tbl_shc_real_time_sketch269
+  - dependency between sk_update_pkt_num_1_table and table advances stage
+  Initial stage is 3, initial entries is 1
+  Selected stage: 3    Furthest stage: 3
+  try_place_table returning 1 of tbl_shc_real_time_sketch269 in stage 3
+  Merging with match table tbl_shc_real_time_sketch266
+  - dependency between sk_update_pkt_num_1_table and table advances stage
+  Initial stage is 3, initial entries is 1
+  Selected stage: 3    Furthest stage: 3
+  try_place_table returning 1 of tbl_shc_real_time_sketch266 in stage 3
+    Pl vector: [ tbl_shc_real_time_sketch269, tbl_shc_real_time_sketch266 ]
+found 2 tables that could be placed: [ tbl_shc_real_time_sketch269, tbl_shc_real_time_sketch266 ]
+Initial best is first table seen: tbl_shc_real_time_sketch269
+For trial t : tbl_shc_real_time_sketch266 with best: tbl_shc_real_time_sketch269
+    Updating best to tbl_shc_real_time_sketch266 from tbl_shc_real_time_sketch269 for reason: default choice
+placing 1 entries of tbl_shc_real_time_sketch266 (with gw cond-7) in stage 3(30) FormatType(02)
+stage 3, work: [ 1964807 ], partly placed 0, placed 6
+    { id=0 ram=0 tcam=0 mram=0 eixb=0 tixb=0 malu=0 salu=0 }
+  Group table: tbl_shc_real_time_sketch269
+tbl_shc_real_time_sketch269 is not a gateway! Aborting search for merge choices
+try_place_table(tbl_shc_real_time_sketch269, stage=3)
+  Initial stage is 3, initial entries is 1
+  Selected stage: 3    Furthest stage: 4
+  try_place_table returning 1 of tbl_shc_real_time_sketch269 in stage 3
+    Pl vector: [ tbl_shc_real_time_sketch269 ]
+found 1 tables that could be placed: [ tbl_shc_real_time_sketch269 ]
+Initial best is first table seen: tbl_shc_real_time_sketch269
+placing 1 entries of tbl_shc_real_time_sketch269 in stage 3(31) FormatType(02)
+stage 3, work: [ 1964347 ], partly placed 0, placed 7
+    { id=0 ram=0 tcam=0 mram=0 eixb=0 tixb=0 malu=0 salu=0 }
+  Group table: sk_count_pkt_num_table
+  Group table: sk_get_hash_value_table
+  Group table: sk_update_pkt_1_table
+  Group table: cond-6
+  Group table: route_tbl_0
+  Group table: cond-8
+    - skipping sk_count_pkt_num_table as its already done
+    - skipping sk_get_hash_value_table as its already done
+    - skipping sk_update_pkt_1_table as its already done
+    - skipping cond-6 as its already done
+    - skipping route_tbl_0 as its already done
+try_place_table(cond-8, stage=3)
+  Merging with match table tbl_shc_real_time_sketch325
+  - dependency between tbl_shc_real_time_sketch269 and table advances stage
+  Initial stage is 4, initial entries is 1
+  Selected stage: 4    Furthest stage: 4
+  try_place_table returning 1 of tbl_shc_real_time_sketch325 in stage 4
+  Merging with match table tbl_shc_real_time_sketch322
+  - dependency between tbl_shc_real_time_sketch269 and table advances stage
+  Initial stage is 4, initial entries is 1
+  Selected stage: 4    Furthest stage: 4
+  try_place_table returning 1 of tbl_shc_real_time_sketch322 in stage 4
+    Pl vector: [ tbl_shc_real_time_sketch325, tbl_shc_real_time_sketch322 ]
+found 2 tables that could be placed: [ tbl_shc_real_time_sketch325, tbl_shc_real_time_sketch322 ]
+Initial best is first table seen: tbl_shc_real_time_sketch325
+For trial t : tbl_shc_real_time_sketch322 with best: tbl_shc_real_time_sketch325
+    Updating best to tbl_shc_real_time_sketch322 from tbl_shc_real_time_sketch325 for reason: default choice
+placing 1 entries of tbl_shc_real_time_sketch322 (with gw cond-8) in stage 4(40) FormatType(02)
+stage 4, work: [ 1965073 ], partly placed 0, placed 8
+    { id=0 ram=0 tcam=0 mram=0 eixb=0 tixb=0 malu=0 salu=0 }
+  Group table: tbl_shc_real_time_sketch325
+tbl_shc_real_time_sketch325 is not a gateway! Aborting search for merge choices
+try_place_table(tbl_shc_real_time_sketch325, stage=4)
+  Initial stage is 4, initial entries is 1
+  Selected stage: 4    Furthest stage: 5
+  try_place_table returning 1 of tbl_shc_real_time_sketch325 in stage 4
+    Pl vector: [ tbl_shc_real_time_sketch325 ]
+found 1 tables that could be placed: [ tbl_shc_real_time_sketch325 ]
+Initial best is first table seen: tbl_shc_real_time_sketch325
+placing 1 entries of tbl_shc_real_time_sketch325 in stage 4(41) FormatType(02)
+Table placement placed 9 tables in 5 stages
+  Table tbl_shc_real_time_sketch325 logical id 0x41 entries=1
+  Table tbl_shc_real_time_sketch322 logical id 0x40 entries=1
+  Gateway cond-8 is also logical id 0x40
+  Table tbl_shc_real_time_sketch269 logical id 0x31 entries=1
+  Table tbl_shc_real_time_sketch266 logical id 0x30 entries=1
+  Gateway cond-7 is also logical id 0x30
+  Table sk_update_pkt_num_1_table logical id 0x20 entries=1
+    attached table ShcIngress.sk.hash1_1_n entries=65536
+  Gateway cond-6 is also logical id 0x20
+  Table sk_update_pkt_1_table logical id 0x10 entries=1
+    attached table ShcIngress.sk.hash1_1 entries=65536
+  Table sk_count_pkt_num_table logical id 0x2 entries=1
+    attached table ShcIngress.sk.pkt_num entries=1
+  Table route_tbl_0 logical id 0x1 entries=65536
+    attached table route_tbl_0$idletime entries=65536
+  Table sk_get_hash_value_table logical id 0x0 entries=1
+  Gateway cond-5 is also logical id 0x0
+Finished table placement decisions pipe
+folding gateway cond-5 onto sk_get_hash_value_table
+  Adding Ternary Indirect table to sk_count_pkt_num_table
+folding gateway cond-6 onto sk_update_pkt_num_1_table
+folding gateway cond-7 onto tbl_shc_real_time_sketch266
+  Adding Ternary Indirect table to tbl_shc_real_time_sketch266
+  Adding Ternary Indirect table to tbl_shc_real_time_sketch269
+folding gateway cond-8 onto tbl_shc_real_time_sketch322
+  Adding Ternary Indirect table to tbl_shc_real_time_sketch322
+  Adding Ternary Indirect table to tbl_shc_real_time_sketch325
+table placement completed pipe
+ingress: [1964342]
+  0: sk_get_hash_value_table(ingress::hdr.ipv4.$valid == 1;, 1 => $false)
+    $default: [1964347] 0 00 000 0000
+      1: route_tbl_0{ E 54+1, 0 [1x2 16K 16K 16K 16K] }
+      2: sk_count_pkt_num_table{ E 0+10, 0 0K }
+        stateful ShcIngress.sk.pkt_num    1
+      10: sk_update_pkt_1_table
+        stateful ShcIngress.sk.hash1_1  66K
+      20: sk_update_pkt_num_1_table(ingress::ig_md.hash_index_done == 1;, 1 => $false)
+        stateful ShcIngress.sk.hash1_1_n  66K
+        $default: [1964611]
+          30: tbl_shc_real_time_sketch266(ingress::ig_md.cs_count == 15;, 1 => $false)
+            $false: [1964807]
+              31: tbl_shc_real_time_sketch269
+        $false: [2062327]
+      40: tbl_shc_real_time_sketch322(ingress::ig_md.eflag == 1 && ingress::ig_intr_md_for_tm.bypass_egress == 1;, 1 => $false)
+        $false: [1965073]
+          41: tbl_shc_real_time_sketch325
+    $false: [2062068]
+egress: [1971426]
+

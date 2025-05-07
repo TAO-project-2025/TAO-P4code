@@ -1,0 +1,36 @@
+digraph table_deps {
+  splines=ortho; rankdir=LR;
+  label="Program: shc_real_time_sketch
+RunId: 9a435881c698bbef
+";
+  labelloc=t; labeljust=l;
+  { "ShcIngress.sk.get_hash_value_table"; "ShcIngress.route_tbl"; "ShcIngress.sk.count_pkt_num_table"; }
+  { rank = same; "ShcIngress.sk.update_pkt_1_table"; }
+  { rank = same; "ShcIngress.sk.update_pkt_num_1_table"; }
+  { rank = same; "tbl_shc_real_time_sketch322"; "tbl_shc_real_time_sketch325"; }
+  { rank = same; "tbl_shc_real_time_sketch266"; "tbl_shc_real_time_sketch269"; }
+   "ShcIngress.sk.get_hash_value_table" -> "ShcIngress.route_tbl" [ label= "",color=green ];
+   "ShcIngress.sk.get_hash_value_table" -> "ShcIngress.sk.count_pkt_num_table" [ label= "",color=green ];
+   "ShcIngress.sk.get_hash_value_table" -> "ShcIngress.sk.update_pkt_1_table" [ label= "",color=green ];
+   "ShcIngress.sk.get_hash_value_table" -> "ShcIngress.sk.update_pkt_num_1_table" [ label= "",color=green ];
+   "ShcIngress.sk.get_hash_value_table" -> "tbl_shc_real_time_sketch322" [ label= "",color=green ];
+   "ShcIngress.sk.update_pkt_num_1_table" -> "tbl_shc_real_time_sketch266" [ label= "",color=green ];
+   "tbl_shc_real_time_sketch266" -> "tbl_shc_real_time_sketch269" [ label= "",color=green ];
+   "tbl_shc_real_time_sketch322" -> "tbl_shc_real_time_sketch325" [ label= "",color=green ];
+   "ShcIngress.sk.get_hash_value_table" -> "ShcIngress.sk.update_pkt_1_table" [ label= "",color=gold ];
+   "ShcIngress.sk.update_pkt_1_table" -> "ShcIngress.sk.update_pkt_num_1_table" [ label= "",color=blue ];
+   "ShcIngress.sk.update_pkt_1_table" -> "ShcIngress.sk.update_pkt_num_1_table" [ label= "",color=gold ];
+   "ShcIngress.sk.get_hash_value_table" -> "ShcIngress.sk.update_pkt_num_1_table" [ label= "",color=gold ];
+   "ShcIngress.sk.update_pkt_num_1_table" -> "tbl_shc_real_time_sketch266" [ label= "",color=blue ];
+   "tbl_shc_real_time_sketch266" -> "tbl_shc_real_time_sketch322" [ label= "",color=blue ];
+   "tbl_shc_real_time_sketch269" -> "tbl_shc_real_time_sketch322" [ label= "",color=blue ];
+   "ShcIngress.route_tbl" -> "tbl_shc_real_time_sketch322" [ label= "",color=blue ];
+   "tbl_shc_real_time_sketch269" -> "tbl_shc_real_time_sketch322" [ label= "",color=pink ];
+   "ShcIngress.sk.update_pkt_1_table" -> "ShcIngress.sk.update_pkt_num_1_table" [ label= "",color=pink ];
+   "ShcIngress.route_tbl" -> "tbl_shc_real_time_sketch322" [ label= "",color=pink ];
+  { rank=max;
+    subgraph cluster_legend { node [ shape=record; fontsize=10];
+      empty [label=<<table border="0" cellborder="0"><tr><td colspan="8">Edge colors</td></tr><tr><td><font color="gold">ixbar_read</font></td><td><font color="blue">action_read</font></td><td><font color="red">output</font></td><td><font color="navy">cont_conflict</font></td><td><font color="cyan">reduction_or_read</font></td><td><font color="cyan">reduction_or_output</font></td><td><font color="pink">anti_table_read</font></td><td><font color="pink">anti_next_action_read</font></td><td><font color="pink">anti_next_table_data</font></td><td><font color="pink">anti_next_table_control</font></td><td><font color="pink">anti_next_table_metadata</font></td><td><font color="black">exit</font></td><td><font color="green">control_action</font></td><td><font color="green">control_condition_true</font></td><td><font color="green">control_condition_false</font></td><td><font color="green">control_table_hit</font></td><td><font color="green">control_table_miss</font></td><td><font color="green">control_default_next_table</font></td><td><font color="green">control_exit</font></td></tr></table>>;]
+    }
+  }
+}

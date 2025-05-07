@@ -1,0 +1,593 @@
+FindDependencyGraph : After Instruction Selection
+ingress: [1964342]
+  cond-5(ingress::hdr.ipv4.$valid == 1; => $true, 1 => $false)
+    $true: [1964347] 0 00 000 0000 00000
+      sk_count_pkt_num_table
+        stateful ShcIngress.sk.pkt_num    1
+      sk_get_hash_value_table
+      sk_update_pkt_1_table
+        stateful ShcIngress.sk.hash1_1  66K
+      cond-6(ingress::ig_md.hash_index_done == 1; => $true, 1 => $false)
+        $true: [1964611] 0
+          sk_update_pkt_num_1_table
+            stateful ShcIngress.sk.hash1_1_n  66K
+          cond-7(ingress::ig_md.cs_count == 15; => $true, 1 => $false)
+            $true: [1964805]
+              tbl_shc_real_time_sketch266
+            $false: [1964807]
+              tbl_shc_real_time_sketch269
+      route_tbl_0
+      cond-8(ingress::ig_md.eflag == 1 && ingress::ig_intr_md_for_tm.bypass_egress == 1; => $true, 1 => $false)
+        $true: [1965071]
+          tbl_shc_real_time_sketch322
+        $false: [1965073]
+          tbl_shc_real_time_sketch325
+egress: [1971426]
+
+DepStagesThruDomFrontier postorder : sk_count_pkt_num_table
+DepStagesThruDomFrontier postorder : sk_get_hash_value_table
+DepStagesThruDomFrontier postorder : sk_update_pkt_1_table
+DepStagesThruDomFrontier postorder : sk_update_pkt_num_1_table
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch266
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch269
+DepStagesThruDomFrontier postorder : cond-7
+DepStagesThruDomFrontier postorder : cond-6
+DepStagesThruDomFrontier postorder : route_tbl_0
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch322
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch325
+DepStagesThruDomFrontier postorder : cond-8
+DepStagesThruDomFrontier postorder : cond-5
+    Maximum stage number according to dependences: 
+      INGRESS: 4
+      EGRESS: -1
+GRAPH
+    cond-5 -- CONTROL_COND_TRUE --> sk_count_pkt_num_table
+    cond-5 -- CONTROL_COND_TRUE --> sk_get_hash_value_table
+    cond-5 -- CONTROL_COND_TRUE --> sk_update_pkt_1_table
+    cond-5 -- CONTROL_COND_TRUE --> cond-6
+    cond-5 -- CONTROL_COND_TRUE --> route_tbl_0
+    cond-5 -- CONTROL_COND_TRUE --> cond-8
+    cond-6 -- CONTROL_COND_TRUE --> sk_update_pkt_num_1_table
+    cond-6 -- CONTROL_COND_TRUE --> cond-7
+    cond-7 -- CONTROL_COND_TRUE --> tbl_shc_real_time_sketch266
+    cond-7 -- CONTROL_COND_FALSE --> tbl_shc_real_time_sketch269
+    cond-8 -- CONTROL_COND_TRUE --> tbl_shc_real_time_sketch322
+    cond-8 -- CONTROL_COND_FALSE --> tbl_shc_real_time_sketch325
+    sk_get_hash_value_table -- IXBAR_READ --> sk_update_pkt_1_table
+    sk_update_pkt_1_table -- ACTION_READ --> cond-6
+    sk_update_pkt_1_table -- IXBAR_READ --> sk_update_pkt_num_1_table
+    sk_get_hash_value_table -- IXBAR_READ --> sk_update_pkt_num_1_table
+    sk_update_pkt_num_1_table -- ACTION_READ --> cond-7
+    tbl_shc_real_time_sketch266 -- ACTION_READ --> cond-8
+    tbl_shc_real_time_sketch269 -- ACTION_READ --> cond-8
+    route_tbl_0 -- ACTION_READ --> cond-8
+    sk_update_pkt_num_1_table -- ANTI_NEXT_TABLE_DATA --> cond-7
+    sk_update_pkt_1_table -- ANTI_NEXT_TABLE_DATA --> cond-6
+    sk_get_hash_value_table -- ANTI_NEXT_TABLE_DATA --> sk_update_pkt_1_table
+    sk_get_hash_value_table -- ANTI_NEXT_TABLE_DATA --> cond-6
+    route_tbl_0 -- ANTI_NEXT_TABLE_DATA --> cond-8
+    tbl_shc_real_time_sketch266 -- ANTI_NEXT_TABLE_DATA --> cond-8
+    tbl_shc_real_time_sketch269 -- ANTI_NEXT_TABLE_DATA --> cond-8
+MIN STAGE INFO
+    Each table also indicates its dependency chain length
+    First number refers to a dependency chain from which each tables are not split
+    Second number refers to a dependency chain from which each tables are split as on  last allocation pass
+ Stage #0
+     cond-5 4 4
+     sk_count_pkt_num_table 0 0
+	- Edge CONTROL_COND_TRUE cond-5
+     sk_get_hash_value_table 4 4
+	- Edge CONTROL_COND_TRUE cond-5
+     route_tbl_0 1 1
+	- Edge CONTROL_COND_TRUE cond-5
+ Stage #1
+     sk_update_pkt_1_table 3 3
+	- Edge IXBAR_READ sk_get_hash_value_table
+ Stage #2
+     cond-6 2 2
+	- Edge ACTION_READ sk_update_pkt_1_table
+     sk_update_pkt_num_1_table 2 2
+	- Edge CONTROL_COND_TRUE cond-6
+	- Edge IXBAR_READ sk_update_pkt_1_table
+ Stage #3
+     cond-7 1 1
+	- Edge ACTION_READ sk_update_pkt_num_1_table
+     tbl_shc_real_time_sketch266 1 1
+	- Edge CONTROL_COND_TRUE cond-7
+     tbl_shc_real_time_sketch269 1 1
+	- Edge CONTROL_COND_FALSE cond-7
+ Stage #4
+     cond-8 0 0
+	- Edge ACTION_READ tbl_shc_real_time_sketch266
+	- Edge ACTION_READ tbl_shc_real_time_sketch269
+     tbl_shc_real_time_sketch322 0 0
+	- Edge CONTROL_COND_TRUE cond-8
+     tbl_shc_real_time_sketch325 0 0
+	- Edge CONTROL_COND_FALSE cond-8
+
+FindDependencyGraph : Just Before PHV allocation
+ingress: [1964342]
+  cond-5(ingress::hdr.ipv4.$valid == 1; => $true, 1 => $false)
+    $true: [1964347] 0 00 000 0000 00000
+      sk_count_pkt_num_table
+        stateful ShcIngress.sk.pkt_num    1
+      sk_get_hash_value_table
+      sk_update_pkt_1_table
+        stateful ShcIngress.sk.hash1_1  66K
+      cond-6(ingress::ig_md.hash_index_done == 1; => $true, 1 => $false)
+        $true: [1964611] 0
+          sk_update_pkt_num_1_table
+            stateful ShcIngress.sk.hash1_1_n  66K
+          cond-7(ingress::ig_md.cs_count == 15; => $true, 1 => $false)
+            $true: [1964805]
+              tbl_shc_real_time_sketch266
+            $false: [1964807]
+              tbl_shc_real_time_sketch269
+      route_tbl_0
+      cond-8(ingress::ig_md.eflag == 1 && ingress::ig_intr_md_for_tm.bypass_egress == 1; => $true, 1 => $false)
+        $true: [1965071]
+          tbl_shc_real_time_sketch322
+        $false: [1965073]
+          tbl_shc_real_time_sketch325
+egress: [1971426]
+
+DepStagesThruDomFrontier postorder : sk_count_pkt_num_table
+DepStagesThruDomFrontier postorder : sk_get_hash_value_table
+DepStagesThruDomFrontier postorder : sk_update_pkt_1_table
+DepStagesThruDomFrontier postorder : sk_update_pkt_num_1_table
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch266
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch269
+DepStagesThruDomFrontier postorder : cond-7
+DepStagesThruDomFrontier postorder : cond-6
+DepStagesThruDomFrontier postorder : route_tbl_0
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch322
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch325
+DepStagesThruDomFrontier postorder : cond-8
+DepStagesThruDomFrontier postorder : cond-5
+    Maximum stage number according to dependences: 
+      INGRESS: 4
+      EGRESS: -1
+GRAPH
+    cond-5 -- CONTROL_COND_TRUE --> sk_count_pkt_num_table
+    cond-5 -- CONTROL_COND_TRUE --> sk_get_hash_value_table
+    cond-5 -- CONTROL_COND_TRUE --> sk_update_pkt_1_table
+    cond-5 -- CONTROL_COND_TRUE --> cond-6
+    cond-5 -- CONTROL_COND_TRUE --> route_tbl_0
+    cond-5 -- CONTROL_COND_TRUE --> cond-8
+    cond-6 -- CONTROL_COND_TRUE --> sk_update_pkt_num_1_table
+    cond-6 -- CONTROL_COND_TRUE --> cond-7
+    cond-7 -- CONTROL_COND_TRUE --> tbl_shc_real_time_sketch266
+    cond-7 -- CONTROL_COND_FALSE --> tbl_shc_real_time_sketch269
+    cond-8 -- CONTROL_COND_TRUE --> tbl_shc_real_time_sketch322
+    cond-8 -- CONTROL_COND_FALSE --> tbl_shc_real_time_sketch325
+    sk_get_hash_value_table -- IXBAR_READ --> sk_update_pkt_1_table
+    sk_update_pkt_1_table -- ACTION_READ --> cond-6
+    sk_update_pkt_1_table -- IXBAR_READ --> sk_update_pkt_num_1_table
+    sk_get_hash_value_table -- IXBAR_READ --> sk_update_pkt_num_1_table
+    sk_update_pkt_num_1_table -- ACTION_READ --> cond-7
+    tbl_shc_real_time_sketch266 -- ACTION_READ --> cond-8
+    tbl_shc_real_time_sketch269 -- ACTION_READ --> cond-8
+    route_tbl_0 -- ACTION_READ --> cond-8
+    sk_update_pkt_num_1_table -- ANTI_NEXT_TABLE_DATA --> cond-7
+    sk_update_pkt_1_table -- ANTI_NEXT_TABLE_DATA --> cond-6
+    sk_get_hash_value_table -- ANTI_NEXT_TABLE_DATA --> sk_update_pkt_1_table
+    sk_get_hash_value_table -- ANTI_NEXT_TABLE_DATA --> cond-6
+    route_tbl_0 -- ANTI_NEXT_TABLE_DATA --> cond-8
+    tbl_shc_real_time_sketch266 -- ANTI_NEXT_TABLE_DATA --> cond-8
+    tbl_shc_real_time_sketch269 -- ANTI_NEXT_TABLE_DATA --> cond-8
+MIN STAGE INFO
+    Each table also indicates its dependency chain length
+    First number refers to a dependency chain from which each tables are not split
+    Second number refers to a dependency chain from which each tables are split as on  last allocation pass
+ Stage #0
+     cond-5 4 4
+     sk_count_pkt_num_table 0 0
+	- Edge CONTROL_COND_TRUE cond-5
+     sk_get_hash_value_table 4 4
+	- Edge CONTROL_COND_TRUE cond-5
+     route_tbl_0 1 1
+	- Edge CONTROL_COND_TRUE cond-5
+ Stage #1
+     sk_update_pkt_1_table 3 3
+	- Edge IXBAR_READ sk_get_hash_value_table
+ Stage #2
+     cond-6 2 2
+	- Edge ACTION_READ sk_update_pkt_1_table
+     sk_update_pkt_num_1_table 2 2
+	- Edge CONTROL_COND_TRUE cond-6
+	- Edge IXBAR_READ sk_update_pkt_1_table
+ Stage #3
+     cond-7 1 1
+	- Edge ACTION_READ sk_update_pkt_num_1_table
+     tbl_shc_real_time_sketch266 1 1
+	- Edge CONTROL_COND_TRUE cond-7
+     tbl_shc_real_time_sketch269 1 1
+	- Edge CONTROL_COND_FALSE cond-7
+ Stage #4
+     cond-8 0 0
+	- Edge ACTION_READ tbl_shc_real_time_sketch266
+	- Edge ACTION_READ tbl_shc_real_time_sketch269
+     tbl_shc_real_time_sketch322 0 0
+	- Edge CONTROL_COND_TRUE cond-8
+     tbl_shc_real_time_sketch325 0 0
+	- Edge CONTROL_COND_FALSE cond-8
+
+ingress: [1964342]
+  cond-5(ingress::hdr.ipv4.$valid == 1; => $true, 1 => $false)
+    $true: [1964347] 0 01 011 0000 01111
+      sk_count_pkt_num_table
+        stateful ShcIngress.sk.pkt_num    1
+      sk_get_hash_value_table
+      sk_update_pkt_1_table
+        stateful ShcIngress.sk.hash1_1  66K
+      cond-6(ingress::ig_md.hash_index_done == 1; => $true, 1 => $false)
+        $true: [1964611] 1
+          sk_update_pkt_num_1_table
+            stateful ShcIngress.sk.hash1_1_n  66K
+          cond-7(ingress::ig_md.cs_count == 15; => $true, 1 => $false)
+            $true: [1964805]
+              tbl_shc_real_time_sketch266
+            $false: [1964807]
+              tbl_shc_real_time_sketch269
+      route_tbl_0{ E 54+1, 0 64K }
+      cond-8(ingress::ig_md.eflag == 1 && ingress::ig_intr_md_for_tm.bypass_egress == 1; => $true, 1 => $false)
+        $true: [1965071]
+          tbl_shc_real_time_sketch322
+        $false: [1965073]
+          tbl_shc_real_time_sketch325
+egress: [1971426]
+
+DepStagesThruDomFrontier postorder : sk_count_pkt_num_table
+DepStagesThruDomFrontier postorder : sk_get_hash_value_table
+DepStagesThruDomFrontier postorder : sk_update_pkt_1_table
+DepStagesThruDomFrontier postorder : sk_update_pkt_num_1_table
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch266
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch269
+DepStagesThruDomFrontier postorder : cond-7
+DepStagesThruDomFrontier postorder : cond-6
+DepStagesThruDomFrontier postorder : route_tbl_0
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch322
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch325
+DepStagesThruDomFrontier postorder : cond-8
+DepStagesThruDomFrontier postorder : cond-5
+    Maximum stage number according to dependences: 
+      INGRESS: 4
+      EGRESS: -1
+GRAPH
+    cond-5 -- CONTROL_COND_TRUE --> sk_count_pkt_num_table
+    cond-5 -- CONTROL_COND_TRUE --> sk_get_hash_value_table
+    cond-5 -- CONTROL_COND_TRUE --> sk_update_pkt_1_table
+    cond-5 -- CONTROL_COND_TRUE --> cond-6
+    cond-5 -- CONTROL_COND_TRUE --> route_tbl_0
+    cond-5 -- CONTROL_COND_TRUE --> cond-8
+    cond-6 -- CONTROL_COND_TRUE --> sk_update_pkt_num_1_table
+    cond-6 -- CONTROL_COND_TRUE --> cond-7
+    cond-7 -- CONTROL_COND_TRUE --> tbl_shc_real_time_sketch266
+    cond-7 -- CONTROL_COND_FALSE --> tbl_shc_real_time_sketch269
+    cond-8 -- CONTROL_COND_TRUE --> tbl_shc_real_time_sketch322
+    cond-8 -- CONTROL_COND_FALSE --> tbl_shc_real_time_sketch325
+    sk_get_hash_value_table -- IXBAR_READ --> sk_update_pkt_1_table
+    sk_update_pkt_1_table -- ACTION_READ --> cond-6
+    sk_update_pkt_1_table -- IXBAR_READ --> sk_update_pkt_num_1_table
+    sk_get_hash_value_table -- IXBAR_READ --> sk_update_pkt_num_1_table
+    sk_update_pkt_num_1_table -- ACTION_READ --> cond-7
+    tbl_shc_real_time_sketch266 -- ACTION_READ --> cond-8
+    tbl_shc_real_time_sketch269 -- ACTION_READ --> cond-8
+    route_tbl_0 -- ACTION_READ --> cond-8
+    sk_update_pkt_num_1_table -- ANTI_NEXT_TABLE_DATA --> cond-7
+    sk_update_pkt_1_table -- ANTI_NEXT_TABLE_DATA --> cond-6
+    sk_get_hash_value_table -- ANTI_NEXT_TABLE_DATA --> sk_update_pkt_1_table
+    sk_get_hash_value_table -- ANTI_NEXT_TABLE_DATA --> cond-6
+    route_tbl_0 -- ANTI_NEXT_TABLE_DATA --> cond-8
+    tbl_shc_real_time_sketch266 -- ANTI_NEXT_TABLE_DATA --> cond-8
+    tbl_shc_real_time_sketch269 -- ANTI_NEXT_TABLE_DATA --> cond-8
+MIN STAGE INFO
+    Each table also indicates its dependency chain length
+    First number refers to a dependency chain from which each tables are not split
+    Second number refers to a dependency chain from which each tables are split as on  last allocation pass
+ Stage #0
+     cond-5 4 4
+     sk_count_pkt_num_table 0 0
+	- Edge CONTROL_COND_TRUE cond-5
+     sk_get_hash_value_table 4 4
+	- Edge CONTROL_COND_TRUE cond-5
+     route_tbl_0 1 1
+	- Edge CONTROL_COND_TRUE cond-5
+ Stage #1
+     sk_update_pkt_1_table 3 3
+	- Edge IXBAR_READ sk_get_hash_value_table
+ Stage #2
+     cond-6 2 2
+	- Edge ACTION_READ sk_update_pkt_1_table
+     sk_update_pkt_num_1_table 2 2
+	- Edge CONTROL_COND_TRUE cond-6
+	- Edge IXBAR_READ sk_update_pkt_1_table
+ Stage #3
+     cond-7 1 1
+	- Edge ACTION_READ sk_update_pkt_num_1_table
+     tbl_shc_real_time_sketch266 1 1
+	- Edge CONTROL_COND_TRUE cond-7
+     tbl_shc_real_time_sketch269 1 1
+	- Edge CONTROL_COND_FALSE cond-7
+ Stage #4
+     cond-8 0 0
+	- Edge ACTION_READ tbl_shc_real_time_sketch266
+	- Edge ACTION_READ tbl_shc_real_time_sketch269
+     tbl_shc_real_time_sketch322 0 0
+	- Edge CONTROL_COND_TRUE cond-8
+     tbl_shc_real_time_sketch325 0 0
+	- Edge CONTROL_COND_FALSE cond-8
+
+FindDependencyGraph : Before Table Placement
+ingress: [1964342]
+  cond-5(ingress::hdr.ipv4.$valid == 1; => $true, 1 => $false)
+    $true: [1964347] 0 01 011 0000 01111
+      sk_count_pkt_num_table
+        stateful ShcIngress.sk.pkt_num    1
+      sk_get_hash_value_table
+      sk_update_pkt_1_table
+        stateful ShcIngress.sk.hash1_1  66K
+      cond-6(ingress::ig_md.hash_index_done == 1; => $true, 1 => $false)
+        $true: [1964611] 1
+          sk_update_pkt_num_1_table
+            stateful ShcIngress.sk.hash1_1_n  66K
+          cond-7(ingress::ig_md.cs_count == 15; => $true, 1 => $false)
+            $true: [1964805]
+              tbl_shc_real_time_sketch266
+            $false: [1964807]
+              tbl_shc_real_time_sketch269
+      route_tbl_0{ E 54+1, 0 64K }
+      cond-8(ingress::ig_md.eflag == 1 && ingress::ig_intr_md_for_tm.bypass_egress == 1; => $true, 1 => $false)
+        $true: [1965071]
+          tbl_shc_real_time_sketch322
+        $false: [1965073]
+          tbl_shc_real_time_sketch325
+egress: [1971426]
+
+DepStagesThruDomFrontier postorder : sk_count_pkt_num_table
+DepStagesThruDomFrontier postorder : sk_get_hash_value_table
+DepStagesThruDomFrontier postorder : sk_update_pkt_1_table
+DepStagesThruDomFrontier postorder : sk_update_pkt_num_1_table
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch266
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch269
+DepStagesThruDomFrontier postorder : cond-7
+DepStagesThruDomFrontier postorder : cond-6
+DepStagesThruDomFrontier postorder : route_tbl_0
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch322
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch325
+DepStagesThruDomFrontier postorder : cond-8
+DepStagesThruDomFrontier postorder : cond-5
+    Maximum stage number according to dependences: 
+      INGRESS: 4
+      EGRESS: -1
+GRAPH
+    cond-5 -- CONTROL_COND_TRUE --> sk_count_pkt_num_table
+    cond-5 -- CONTROL_COND_TRUE --> sk_get_hash_value_table
+    cond-5 -- CONTROL_COND_TRUE --> sk_update_pkt_1_table
+    cond-5 -- CONTROL_COND_TRUE --> cond-6
+    cond-5 -- CONTROL_COND_TRUE --> route_tbl_0
+    cond-5 -- CONTROL_COND_TRUE --> cond-8
+    cond-6 -- CONTROL_COND_TRUE --> sk_update_pkt_num_1_table
+    cond-6 -- CONTROL_COND_TRUE --> cond-7
+    cond-7 -- CONTROL_COND_TRUE --> tbl_shc_real_time_sketch266
+    cond-7 -- CONTROL_COND_FALSE --> tbl_shc_real_time_sketch269
+    cond-8 -- CONTROL_COND_TRUE --> tbl_shc_real_time_sketch322
+    cond-8 -- CONTROL_COND_FALSE --> tbl_shc_real_time_sketch325
+    sk_get_hash_value_table -- IXBAR_READ --> sk_update_pkt_1_table
+    sk_update_pkt_1_table -- ACTION_READ --> cond-6
+    sk_update_pkt_1_table -- IXBAR_READ --> sk_update_pkt_num_1_table
+    sk_get_hash_value_table -- IXBAR_READ --> sk_update_pkt_num_1_table
+    sk_update_pkt_num_1_table -- ACTION_READ --> cond-7
+    tbl_shc_real_time_sketch266 -- ACTION_READ --> cond-8
+    tbl_shc_real_time_sketch269 -- ACTION_READ --> cond-8
+    route_tbl_0 -- ACTION_READ --> cond-8
+    sk_update_pkt_num_1_table -- ANTI_NEXT_TABLE_DATA --> cond-7
+    sk_update_pkt_1_table -- ANTI_NEXT_TABLE_DATA --> cond-6
+    sk_get_hash_value_table -- ANTI_NEXT_TABLE_DATA --> sk_update_pkt_1_table
+    sk_get_hash_value_table -- ANTI_NEXT_TABLE_DATA --> cond-6
+    route_tbl_0 -- ANTI_NEXT_TABLE_DATA --> cond-8
+    tbl_shc_real_time_sketch266 -- ANTI_NEXT_TABLE_DATA --> cond-8
+    tbl_shc_real_time_sketch269 -- ANTI_NEXT_TABLE_DATA --> cond-8
+MIN STAGE INFO
+    Each table also indicates its dependency chain length
+    First number refers to a dependency chain from which each tables are not split
+    Second number refers to a dependency chain from which each tables are split as on  last allocation pass
+ Stage #0
+     cond-5 4 4
+     sk_count_pkt_num_table 0 0
+	- Edge CONTROL_COND_TRUE cond-5
+     sk_get_hash_value_table 4 4
+	- Edge CONTROL_COND_TRUE cond-5
+     route_tbl_0 1 1
+	- Edge CONTROL_COND_TRUE cond-5
+ Stage #1
+     sk_update_pkt_1_table 3 3
+	- Edge IXBAR_READ sk_get_hash_value_table
+ Stage #2
+     cond-6 2 2
+	- Edge ACTION_READ sk_update_pkt_1_table
+     sk_update_pkt_num_1_table 2 2
+	- Edge CONTROL_COND_TRUE cond-6
+	- Edge IXBAR_READ sk_update_pkt_1_table
+ Stage #3
+     cond-7 1 1
+	- Edge ACTION_READ sk_update_pkt_num_1_table
+     tbl_shc_real_time_sketch266 1 1
+	- Edge CONTROL_COND_TRUE cond-7
+     tbl_shc_real_time_sketch269 1 1
+	- Edge CONTROL_COND_FALSE cond-7
+ Stage #4
+     cond-8 0 0
+	- Edge ACTION_READ tbl_shc_real_time_sketch266
+	- Edge ACTION_READ tbl_shc_real_time_sketch269
+     tbl_shc_real_time_sketch322 0 0
+	- Edge CONTROL_COND_TRUE cond-8
+     tbl_shc_real_time_sketch325 0 0
+	- Edge CONTROL_COND_FALSE cond-8
+
+FindDependencyGraph : After Table Placement
+ingress: [1964342]
+  0: sk_get_hash_value_table(ingress::hdr.ipv4.$valid == 1;, 1 => $false)
+    $default: [1964347] 0 00 001 1011
+      1: route_tbl_0{ E 54+1, 0 [1x2 16K 16K 16K 16K] }
+      2: sk_count_pkt_num_table{ E 0+10, 0 0K }
+        stateful ShcIngress.sk.pkt_num 1   
+      10: sk_update_pkt_1_table
+        stateful ShcIngress.sk.hash1_1 66 K
+      20: sk_update_pkt_num_1_table(ingress::ig_md.hash_index_done == 1;, 1 => $false)
+        stateful ShcIngress.sk.hash1_1_n 66 K
+        $default: [1964611]
+          30: tbl_shc_real_time_sketch266(ingress::ig_md.cs_count == 15;, 1 => $false)
+            $false: [1964807]
+              31: tbl_shc_real_time_sketch269
+        $false: [2062327]
+      40: tbl_shc_real_time_sketch322(ingress::ig_md.eflag == 1 && ingress::ig_intr_md_for_tm.bypass_egress == 1;, 1 => $false)
+        $false: [1965073]
+          41: tbl_shc_real_time_sketch325
+    $false: [2062068]
+egress: [1971426]
+
+DepStagesThruDomFrontier postorder : route_tbl_0
+DepStagesThruDomFrontier postorder : sk_count_pkt_num_table
+DepStagesThruDomFrontier postorder : sk_update_pkt_1_table
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch269
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch266
+DepStagesThruDomFrontier postorder : sk_update_pkt_num_1_table
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch325
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch322
+DepStagesThruDomFrontier postorder : sk_get_hash_value_table
+    Maximum stage number according to dependences: 
+      INGRESS: 4
+      EGRESS: -1
+GRAPH
+    sk_get_hash_value_table -- CONTROL_DEFAULT_NEXT_TABLE --> route_tbl_0
+    sk_get_hash_value_table -- CONTROL_DEFAULT_NEXT_TABLE --> sk_count_pkt_num_table
+    sk_get_hash_value_table -- CONTROL_DEFAULT_NEXT_TABLE --> sk_update_pkt_1_table
+    sk_get_hash_value_table -- CONTROL_DEFAULT_NEXT_TABLE --> sk_update_pkt_num_1_table
+    sk_get_hash_value_table -- CONTROL_DEFAULT_NEXT_TABLE --> tbl_shc_real_time_sketch322
+    sk_update_pkt_num_1_table -- CONTROL_DEFAULT_NEXT_TABLE --> tbl_shc_real_time_sketch266
+    tbl_shc_real_time_sketch266 -- CONTROL_COND_FALSE --> tbl_shc_real_time_sketch269
+    tbl_shc_real_time_sketch322 -- CONTROL_COND_FALSE --> tbl_shc_real_time_sketch325
+    sk_get_hash_value_table -- IXBAR_READ --> sk_update_pkt_1_table
+    sk_update_pkt_1_table -- ACTION_READ --> sk_update_pkt_num_1_table
+    sk_update_pkt_1_table -- IXBAR_READ --> sk_update_pkt_num_1_table
+    sk_get_hash_value_table -- IXBAR_READ --> sk_update_pkt_num_1_table
+    sk_update_pkt_num_1_table -- ACTION_READ --> tbl_shc_real_time_sketch266
+    tbl_shc_real_time_sketch266 -- ACTION_READ --> tbl_shc_real_time_sketch322
+    tbl_shc_real_time_sketch269 -- ACTION_READ --> tbl_shc_real_time_sketch322
+    route_tbl_0 -- ACTION_READ --> tbl_shc_real_time_sketch322
+    tbl_shc_real_time_sketch269 -- ANTI_NEXT_TABLE_DATA --> tbl_shc_real_time_sketch322
+    sk_update_pkt_1_table -- ANTI_NEXT_TABLE_DATA --> sk_update_pkt_num_1_table
+    route_tbl_0 -- ANTI_NEXT_TABLE_DATA --> tbl_shc_real_time_sketch322
+MIN STAGE INFO
+    Each table also indicates its dependency chain length
+    First number refers to a dependency chain from which each tables are not split
+    Second number refers to a dependency chain from which each tables are split as on  last allocation pass
+ Stage #0
+     sk_get_hash_value_table 4 4
+     route_tbl_0 1 1
+	- Edge CONTROL_DEFAULT_NEXT_TABLE sk_get_hash_value_table
+     sk_count_pkt_num_table 0 0
+	- Edge CONTROL_DEFAULT_NEXT_TABLE sk_get_hash_value_table
+ Stage #1
+     sk_update_pkt_1_table 3 3
+	- Edge IXBAR_READ sk_get_hash_value_table
+ Stage #2
+     sk_update_pkt_num_1_table 2 2
+	- Edge ACTION_READ sk_update_pkt_1_table
+	- Edge IXBAR_READ sk_update_pkt_1_table
+ Stage #3
+     tbl_shc_real_time_sketch266 1 1
+	- Edge ACTION_READ sk_update_pkt_num_1_table
+     tbl_shc_real_time_sketch269 1 1
+	- Edge CONTROL_COND_FALSE tbl_shc_real_time_sketch266
+ Stage #4
+     tbl_shc_real_time_sketch322 0 0
+	- Edge ACTION_READ tbl_shc_real_time_sketch266
+	- Edge ACTION_READ tbl_shc_real_time_sketch269
+     tbl_shc_real_time_sketch325 0 0
+	- Edge CONTROL_COND_FALSE tbl_shc_real_time_sketch322
+
+FindDependencyGraph : Power Calculation
+ingress: [1964342]
+  0: sk_get_hash_value_table(ingress::hdr.ipv4.$valid == 1;, 1 => $false)
+    $default: [1964347] 0 00 001 1011
+      1: route_tbl_0{ E 54+1, 0 [1x2 16K 16K 16K 16K] }
+      2: sk_count_pkt_num_table{ E 0+10, 0 0K }
+        stateful ShcIngress.sk.pkt_num 1   
+      10: sk_update_pkt_1_table
+        stateful ShcIngress.sk.hash1_1 66 K
+      20: sk_update_pkt_num_1_table(ingress::ig_md.hash_index_done == 1;, 1 => $false)
+        stateful ShcIngress.sk.hash1_1_n 66 K
+        $default: [1964611]
+          30: tbl_shc_real_time_sketch266(ingress::ig_md.cs_count == 15;, 1 => $false)
+            $false: [1964807]
+              31: tbl_shc_real_time_sketch269
+        $false: [2062327]
+      40: tbl_shc_real_time_sketch322(ingress::ig_md.eflag == 1 && ingress::ig_intr_md_for_tm.bypass_egress == 1;, 1 => $false)
+        $false: [1965073]
+          41: tbl_shc_real_time_sketch325
+    $false: [2062068]
+egress: [1971426]
+
+DepStagesThruDomFrontier postorder : route_tbl_0
+DepStagesThruDomFrontier postorder : sk_count_pkt_num_table
+DepStagesThruDomFrontier postorder : sk_update_pkt_1_table
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch269
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch266
+DepStagesThruDomFrontier postorder : sk_update_pkt_num_1_table
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch325
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch322
+DepStagesThruDomFrontier postorder : sk_get_hash_value_table
+    Maximum stage number according to dependences: 
+      INGRESS: 4
+      EGRESS: -1
+GRAPH
+    sk_get_hash_value_table -- CONTROL_DEFAULT_NEXT_TABLE --> route_tbl_0
+    sk_get_hash_value_table -- CONTROL_DEFAULT_NEXT_TABLE --> sk_count_pkt_num_table
+    sk_get_hash_value_table -- CONTROL_DEFAULT_NEXT_TABLE --> sk_update_pkt_1_table
+    sk_get_hash_value_table -- CONTROL_DEFAULT_NEXT_TABLE --> sk_update_pkt_num_1_table
+    sk_get_hash_value_table -- CONTROL_DEFAULT_NEXT_TABLE --> tbl_shc_real_time_sketch322
+    sk_update_pkt_num_1_table -- CONTROL_DEFAULT_NEXT_TABLE --> tbl_shc_real_time_sketch266
+    tbl_shc_real_time_sketch266 -- CONTROL_COND_FALSE --> tbl_shc_real_time_sketch269
+    tbl_shc_real_time_sketch322 -- CONTROL_COND_FALSE --> tbl_shc_real_time_sketch325
+    sk_get_hash_value_table -- IXBAR_READ --> sk_update_pkt_1_table
+    sk_update_pkt_1_table -- ACTION_READ --> sk_update_pkt_num_1_table
+    sk_update_pkt_1_table -- IXBAR_READ --> sk_update_pkt_num_1_table
+    sk_get_hash_value_table -- IXBAR_READ --> sk_update_pkt_num_1_table
+    sk_update_pkt_num_1_table -- ACTION_READ --> tbl_shc_real_time_sketch266
+    tbl_shc_real_time_sketch266 -- ACTION_READ --> tbl_shc_real_time_sketch322
+    tbl_shc_real_time_sketch269 -- ACTION_READ --> tbl_shc_real_time_sketch322
+    route_tbl_0 -- ACTION_READ --> tbl_shc_real_time_sketch322
+    tbl_shc_real_time_sketch269 -- ANTI_NEXT_TABLE_DATA --> tbl_shc_real_time_sketch322
+    sk_update_pkt_1_table -- ANTI_NEXT_TABLE_DATA --> sk_update_pkt_num_1_table
+    route_tbl_0 -- ANTI_NEXT_TABLE_DATA --> tbl_shc_real_time_sketch322
+MIN STAGE INFO
+    Each table also indicates its dependency chain length
+    First number refers to a dependency chain from which each tables are not split
+    Second number refers to a dependency chain from which each tables are split as on  last allocation pass
+ Stage #0
+     sk_get_hash_value_table 4 4
+     route_tbl_0 1 1
+	- Edge CONTROL_DEFAULT_NEXT_TABLE sk_get_hash_value_table
+     sk_count_pkt_num_table 0 0
+	- Edge CONTROL_DEFAULT_NEXT_TABLE sk_get_hash_value_table
+ Stage #1
+     sk_update_pkt_1_table 3 3
+	- Edge IXBAR_READ sk_get_hash_value_table
+ Stage #2
+     sk_update_pkt_num_1_table 2 2
+	- Edge ACTION_READ sk_update_pkt_1_table
+	- Edge IXBAR_READ sk_update_pkt_1_table
+ Stage #3
+     tbl_shc_real_time_sketch266 1 1
+	- Edge ACTION_READ sk_update_pkt_num_1_table
+     tbl_shc_real_time_sketch269 1 1
+	- Edge CONTROL_COND_FALSE tbl_shc_real_time_sketch266
+ Stage #4
+     tbl_shc_real_time_sketch322 0 0
+	- Edge ACTION_READ tbl_shc_real_time_sketch266
+	- Edge ACTION_READ tbl_shc_real_time_sketch269
+     tbl_shc_real_time_sketch325 0 0
+	- Edge CONTROL_COND_FALSE tbl_shc_real_time_sketch322
+

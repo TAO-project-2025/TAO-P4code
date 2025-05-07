@@ -1,0 +1,1166 @@
+FindDependencyGraph : After Instruction Selection
+ingress: [2212693]
+  cond-8(ingress::hdr.ipv4.$valid == 1; => $true, 1 => $false)
+    $true: [2212698] 0 00 000 0000 00000 000000 0000000 00000000
+      cond-9(ingress::hdr.inner_ipv4.$valid == 1; => $true, 1 => $false)
+        $true: [2212703]
+          tbl_shc_real_time_sketch449
+        $false: [2212778]
+          tbl_shc_real_time_sketch453
+      route_tbl_0
+        $hit: [2213033]
+          tbl_shc_real_time_sketch458
+      tbl_shc_real_time_sketch464
+      cond-10(ingress::hdr.cuckoo_hashes.$valid == 1; => $true, 1 => $false)
+        $true: [2213774]
+          cond-11(ingress::ig_md.table_hit == 1; => $true, 1 => $false)
+            $true: [2213636]
+              tbl_shc_real_time_sketch468
+            $false: [2213184] 0
+              tbl_shc_real_time_sketch471
+              cuckoo_hash_chose_table_0
+        $false: [2213638] 0
+          tbl_shc_real_time_sketch476
+          tbl_shc_real_time_sketch476_0
+      sk_count_pkt_num_table
+        stateful ShcIngress.sk.pkt_num    1
+      sk_get_fingerprint_table
+      sk_update_pkt_1_table
+        stateful ShcIngress.sk.hash1_1  66K
+      cond-12(ingress::ig_md.hash_index_done == 1; => $true, 1 => $false)
+        $true: [2214021] 0
+          sk_update_pkt_num_1_table
+            stateful ShcIngress.sk.hash1_1_n  66K
+          cond-13(ingress::ig_md.cs_count == 10; => $true, 1 => $false)
+            $true: [2214220]
+              tbl_shc_real_time_sketch296
+            $false: [2214222]
+              tbl_shc_real_time_sketch299
+      cond-14(ingress::ig_md.eflag == 1 && ingress::ig_md.table_hit == 0; => $true, 1 => $false)
+        $true: [2214347]
+          tbl_shc_real_time_sketch483
+        $false: [2214349]
+          tbl_shc_real_time_sketch491
+egress: [2221139]
+
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch449
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch453
+DepStagesThruDomFrontier postorder : cond-9
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch458
+DepStagesThruDomFrontier postorder : route_tbl_0
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch464
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch468
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch471
+DepStagesThruDomFrontier postorder : cuckoo_hash_chose_table_0
+DepStagesThruDomFrontier postorder : cond-11
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch476
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch476_0
+DepStagesThruDomFrontier postorder : cond-10
+DepStagesThruDomFrontier postorder : sk_count_pkt_num_table
+DepStagesThruDomFrontier postorder : sk_get_fingerprint_table
+DepStagesThruDomFrontier postorder : sk_update_pkt_1_table
+DepStagesThruDomFrontier postorder : sk_update_pkt_num_1_table
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch296
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch299
+DepStagesThruDomFrontier postorder : cond-13
+DepStagesThruDomFrontier postorder : cond-12
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch483
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch491
+DepStagesThruDomFrontier postorder : cond-14
+DepStagesThruDomFrontier postorder : cond-8
+    Maximum stage number according to dependences: 
+      INGRESS: 6
+      EGRESS: -1
+GRAPH
+    cond-8 -- CONTROL_COND_TRUE --> cond-9
+    cond-8 -- CONTROL_COND_TRUE --> route_tbl_0
+    cond-8 -- CONTROL_COND_TRUE --> tbl_shc_real_time_sketch464
+    cond-8 -- CONTROL_COND_TRUE --> cond-10
+    cond-8 -- CONTROL_COND_TRUE --> sk_count_pkt_num_table
+    cond-8 -- CONTROL_COND_TRUE --> sk_get_fingerprint_table
+    cond-8 -- CONTROL_COND_TRUE --> sk_update_pkt_1_table
+    cond-8 -- CONTROL_COND_TRUE --> cond-12
+    cond-8 -- CONTROL_COND_TRUE --> cond-14
+    cond-9 -- CONTROL_COND_TRUE --> tbl_shc_real_time_sketch449
+    cond-9 -- CONTROL_COND_FALSE --> tbl_shc_real_time_sketch453
+    route_tbl_0 -- CONTROL_TABLE_HIT --> tbl_shc_real_time_sketch458
+    cond-10 -- CONTROL_COND_TRUE --> cond-11
+    cond-11 -- CONTROL_COND_TRUE --> tbl_shc_real_time_sketch468
+    cond-11 -- CONTROL_COND_FALSE --> tbl_shc_real_time_sketch471
+    cond-11 -- CONTROL_COND_FALSE --> cuckoo_hash_chose_table_0
+    cond-10 -- CONTROL_COND_FALSE --> tbl_shc_real_time_sketch476
+    cond-10 -- CONTROL_COND_FALSE --> tbl_shc_real_time_sketch476_0
+    cond-12 -- CONTROL_COND_TRUE --> sk_update_pkt_num_1_table
+    cond-12 -- CONTROL_COND_TRUE --> cond-13
+    cond-13 -- CONTROL_COND_TRUE --> tbl_shc_real_time_sketch296
+    cond-13 -- CONTROL_COND_FALSE --> tbl_shc_real_time_sketch299
+    cond-14 -- CONTROL_COND_TRUE --> tbl_shc_real_time_sketch483
+    cond-14 -- CONTROL_COND_FALSE --> tbl_shc_real_time_sketch491
+    tbl_shc_real_time_sketch449 -- IXBAR_READ --> route_tbl_0
+    tbl_shc_real_time_sketch453 -- IXBAR_READ --> route_tbl_0
+    tbl_shc_real_time_sketch449 -- IXBAR_READ --> tbl_shc_real_time_sketch464
+    tbl_shc_real_time_sketch453 -- IXBAR_READ --> tbl_shc_real_time_sketch464
+    tbl_shc_real_time_sketch458 -- ACTION_READ --> cond-11
+    route_tbl_0 -- ACTION_READ --> tbl_shc_real_time_sketch468
+    tbl_shc_real_time_sketch464 -- ACTION_READ --> tbl_shc_real_time_sketch471
+    tbl_shc_real_time_sketch464 -- IXBAR_READ --> cuckoo_hash_chose_table_0
+    tbl_shc_real_time_sketch476 -- OUTPUT --> tbl_shc_real_time_sketch476_0
+    tbl_shc_real_time_sketch464 -- ACTION_READ --> tbl_shc_real_time_sketch476_0
+    tbl_shc_real_time_sketch449 -- IXBAR_READ --> sk_get_fingerprint_table
+    tbl_shc_real_time_sketch453 -- IXBAR_READ --> sk_get_fingerprint_table
+    sk_get_fingerprint_table -- IXBAR_READ --> sk_update_pkt_1_table
+    tbl_shc_real_time_sketch468 -- IXBAR_READ --> sk_update_pkt_1_table
+    cuckoo_hash_chose_table_0 -- IXBAR_READ --> sk_update_pkt_1_table
+    tbl_shc_real_time_sketch476_0 -- IXBAR_READ --> sk_update_pkt_1_table
+    sk_update_pkt_1_table -- ACTION_READ --> cond-12
+    sk_update_pkt_1_table -- IXBAR_READ --> sk_update_pkt_num_1_table
+    tbl_shc_real_time_sketch468 -- IXBAR_READ --> sk_update_pkt_num_1_table
+    cuckoo_hash_chose_table_0 -- IXBAR_READ --> sk_update_pkt_num_1_table
+    tbl_shc_real_time_sketch476_0 -- IXBAR_READ --> sk_update_pkt_num_1_table
+    sk_update_pkt_num_1_table -- ACTION_READ --> cond-13
+    tbl_shc_real_time_sketch296 -- ACTION_READ --> cond-14
+    tbl_shc_real_time_sketch299 -- ACTION_READ --> cond-14
+    tbl_shc_real_time_sketch458 -- ACTION_READ --> cond-14
+    sk_update_pkt_num_1_table -- ANTI_NEXT_TABLE_DATA --> cond-13
+    sk_update_pkt_1_table -- ANTI_NEXT_TABLE_DATA --> cond-12
+    tbl_shc_real_time_sketch468 -- ANTI_NEXT_TABLE_DATA --> sk_update_pkt_1_table
+    tbl_shc_real_time_sketch468 -- ANTI_NEXT_TABLE_DATA --> cond-12
+    cuckoo_hash_chose_table_0 -- ANTI_NEXT_TABLE_DATA --> sk_update_pkt_1_table
+    cuckoo_hash_chose_table_0 -- ANTI_NEXT_TABLE_DATA --> cond-12
+    tbl_shc_real_time_sketch476_0 -- ANTI_NEXT_TABLE_DATA --> sk_update_pkt_1_table
+    tbl_shc_real_time_sketch476_0 -- ANTI_NEXT_TABLE_DATA --> cond-12
+    tbl_shc_real_time_sketch458 -- ANTI_NEXT_TABLE_DATA --> cond-10
+    tbl_shc_real_time_sketch464 -- ANTI_NEXT_TABLE_DATA --> cond-10
+    sk_get_fingerprint_table -- ANTI_NEXT_TABLE_DATA --> sk_update_pkt_1_table
+    tbl_shc_real_time_sketch449 -- ANTI_NEXT_TABLE_DATA --> route_tbl_0
+    tbl_shc_real_time_sketch449 -- ANTI_NEXT_TABLE_DATA --> tbl_shc_real_time_sketch464
+    tbl_shc_real_time_sketch449 -- ANTI_NEXT_TABLE_DATA --> sk_get_fingerprint_table
+    tbl_shc_real_time_sketch453 -- ANTI_NEXT_TABLE_DATA --> route_tbl_0
+    tbl_shc_real_time_sketch453 -- ANTI_NEXT_TABLE_DATA --> tbl_shc_real_time_sketch464
+    tbl_shc_real_time_sketch453 -- ANTI_NEXT_TABLE_DATA --> sk_get_fingerprint_table
+    tbl_shc_real_time_sketch458 -- ANTI_NEXT_TABLE_DATA --> cond-14
+    tbl_shc_real_time_sketch476 -- ANTI_NEXT_TABLE_DATA --> tbl_shc_real_time_sketch476_0
+    tbl_shc_real_time_sketch296 -- ANTI_NEXT_TABLE_DATA --> cond-14
+    tbl_shc_real_time_sketch299 -- ANTI_NEXT_TABLE_DATA --> cond-14
+MIN STAGE INFO
+    Each table also indicates its dependency chain length
+    First number refers to a dependency chain from which each tables are not split
+    Second number refers to a dependency chain from which each tables are split as on  last allocation pass
+ Stage #0
+     cond-8 6 6
+     cond-9 6 6
+	- Edge CONTROL_COND_TRUE cond-8
+     sk_count_pkt_num_table 0 0
+	- Edge CONTROL_COND_TRUE cond-8
+     tbl_shc_real_time_sketch449 6 6
+	- Edge CONTROL_COND_TRUE cond-9
+     tbl_shc_real_time_sketch453 6 6
+	- Edge CONTROL_COND_FALSE cond-9
+ Stage #1
+     route_tbl_0 5 5
+	- Edge IXBAR_READ tbl_shc_real_time_sketch449
+	- Edge IXBAR_READ tbl_shc_real_time_sketch453
+     tbl_shc_real_time_sketch464 5 5
+	- Edge IXBAR_READ tbl_shc_real_time_sketch449
+	- Edge IXBAR_READ tbl_shc_real_time_sketch453
+     cond-10 5 5
+	- Edge ANTI_NEXT_TABLE_DATA tbl_shc_real_time_sketch458
+	- Edge ANTI_NEXT_TABLE_DATA tbl_shc_real_time_sketch464
+     sk_get_fingerprint_table 4 4
+	- Edge IXBAR_READ tbl_shc_real_time_sketch449
+	- Edge IXBAR_READ tbl_shc_real_time_sketch453
+     tbl_shc_real_time_sketch458 5 5
+	- Edge CONTROL_TABLE_HIT route_tbl_0
+     tbl_shc_real_time_sketch476 5 5
+	- Edge CONTROL_COND_FALSE cond-10
+ Stage #2
+     cond-11 4 4
+	- Edge ACTION_READ tbl_shc_real_time_sketch458
+     tbl_shc_real_time_sketch468 4 4
+	- Edge CONTROL_COND_TRUE cond-11
+	- Edge ACTION_READ route_tbl_0
+     tbl_shc_real_time_sketch471 0 0
+	- Edge CONTROL_COND_FALSE cond-11
+	- Edge ACTION_READ tbl_shc_real_time_sketch464
+     cuckoo_hash_chose_table_0 4 4
+	- Edge CONTROL_COND_FALSE cond-11
+	- Edge IXBAR_READ tbl_shc_real_time_sketch464
+     tbl_shc_real_time_sketch476_0 4 4
+	- Edge OUTPUT tbl_shc_real_time_sketch476
+	- Edge ACTION_READ tbl_shc_real_time_sketch464
+ Stage #3
+     sk_update_pkt_1_table 3 3
+	- Edge IXBAR_READ tbl_shc_real_time_sketch468
+	- Edge IXBAR_READ cuckoo_hash_chose_table_0
+	- Edge IXBAR_READ tbl_shc_real_time_sketch476_0
+ Stage #4
+     cond-12 2 2
+	- Edge ACTION_READ sk_update_pkt_1_table
+     sk_update_pkt_num_1_table 2 2
+	- Edge CONTROL_COND_TRUE cond-12
+	- Edge IXBAR_READ sk_update_pkt_1_table
+ Stage #5
+     cond-13 1 1
+	- Edge ACTION_READ sk_update_pkt_num_1_table
+     tbl_shc_real_time_sketch296 1 1
+	- Edge CONTROL_COND_TRUE cond-13
+     tbl_shc_real_time_sketch299 1 1
+	- Edge CONTROL_COND_FALSE cond-13
+ Stage #6
+     cond-14 0 0
+	- Edge ACTION_READ tbl_shc_real_time_sketch296
+	- Edge ACTION_READ tbl_shc_real_time_sketch299
+     tbl_shc_real_time_sketch483 0 0
+	- Edge CONTROL_COND_TRUE cond-14
+     tbl_shc_real_time_sketch491 0 0
+	- Edge CONTROL_COND_FALSE cond-14
+
+FindDependencyGraph : Just Before PHV allocation
+ingress: [2212693]
+  cond-8(ingress::hdr.ipv4.$valid == 1; => $true, 1 => $false)
+    $true: [2212698] 0 00 000 0000 00000 000000 0000000 00000000
+      cond-9(ingress::hdr.inner_ipv4.$valid == 1; => $true, 1 => $false)
+        $true: [2212703]
+          tbl_shc_real_time_sketch449
+        $false: [2212778]
+          tbl_shc_real_time_sketch453
+      route_tbl_0
+        $hit: [2213033]
+          tbl_shc_real_time_sketch458
+      tbl_shc_real_time_sketch464
+      cond-10(ingress::hdr.cuckoo_hashes.$valid == 1; => $true, 1 => $false)
+        $true: [2213774]
+          cond-11(ingress::ig_md.table_hit == 1; => $true, 1 => $false)
+            $true: [2213636]
+              tbl_shc_real_time_sketch468
+            $false: [2213184]
+              cuckoo_hash_chose_table_0
+        $false: [2213638] 0
+          tbl_shc_real_time_sketch476
+          tbl_shc_real_time_sketch476_0
+      sk_count_pkt_num_table
+        stateful ShcIngress.sk.pkt_num    1
+      sk_get_fingerprint_table
+      sk_update_pkt_1_table
+        stateful ShcIngress.sk.hash1_1  66K
+      cond-12(ingress::ig_md.hash_index_done == 1; => $true, 1 => $false)
+        $true: [2214021] 0
+          sk_update_pkt_num_1_table
+            stateful ShcIngress.sk.hash1_1_n  66K
+          cond-13(ingress::ig_md.cs_count == 10; => $true, 1 => $false)
+            $true: [2214220]
+              tbl_shc_real_time_sketch296
+            $false: [2214222]
+              tbl_shc_real_time_sketch299
+      cond-14(ingress::ig_md.eflag == 1 && ingress::ig_md.table_hit == 0; => $true, 1 => $false)
+        $true: [2214347]
+          tbl_shc_real_time_sketch483
+        $false: [2214349]
+          tbl_shc_real_time_sketch491
+egress: [2221139]
+
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch449
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch453
+DepStagesThruDomFrontier postorder : cond-9
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch458
+DepStagesThruDomFrontier postorder : route_tbl_0
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch464
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch468
+DepStagesThruDomFrontier postorder : cuckoo_hash_chose_table_0
+DepStagesThruDomFrontier postorder : cond-11
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch476
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch476_0
+DepStagesThruDomFrontier postorder : cond-10
+DepStagesThruDomFrontier postorder : sk_count_pkt_num_table
+DepStagesThruDomFrontier postorder : sk_get_fingerprint_table
+DepStagesThruDomFrontier postorder : sk_update_pkt_1_table
+DepStagesThruDomFrontier postorder : sk_update_pkt_num_1_table
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch296
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch299
+DepStagesThruDomFrontier postorder : cond-13
+DepStagesThruDomFrontier postorder : cond-12
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch483
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch491
+DepStagesThruDomFrontier postorder : cond-14
+DepStagesThruDomFrontier postorder : cond-8
+    Maximum stage number according to dependences: 
+      INGRESS: 6
+      EGRESS: -1
+GRAPH
+    cond-8 -- CONTROL_COND_TRUE --> cond-9
+    cond-8 -- CONTROL_COND_TRUE --> route_tbl_0
+    cond-8 -- CONTROL_COND_TRUE --> tbl_shc_real_time_sketch464
+    cond-8 -- CONTROL_COND_TRUE --> cond-10
+    cond-8 -- CONTROL_COND_TRUE --> sk_count_pkt_num_table
+    cond-8 -- CONTROL_COND_TRUE --> sk_get_fingerprint_table
+    cond-8 -- CONTROL_COND_TRUE --> sk_update_pkt_1_table
+    cond-8 -- CONTROL_COND_TRUE --> cond-12
+    cond-8 -- CONTROL_COND_TRUE --> cond-14
+    cond-9 -- CONTROL_COND_TRUE --> tbl_shc_real_time_sketch449
+    cond-9 -- CONTROL_COND_FALSE --> tbl_shc_real_time_sketch453
+    route_tbl_0 -- CONTROL_TABLE_HIT --> tbl_shc_real_time_sketch458
+    cond-10 -- CONTROL_COND_TRUE --> cond-11
+    cond-11 -- CONTROL_COND_TRUE --> tbl_shc_real_time_sketch468
+    cond-11 -- CONTROL_COND_FALSE --> cuckoo_hash_chose_table_0
+    cond-10 -- CONTROL_COND_FALSE --> tbl_shc_real_time_sketch476
+    cond-10 -- CONTROL_COND_FALSE --> tbl_shc_real_time_sketch476_0
+    cond-12 -- CONTROL_COND_TRUE --> sk_update_pkt_num_1_table
+    cond-12 -- CONTROL_COND_TRUE --> cond-13
+    cond-13 -- CONTROL_COND_TRUE --> tbl_shc_real_time_sketch296
+    cond-13 -- CONTROL_COND_FALSE --> tbl_shc_real_time_sketch299
+    cond-14 -- CONTROL_COND_TRUE --> tbl_shc_real_time_sketch483
+    cond-14 -- CONTROL_COND_FALSE --> tbl_shc_real_time_sketch491
+    tbl_shc_real_time_sketch449 -- IXBAR_READ --> route_tbl_0
+    tbl_shc_real_time_sketch453 -- IXBAR_READ --> route_tbl_0
+    tbl_shc_real_time_sketch449 -- IXBAR_READ --> tbl_shc_real_time_sketch464
+    tbl_shc_real_time_sketch453 -- IXBAR_READ --> tbl_shc_real_time_sketch464
+    tbl_shc_real_time_sketch458 -- ACTION_READ --> cond-11
+    route_tbl_0 -- ACTION_READ --> tbl_shc_real_time_sketch468
+    tbl_shc_real_time_sketch464 -- IXBAR_READ --> cuckoo_hash_chose_table_0
+    tbl_shc_real_time_sketch476 -- OUTPUT --> tbl_shc_real_time_sketch476_0
+    tbl_shc_real_time_sketch464 -- ACTION_READ --> tbl_shc_real_time_sketch476_0
+    tbl_shc_real_time_sketch449 -- IXBAR_READ --> sk_get_fingerprint_table
+    tbl_shc_real_time_sketch453 -- IXBAR_READ --> sk_get_fingerprint_table
+    sk_get_fingerprint_table -- IXBAR_READ --> sk_update_pkt_1_table
+    tbl_shc_real_time_sketch468 -- IXBAR_READ --> sk_update_pkt_1_table
+    cuckoo_hash_chose_table_0 -- IXBAR_READ --> sk_update_pkt_1_table
+    tbl_shc_real_time_sketch476_0 -- IXBAR_READ --> sk_update_pkt_1_table
+    sk_update_pkt_1_table -- ACTION_READ --> cond-12
+    sk_update_pkt_1_table -- IXBAR_READ --> sk_update_pkt_num_1_table
+    tbl_shc_real_time_sketch468 -- IXBAR_READ --> sk_update_pkt_num_1_table
+    cuckoo_hash_chose_table_0 -- IXBAR_READ --> sk_update_pkt_num_1_table
+    tbl_shc_real_time_sketch476_0 -- IXBAR_READ --> sk_update_pkt_num_1_table
+    sk_update_pkt_num_1_table -- ACTION_READ --> cond-13
+    tbl_shc_real_time_sketch296 -- ACTION_READ --> cond-14
+    tbl_shc_real_time_sketch299 -- ACTION_READ --> cond-14
+    tbl_shc_real_time_sketch458 -- ACTION_READ --> cond-14
+    sk_update_pkt_num_1_table -- ANTI_NEXT_TABLE_DATA --> cond-13
+    sk_update_pkt_1_table -- ANTI_NEXT_TABLE_DATA --> cond-12
+    tbl_shc_real_time_sketch468 -- ANTI_NEXT_TABLE_DATA --> sk_update_pkt_1_table
+    tbl_shc_real_time_sketch468 -- ANTI_NEXT_TABLE_DATA --> cond-12
+    cuckoo_hash_chose_table_0 -- ANTI_NEXT_TABLE_DATA --> sk_update_pkt_1_table
+    cuckoo_hash_chose_table_0 -- ANTI_NEXT_TABLE_DATA --> cond-12
+    tbl_shc_real_time_sketch476_0 -- ANTI_NEXT_TABLE_DATA --> sk_update_pkt_1_table
+    tbl_shc_real_time_sketch476_0 -- ANTI_NEXT_TABLE_DATA --> cond-12
+    tbl_shc_real_time_sketch458 -- ANTI_NEXT_TABLE_DATA --> cond-10
+    tbl_shc_real_time_sketch464 -- ANTI_NEXT_TABLE_DATA --> cond-10
+    sk_get_fingerprint_table -- ANTI_NEXT_TABLE_DATA --> sk_update_pkt_1_table
+    tbl_shc_real_time_sketch449 -- ANTI_NEXT_TABLE_DATA --> route_tbl_0
+    tbl_shc_real_time_sketch449 -- ANTI_NEXT_TABLE_DATA --> tbl_shc_real_time_sketch464
+    tbl_shc_real_time_sketch449 -- ANTI_NEXT_TABLE_DATA --> sk_get_fingerprint_table
+    tbl_shc_real_time_sketch453 -- ANTI_NEXT_TABLE_DATA --> route_tbl_0
+    tbl_shc_real_time_sketch453 -- ANTI_NEXT_TABLE_DATA --> tbl_shc_real_time_sketch464
+    tbl_shc_real_time_sketch453 -- ANTI_NEXT_TABLE_DATA --> sk_get_fingerprint_table
+    tbl_shc_real_time_sketch458 -- ANTI_NEXT_TABLE_DATA --> cond-14
+    tbl_shc_real_time_sketch476 -- ANTI_NEXT_TABLE_DATA --> tbl_shc_real_time_sketch476_0
+    tbl_shc_real_time_sketch296 -- ANTI_NEXT_TABLE_DATA --> cond-14
+    tbl_shc_real_time_sketch299 -- ANTI_NEXT_TABLE_DATA --> cond-14
+MIN STAGE INFO
+    Each table also indicates its dependency chain length
+    First number refers to a dependency chain from which each tables are not split
+    Second number refers to a dependency chain from which each tables are split as on  last allocation pass
+ Stage #0
+     cond-8 6 6
+     cond-9 6 6
+	- Edge CONTROL_COND_TRUE cond-8
+     sk_count_pkt_num_table 0 0
+	- Edge CONTROL_COND_TRUE cond-8
+     tbl_shc_real_time_sketch449 6 6
+	- Edge CONTROL_COND_TRUE cond-9
+     tbl_shc_real_time_sketch453 6 6
+	- Edge CONTROL_COND_FALSE cond-9
+ Stage #1
+     route_tbl_0 5 5
+	- Edge IXBAR_READ tbl_shc_real_time_sketch449
+	- Edge IXBAR_READ tbl_shc_real_time_sketch453
+     tbl_shc_real_time_sketch464 5 5
+	- Edge IXBAR_READ tbl_shc_real_time_sketch449
+	- Edge IXBAR_READ tbl_shc_real_time_sketch453
+     cond-10 5 5
+	- Edge ANTI_NEXT_TABLE_DATA tbl_shc_real_time_sketch458
+	- Edge ANTI_NEXT_TABLE_DATA tbl_shc_real_time_sketch464
+     sk_get_fingerprint_table 4 4
+	- Edge IXBAR_READ tbl_shc_real_time_sketch449
+	- Edge IXBAR_READ tbl_shc_real_time_sketch453
+     tbl_shc_real_time_sketch458 5 5
+	- Edge CONTROL_TABLE_HIT route_tbl_0
+     tbl_shc_real_time_sketch476 5 5
+	- Edge CONTROL_COND_FALSE cond-10
+ Stage #2
+     cond-11 4 4
+	- Edge ACTION_READ tbl_shc_real_time_sketch458
+     tbl_shc_real_time_sketch468 4 4
+	- Edge CONTROL_COND_TRUE cond-11
+	- Edge ACTION_READ route_tbl_0
+     cuckoo_hash_chose_table_0 4 4
+	- Edge CONTROL_COND_FALSE cond-11
+	- Edge IXBAR_READ tbl_shc_real_time_sketch464
+     tbl_shc_real_time_sketch476_0 4 4
+	- Edge OUTPUT tbl_shc_real_time_sketch476
+	- Edge ACTION_READ tbl_shc_real_time_sketch464
+ Stage #3
+     sk_update_pkt_1_table 3 3
+	- Edge IXBAR_READ tbl_shc_real_time_sketch468
+	- Edge IXBAR_READ cuckoo_hash_chose_table_0
+	- Edge IXBAR_READ tbl_shc_real_time_sketch476_0
+ Stage #4
+     cond-12 2 2
+	- Edge ACTION_READ sk_update_pkt_1_table
+     sk_update_pkt_num_1_table 2 2
+	- Edge CONTROL_COND_TRUE cond-12
+	- Edge IXBAR_READ sk_update_pkt_1_table
+ Stage #5
+     cond-13 1 1
+	- Edge ACTION_READ sk_update_pkt_num_1_table
+     tbl_shc_real_time_sketch296 1 1
+	- Edge CONTROL_COND_TRUE cond-13
+     tbl_shc_real_time_sketch299 1 1
+	- Edge CONTROL_COND_FALSE cond-13
+ Stage #6
+     cond-14 0 0
+	- Edge ACTION_READ tbl_shc_real_time_sketch296
+	- Edge ACTION_READ tbl_shc_real_time_sketch299
+     tbl_shc_real_time_sketch483 0 0
+	- Edge CONTROL_COND_TRUE cond-14
+     tbl_shc_real_time_sketch491 0 0
+	- Edge CONTROL_COND_FALSE cond-14
+
+ingress: [2212693]
+  cond-8(ingress::hdr.ipv4.$valid == 1; => $true, 1 => $false)
+    $true: [2212698] 1 10 111 0000 10000 111101 1111011 11110111
+      cond-9(ingress::hdr.inner_ipv4.$valid == 1; => $true, 1 => $false)
+        $true: [2212703]
+          tbl_shc_real_time_sketch449
+        $false: [2212778]
+          tbl_shc_real_time_sketch453
+      route_tbl_0{ E 54+1, 4 64K }
+        $hit: [2213033]
+          tbl_shc_real_time_sketch458
+      tbl_shc_real_time_sketch464
+      cond-10(ingress::hdr.cuckoo_hashes.$valid == 1; => $true, 1 => $false)
+        $true: [2213774]
+          cond-11(ingress::ig_md.table_hit == 1; => $true, 1 => $false)
+            $true: [2213636]
+              tbl_shc_real_time_sketch468
+            $false: [2213184]
+              cuckoo_hash_chose_table_0{ E -8+3, 0 0K }
+        $false: [2213638] 1
+          tbl_shc_real_time_sketch476
+          tbl_shc_real_time_sketch476_0
+      sk_count_pkt_num_table
+        stateful ShcIngress.sk.pkt_num    1
+      sk_get_fingerprint_table
+      sk_update_pkt_1_table
+        stateful ShcIngress.sk.hash1_1  66K
+      cond-12(ingress::ig_md.hash_index_done == 1; => $true, 1 => $false)
+        $true: [2214021] 1
+          sk_update_pkt_num_1_table
+            stateful ShcIngress.sk.hash1_1_n  66K
+          cond-13(ingress::ig_md.cs_count == 10; => $true, 1 => $false)
+            $true: [2214220]
+              tbl_shc_real_time_sketch296
+            $false: [2214222]
+              tbl_shc_real_time_sketch299
+      cond-14(ingress::ig_md.eflag == 1 && ingress::ig_md.table_hit == 0; => $true, 1 => $false)
+        $true: [2214347]
+          tbl_shc_real_time_sketch483
+        $false: [2214349]
+          tbl_shc_real_time_sketch491
+egress: [2221139]
+
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch449
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch453
+DepStagesThruDomFrontier postorder : cond-9
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch458
+DepStagesThruDomFrontier postorder : route_tbl_0
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch464
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch468
+DepStagesThruDomFrontier postorder : cuckoo_hash_chose_table_0
+DepStagesThruDomFrontier postorder : cond-11
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch476
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch476_0
+DepStagesThruDomFrontier postorder : cond-10
+DepStagesThruDomFrontier postorder : sk_count_pkt_num_table
+DepStagesThruDomFrontier postorder : sk_get_fingerprint_table
+DepStagesThruDomFrontier postorder : sk_update_pkt_1_table
+DepStagesThruDomFrontier postorder : sk_update_pkt_num_1_table
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch296
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch299
+DepStagesThruDomFrontier postorder : cond-13
+DepStagesThruDomFrontier postorder : cond-12
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch483
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch491
+DepStagesThruDomFrontier postorder : cond-14
+DepStagesThruDomFrontier postorder : cond-8
+    Maximum stage number according to dependences: 
+      INGRESS: 6
+      EGRESS: -1
+GRAPH
+    cond-8 -- CONTROL_COND_TRUE --> cond-9
+    cond-8 -- CONTROL_COND_TRUE --> route_tbl_0
+    cond-8 -- CONTROL_COND_TRUE --> tbl_shc_real_time_sketch464
+    cond-8 -- CONTROL_COND_TRUE --> cond-10
+    cond-8 -- CONTROL_COND_TRUE --> sk_count_pkt_num_table
+    cond-8 -- CONTROL_COND_TRUE --> sk_get_fingerprint_table
+    cond-8 -- CONTROL_COND_TRUE --> sk_update_pkt_1_table
+    cond-8 -- CONTROL_COND_TRUE --> cond-12
+    cond-8 -- CONTROL_COND_TRUE --> cond-14
+    cond-9 -- CONTROL_COND_TRUE --> tbl_shc_real_time_sketch449
+    cond-9 -- CONTROL_COND_FALSE --> tbl_shc_real_time_sketch453
+    route_tbl_0 -- CONTROL_TABLE_HIT --> tbl_shc_real_time_sketch458
+    cond-10 -- CONTROL_COND_TRUE --> cond-11
+    cond-11 -- CONTROL_COND_TRUE --> tbl_shc_real_time_sketch468
+    cond-11 -- CONTROL_COND_FALSE --> cuckoo_hash_chose_table_0
+    cond-10 -- CONTROL_COND_FALSE --> tbl_shc_real_time_sketch476
+    cond-10 -- CONTROL_COND_FALSE --> tbl_shc_real_time_sketch476_0
+    cond-12 -- CONTROL_COND_TRUE --> sk_update_pkt_num_1_table
+    cond-12 -- CONTROL_COND_TRUE --> cond-13
+    cond-13 -- CONTROL_COND_TRUE --> tbl_shc_real_time_sketch296
+    cond-13 -- CONTROL_COND_FALSE --> tbl_shc_real_time_sketch299
+    cond-14 -- CONTROL_COND_TRUE --> tbl_shc_real_time_sketch483
+    cond-14 -- CONTROL_COND_FALSE --> tbl_shc_real_time_sketch491
+    tbl_shc_real_time_sketch449 -- IXBAR_READ --> route_tbl_0
+    tbl_shc_real_time_sketch453 -- IXBAR_READ --> route_tbl_0
+    tbl_shc_real_time_sketch449 -- IXBAR_READ --> tbl_shc_real_time_sketch464
+    tbl_shc_real_time_sketch453 -- IXBAR_READ --> tbl_shc_real_time_sketch464
+    tbl_shc_real_time_sketch458 -- ACTION_READ --> cond-11
+    route_tbl_0 -- ACTION_READ --> tbl_shc_real_time_sketch468
+    tbl_shc_real_time_sketch464 -- IXBAR_READ --> cuckoo_hash_chose_table_0
+    tbl_shc_real_time_sketch464 -- ACTION_READ --> tbl_shc_real_time_sketch476_0
+    tbl_shc_real_time_sketch449 -- IXBAR_READ --> sk_get_fingerprint_table
+    tbl_shc_real_time_sketch453 -- IXBAR_READ --> sk_get_fingerprint_table
+    sk_get_fingerprint_table -- IXBAR_READ --> sk_update_pkt_1_table
+    tbl_shc_real_time_sketch468 -- IXBAR_READ --> sk_update_pkt_1_table
+    cuckoo_hash_chose_table_0 -- IXBAR_READ --> sk_update_pkt_1_table
+    tbl_shc_real_time_sketch476_0 -- IXBAR_READ --> sk_update_pkt_1_table
+    sk_update_pkt_1_table -- ACTION_READ --> cond-12
+    sk_update_pkt_1_table -- IXBAR_READ --> sk_update_pkt_num_1_table
+    tbl_shc_real_time_sketch468 -- IXBAR_READ --> sk_update_pkt_num_1_table
+    cuckoo_hash_chose_table_0 -- IXBAR_READ --> sk_update_pkt_num_1_table
+    tbl_shc_real_time_sketch476_0 -- IXBAR_READ --> sk_update_pkt_num_1_table
+    sk_update_pkt_num_1_table -- ACTION_READ --> cond-13
+    tbl_shc_real_time_sketch296 -- ACTION_READ --> cond-14
+    tbl_shc_real_time_sketch299 -- ACTION_READ --> cond-14
+    tbl_shc_real_time_sketch458 -- ACTION_READ --> cond-14
+    sk_update_pkt_num_1_table -- ANTI_NEXT_TABLE_DATA --> cond-13
+    sk_update_pkt_1_table -- ANTI_NEXT_TABLE_DATA --> cond-12
+    tbl_shc_real_time_sketch468 -- ANTI_NEXT_TABLE_DATA --> sk_update_pkt_1_table
+    tbl_shc_real_time_sketch468 -- ANTI_NEXT_TABLE_DATA --> cond-12
+    cuckoo_hash_chose_table_0 -- ANTI_NEXT_TABLE_DATA --> sk_update_pkt_1_table
+    cuckoo_hash_chose_table_0 -- ANTI_NEXT_TABLE_DATA --> cond-12
+    tbl_shc_real_time_sketch476_0 -- ANTI_NEXT_TABLE_DATA --> sk_update_pkt_1_table
+    tbl_shc_real_time_sketch476_0 -- ANTI_NEXT_TABLE_DATA --> cond-12
+    tbl_shc_real_time_sketch458 -- ANTI_NEXT_TABLE_DATA --> cond-10
+    tbl_shc_real_time_sketch464 -- ANTI_NEXT_TABLE_DATA --> cond-10
+    sk_get_fingerprint_table -- ANTI_NEXT_TABLE_DATA --> sk_update_pkt_1_table
+    tbl_shc_real_time_sketch449 -- ANTI_NEXT_TABLE_DATA --> route_tbl_0
+    tbl_shc_real_time_sketch449 -- ANTI_NEXT_TABLE_DATA --> tbl_shc_real_time_sketch464
+    tbl_shc_real_time_sketch449 -- ANTI_NEXT_TABLE_DATA --> sk_get_fingerprint_table
+    tbl_shc_real_time_sketch453 -- ANTI_NEXT_TABLE_DATA --> route_tbl_0
+    tbl_shc_real_time_sketch453 -- ANTI_NEXT_TABLE_DATA --> tbl_shc_real_time_sketch464
+    tbl_shc_real_time_sketch453 -- ANTI_NEXT_TABLE_DATA --> sk_get_fingerprint_table
+    tbl_shc_real_time_sketch458 -- ANTI_NEXT_TABLE_DATA --> cond-14
+    tbl_shc_real_time_sketch296 -- ANTI_NEXT_TABLE_DATA --> cond-14
+    tbl_shc_real_time_sketch299 -- ANTI_NEXT_TABLE_DATA --> cond-14
+MIN STAGE INFO
+    Each table also indicates its dependency chain length
+    First number refers to a dependency chain from which each tables are not split
+    Second number refers to a dependency chain from which each tables are split as on  last allocation pass
+ Stage #0
+     cond-8 6 6
+     cond-9 6 6
+	- Edge CONTROL_COND_TRUE cond-8
+     sk_count_pkt_num_table 0 0
+	- Edge CONTROL_COND_TRUE cond-8
+     tbl_shc_real_time_sketch449 6 6
+	- Edge CONTROL_COND_TRUE cond-9
+     tbl_shc_real_time_sketch453 6 6
+	- Edge CONTROL_COND_FALSE cond-9
+ Stage #1
+     route_tbl_0 5 5
+	- Edge IXBAR_READ tbl_shc_real_time_sketch449
+	- Edge IXBAR_READ tbl_shc_real_time_sketch453
+     tbl_shc_real_time_sketch464 5 5
+	- Edge IXBAR_READ tbl_shc_real_time_sketch449
+	- Edge IXBAR_READ tbl_shc_real_time_sketch453
+     cond-10 4 4
+	- Edge ANTI_NEXT_TABLE_DATA tbl_shc_real_time_sketch458
+	- Edge ANTI_NEXT_TABLE_DATA tbl_shc_real_time_sketch464
+     sk_get_fingerprint_table 4 4
+	- Edge IXBAR_READ tbl_shc_real_time_sketch449
+	- Edge IXBAR_READ tbl_shc_real_time_sketch453
+     tbl_shc_real_time_sketch458 5 5
+	- Edge CONTROL_TABLE_HIT route_tbl_0
+     tbl_shc_real_time_sketch476 0 0
+	- Edge CONTROL_COND_FALSE cond-10
+ Stage #2
+     cond-11 4 4
+	- Edge ACTION_READ tbl_shc_real_time_sketch458
+     tbl_shc_real_time_sketch468 4 4
+	- Edge CONTROL_COND_TRUE cond-11
+	- Edge ACTION_READ route_tbl_0
+     cuckoo_hash_chose_table_0 4 4
+	- Edge CONTROL_COND_FALSE cond-11
+	- Edge IXBAR_READ tbl_shc_real_time_sketch464
+     tbl_shc_real_time_sketch476_0 4 4
+	- Edge ACTION_READ tbl_shc_real_time_sketch464
+ Stage #3
+     sk_update_pkt_1_table 3 3
+	- Edge IXBAR_READ tbl_shc_real_time_sketch468
+	- Edge IXBAR_READ cuckoo_hash_chose_table_0
+	- Edge IXBAR_READ tbl_shc_real_time_sketch476_0
+ Stage #4
+     cond-12 2 2
+	- Edge ACTION_READ sk_update_pkt_1_table
+     sk_update_pkt_num_1_table 2 2
+	- Edge CONTROL_COND_TRUE cond-12
+	- Edge IXBAR_READ sk_update_pkt_1_table
+ Stage #5
+     cond-13 1 1
+	- Edge ACTION_READ sk_update_pkt_num_1_table
+     tbl_shc_real_time_sketch296 1 1
+	- Edge CONTROL_COND_TRUE cond-13
+     tbl_shc_real_time_sketch299 1 1
+	- Edge CONTROL_COND_FALSE cond-13
+ Stage #6
+     cond-14 0 0
+	- Edge ACTION_READ tbl_shc_real_time_sketch296
+	- Edge ACTION_READ tbl_shc_real_time_sketch299
+     tbl_shc_real_time_sketch483 0 0
+	- Edge CONTROL_COND_TRUE cond-14
+     tbl_shc_real_time_sketch491 0 0
+	- Edge CONTROL_COND_FALSE cond-14
+
+FindDependencyGraph : Before Table Placement
+ingress: [2212693]
+  cond-8(ingress::hdr.ipv4.$valid == 1; => $true, 1 => $false)
+    $true: [2212698] 1 10 111 0000 10000 111101 1111011 11110111
+      cond-9(ingress::hdr.inner_ipv4.$valid == 1; => $true, 1 => $false)
+        $true: [2212703]
+          tbl_shc_real_time_sketch449
+        $false: [2212778]
+          tbl_shc_real_time_sketch453
+      route_tbl_0{ E 54+1, 4 64K }
+        $hit: [2213033]
+          tbl_shc_real_time_sketch458
+      tbl_shc_real_time_sketch464
+      cond-10(ingress::hdr.cuckoo_hashes.$valid == 1; => $true, 1 => $false)
+        $true: [2213774]
+          cond-11(ingress::ig_md.table_hit == 1; => $true, 1 => $false)
+            $true: [2213636]
+              tbl_shc_real_time_sketch468
+            $false: [2213184]
+              cuckoo_hash_chose_table_0{ E -8+3, 0 0K }
+        $false: [2213638] 1
+          tbl_shc_real_time_sketch476
+          tbl_shc_real_time_sketch476_0
+      sk_count_pkt_num_table
+        stateful ShcIngress.sk.pkt_num    1
+      sk_get_fingerprint_table
+      sk_update_pkt_1_table
+        stateful ShcIngress.sk.hash1_1  66K
+      cond-12(ingress::ig_md.hash_index_done == 1; => $true, 1 => $false)
+        $true: [2214021] 1
+          sk_update_pkt_num_1_table
+            stateful ShcIngress.sk.hash1_1_n  66K
+          cond-13(ingress::ig_md.cs_count == 10; => $true, 1 => $false)
+            $true: [2214220]
+              tbl_shc_real_time_sketch296
+            $false: [2214222]
+              tbl_shc_real_time_sketch299
+      cond-14(ingress::ig_md.eflag == 1 && ingress::ig_md.table_hit == 0; => $true, 1 => $false)
+        $true: [2214347]
+          tbl_shc_real_time_sketch483
+        $false: [2214349]
+          tbl_shc_real_time_sketch491
+egress: [2221139]
+
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch449
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch453
+DepStagesThruDomFrontier postorder : cond-9
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch458
+DepStagesThruDomFrontier postorder : route_tbl_0
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch464
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch468
+DepStagesThruDomFrontier postorder : cuckoo_hash_chose_table_0
+DepStagesThruDomFrontier postorder : cond-11
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch476
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch476_0
+DepStagesThruDomFrontier postorder : cond-10
+DepStagesThruDomFrontier postorder : sk_count_pkt_num_table
+DepStagesThruDomFrontier postorder : sk_get_fingerprint_table
+DepStagesThruDomFrontier postorder : sk_update_pkt_1_table
+DepStagesThruDomFrontier postorder : sk_update_pkt_num_1_table
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch296
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch299
+DepStagesThruDomFrontier postorder : cond-13
+DepStagesThruDomFrontier postorder : cond-12
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch483
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch491
+DepStagesThruDomFrontier postorder : cond-14
+DepStagesThruDomFrontier postorder : cond-8
+    Maximum stage number according to dependences: 
+      INGRESS: 6
+      EGRESS: -1
+GRAPH
+    cond-8 -- CONTROL_COND_TRUE --> cond-9
+    cond-8 -- CONTROL_COND_TRUE --> route_tbl_0
+    cond-8 -- CONTROL_COND_TRUE --> tbl_shc_real_time_sketch464
+    cond-8 -- CONTROL_COND_TRUE --> cond-10
+    cond-8 -- CONTROL_COND_TRUE --> sk_count_pkt_num_table
+    cond-8 -- CONTROL_COND_TRUE --> sk_get_fingerprint_table
+    cond-8 -- CONTROL_COND_TRUE --> sk_update_pkt_1_table
+    cond-8 -- CONTROL_COND_TRUE --> cond-12
+    cond-8 -- CONTROL_COND_TRUE --> cond-14
+    cond-9 -- CONTROL_COND_TRUE --> tbl_shc_real_time_sketch449
+    cond-9 -- CONTROL_COND_FALSE --> tbl_shc_real_time_sketch453
+    route_tbl_0 -- CONTROL_TABLE_HIT --> tbl_shc_real_time_sketch458
+    cond-10 -- CONTROL_COND_TRUE --> cond-11
+    cond-11 -- CONTROL_COND_TRUE --> tbl_shc_real_time_sketch468
+    cond-11 -- CONTROL_COND_FALSE --> cuckoo_hash_chose_table_0
+    cond-10 -- CONTROL_COND_FALSE --> tbl_shc_real_time_sketch476
+    cond-10 -- CONTROL_COND_FALSE --> tbl_shc_real_time_sketch476_0
+    cond-12 -- CONTROL_COND_TRUE --> sk_update_pkt_num_1_table
+    cond-12 -- CONTROL_COND_TRUE --> cond-13
+    cond-13 -- CONTROL_COND_TRUE --> tbl_shc_real_time_sketch296
+    cond-13 -- CONTROL_COND_FALSE --> tbl_shc_real_time_sketch299
+    cond-14 -- CONTROL_COND_TRUE --> tbl_shc_real_time_sketch483
+    cond-14 -- CONTROL_COND_FALSE --> tbl_shc_real_time_sketch491
+    tbl_shc_real_time_sketch449 -- IXBAR_READ --> route_tbl_0
+    tbl_shc_real_time_sketch453 -- IXBAR_READ --> route_tbl_0
+    tbl_shc_real_time_sketch449 -- IXBAR_READ --> tbl_shc_real_time_sketch464
+    tbl_shc_real_time_sketch453 -- IXBAR_READ --> tbl_shc_real_time_sketch464
+    tbl_shc_real_time_sketch458 -- ACTION_READ --> cond-11
+    route_tbl_0 -- ACTION_READ --> tbl_shc_real_time_sketch468
+    tbl_shc_real_time_sketch464 -- IXBAR_READ --> cuckoo_hash_chose_table_0
+    tbl_shc_real_time_sketch464 -- ACTION_READ --> tbl_shc_real_time_sketch476_0
+    tbl_shc_real_time_sketch449 -- IXBAR_READ --> sk_get_fingerprint_table
+    tbl_shc_real_time_sketch453 -- IXBAR_READ --> sk_get_fingerprint_table
+    sk_get_fingerprint_table -- IXBAR_READ --> sk_update_pkt_1_table
+    tbl_shc_real_time_sketch468 -- IXBAR_READ --> sk_update_pkt_1_table
+    cuckoo_hash_chose_table_0 -- IXBAR_READ --> sk_update_pkt_1_table
+    tbl_shc_real_time_sketch476_0 -- IXBAR_READ --> sk_update_pkt_1_table
+    sk_update_pkt_1_table -- ACTION_READ --> cond-12
+    sk_update_pkt_1_table -- IXBAR_READ --> sk_update_pkt_num_1_table
+    tbl_shc_real_time_sketch468 -- IXBAR_READ --> sk_update_pkt_num_1_table
+    cuckoo_hash_chose_table_0 -- IXBAR_READ --> sk_update_pkt_num_1_table
+    tbl_shc_real_time_sketch476_0 -- IXBAR_READ --> sk_update_pkt_num_1_table
+    sk_update_pkt_num_1_table -- ACTION_READ --> cond-13
+    tbl_shc_real_time_sketch296 -- ACTION_READ --> cond-14
+    tbl_shc_real_time_sketch299 -- ACTION_READ --> cond-14
+    tbl_shc_real_time_sketch458 -- ACTION_READ --> cond-14
+    sk_update_pkt_num_1_table -- ANTI_NEXT_TABLE_DATA --> cond-13
+    sk_update_pkt_1_table -- ANTI_NEXT_TABLE_DATA --> cond-12
+    tbl_shc_real_time_sketch468 -- ANTI_NEXT_TABLE_DATA --> sk_update_pkt_1_table
+    tbl_shc_real_time_sketch468 -- ANTI_NEXT_TABLE_DATA --> cond-12
+    cuckoo_hash_chose_table_0 -- ANTI_NEXT_TABLE_DATA --> sk_update_pkt_1_table
+    cuckoo_hash_chose_table_0 -- ANTI_NEXT_TABLE_DATA --> cond-12
+    tbl_shc_real_time_sketch476_0 -- ANTI_NEXT_TABLE_DATA --> sk_update_pkt_1_table
+    tbl_shc_real_time_sketch476_0 -- ANTI_NEXT_TABLE_DATA --> cond-12
+    tbl_shc_real_time_sketch458 -- ANTI_NEXT_TABLE_DATA --> cond-10
+    tbl_shc_real_time_sketch464 -- ANTI_NEXT_TABLE_DATA --> cond-10
+    sk_get_fingerprint_table -- ANTI_NEXT_TABLE_DATA --> sk_update_pkt_1_table
+    tbl_shc_real_time_sketch449 -- ANTI_NEXT_TABLE_DATA --> route_tbl_0
+    tbl_shc_real_time_sketch449 -- ANTI_NEXT_TABLE_DATA --> tbl_shc_real_time_sketch464
+    tbl_shc_real_time_sketch449 -- ANTI_NEXT_TABLE_DATA --> sk_get_fingerprint_table
+    tbl_shc_real_time_sketch453 -- ANTI_NEXT_TABLE_DATA --> route_tbl_0
+    tbl_shc_real_time_sketch453 -- ANTI_NEXT_TABLE_DATA --> tbl_shc_real_time_sketch464
+    tbl_shc_real_time_sketch453 -- ANTI_NEXT_TABLE_DATA --> sk_get_fingerprint_table
+    tbl_shc_real_time_sketch458 -- ANTI_NEXT_TABLE_DATA --> cond-14
+    tbl_shc_real_time_sketch296 -- ANTI_NEXT_TABLE_DATA --> cond-14
+    tbl_shc_real_time_sketch299 -- ANTI_NEXT_TABLE_DATA --> cond-14
+MIN STAGE INFO
+    Each table also indicates its dependency chain length
+    First number refers to a dependency chain from which each tables are not split
+    Second number refers to a dependency chain from which each tables are split as on  last allocation pass
+ Stage #0
+     cond-8 6 6
+     cond-9 6 6
+	- Edge CONTROL_COND_TRUE cond-8
+     sk_count_pkt_num_table 0 0
+	- Edge CONTROL_COND_TRUE cond-8
+     tbl_shc_real_time_sketch449 6 6
+	- Edge CONTROL_COND_TRUE cond-9
+     tbl_shc_real_time_sketch453 6 6
+	- Edge CONTROL_COND_FALSE cond-9
+ Stage #1
+     route_tbl_0 5 5
+	- Edge IXBAR_READ tbl_shc_real_time_sketch449
+	- Edge IXBAR_READ tbl_shc_real_time_sketch453
+     tbl_shc_real_time_sketch464 5 5
+	- Edge IXBAR_READ tbl_shc_real_time_sketch449
+	- Edge IXBAR_READ tbl_shc_real_time_sketch453
+     cond-10 4 4
+	- Edge ANTI_NEXT_TABLE_DATA tbl_shc_real_time_sketch458
+	- Edge ANTI_NEXT_TABLE_DATA tbl_shc_real_time_sketch464
+     sk_get_fingerprint_table 4 4
+	- Edge IXBAR_READ tbl_shc_real_time_sketch449
+	- Edge IXBAR_READ tbl_shc_real_time_sketch453
+     tbl_shc_real_time_sketch458 5 5
+	- Edge CONTROL_TABLE_HIT route_tbl_0
+     tbl_shc_real_time_sketch476 0 0
+	- Edge CONTROL_COND_FALSE cond-10
+ Stage #2
+     cond-11 4 4
+	- Edge ACTION_READ tbl_shc_real_time_sketch458
+     tbl_shc_real_time_sketch468 4 4
+	- Edge CONTROL_COND_TRUE cond-11
+	- Edge ACTION_READ route_tbl_0
+     cuckoo_hash_chose_table_0 4 4
+	- Edge CONTROL_COND_FALSE cond-11
+	- Edge IXBAR_READ tbl_shc_real_time_sketch464
+     tbl_shc_real_time_sketch476_0 4 4
+	- Edge ACTION_READ tbl_shc_real_time_sketch464
+ Stage #3
+     sk_update_pkt_1_table 3 3
+	- Edge IXBAR_READ tbl_shc_real_time_sketch468
+	- Edge IXBAR_READ cuckoo_hash_chose_table_0
+	- Edge IXBAR_READ tbl_shc_real_time_sketch476_0
+ Stage #4
+     cond-12 2 2
+	- Edge ACTION_READ sk_update_pkt_1_table
+     sk_update_pkt_num_1_table 2 2
+	- Edge CONTROL_COND_TRUE cond-12
+	- Edge IXBAR_READ sk_update_pkt_1_table
+ Stage #5
+     cond-13 1 1
+	- Edge ACTION_READ sk_update_pkt_num_1_table
+     tbl_shc_real_time_sketch296 1 1
+	- Edge CONTROL_COND_TRUE cond-13
+     tbl_shc_real_time_sketch299 1 1
+	- Edge CONTROL_COND_FALSE cond-13
+ Stage #6
+     cond-14 0 0
+	- Edge ACTION_READ tbl_shc_real_time_sketch296
+	- Edge ACTION_READ tbl_shc_real_time_sketch299
+     tbl_shc_real_time_sketch483 0 0
+	- Edge CONTROL_COND_TRUE cond-14
+     tbl_shc_real_time_sketch491 0 0
+	- Edge CONTROL_COND_FALSE cond-14
+
+FindDependencyGraph : After Table Placement
+ingress: [2212693]
+  0: sk_count_pkt_num_table(ingress::hdr.ipv4.$valid == 1;, 1 => $false){ GE 0+10, 0 0K }
+    stateful ShcIngress.sk.pkt_num 1   
+    $default: [2212698] 1 10 100 1110 11111 111111 1111111
+      1: tbl_shc_real_time_sketch449(ingress::hdr.inner_ipv4.$valid == 1;, 1 => $false)
+        $false: [2212778]
+          2: tbl_shc_real_time_sketch453
+      10: route_tbl_0{ E 54+1, 4 [1x2 16K 16K 16K 16K] }
+        $hit: [2213033]
+          20: tbl_shc_real_time_sketch458
+      21: tbl_shc_real_time_sketch464
+      22: sk_get_fingerprint_table
+      23: tbl_shc_real_time_sketch476(ingress::hdr.cuckoo_hashes.$valid == 1; => $true, 1)
+        $true: [2213774]
+          31: tbl_shc_real_time_sketch468(ingress::ig_md.table_hit == 1;, 1 => $false)
+            $false: [2213184]
+              32: cuckoo_hash_chose_table_0{ E -8+3, 0 [1x1 1K] }
+        $default: [2213638]
+          30: tbl_shc_real_time_sketch476_0{ E 0+16, 4 0K }
+      40: sk_update_pkt_1_table
+        stateful ShcIngress.sk.hash1_1 66 K
+      50: sk_update_pkt_num_1_table(ingress::ig_md.hash_index_done == 1;, 1 => $false)
+        stateful ShcIngress.sk.hash1_1_n 66 K
+        $default: [2214021]
+          60: tbl_shc_real_time_sketch296(ingress::ig_md.cs_count == 10;, 1 => $false)
+            $false: [2214222]
+              61: tbl_shc_real_time_sketch299
+        $false: [2339166]
+      70: tbl_shc_real_time_sketch483(ingress::ig_md.eflag == 1 && ingress::ig_md.table_hit == 0;, 1 => $false)
+        $false: [2214349]
+          71: tbl_shc_real_time_sketch491
+    $false: [2338445]
+egress: [2221139]
+
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch453
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch449
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch458
+DepStagesThruDomFrontier postorder : route_tbl_0
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch464
+DepStagesThruDomFrontier postorder : sk_get_fingerprint_table
+DepStagesThruDomFrontier postorder : cuckoo_hash_chose_table_0
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch468
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch476_0
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch476
+DepStagesThruDomFrontier postorder : sk_update_pkt_1_table
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch299
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch296
+DepStagesThruDomFrontier postorder : sk_update_pkt_num_1_table
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch491
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch483
+DepStagesThruDomFrontier postorder : sk_count_pkt_num_table
+    Maximum stage number according to dependences: 
+      INGRESS: 6
+      EGRESS: -1
+GRAPH
+    sk_count_pkt_num_table -- CONTROL_DEFAULT_NEXT_TABLE --> tbl_shc_real_time_sketch449
+    sk_count_pkt_num_table -- CONTROL_DEFAULT_NEXT_TABLE --> route_tbl_0
+    sk_count_pkt_num_table -- CONTROL_DEFAULT_NEXT_TABLE --> tbl_shc_real_time_sketch464
+    sk_count_pkt_num_table -- CONTROL_DEFAULT_NEXT_TABLE --> sk_get_fingerprint_table
+    sk_count_pkt_num_table -- CONTROL_DEFAULT_NEXT_TABLE --> tbl_shc_real_time_sketch476
+    sk_count_pkt_num_table -- CONTROL_DEFAULT_NEXT_TABLE --> sk_update_pkt_1_table
+    sk_count_pkt_num_table -- CONTROL_DEFAULT_NEXT_TABLE --> sk_update_pkt_num_1_table
+    sk_count_pkt_num_table -- CONTROL_DEFAULT_NEXT_TABLE --> tbl_shc_real_time_sketch483
+    tbl_shc_real_time_sketch449 -- CONTROL_COND_FALSE --> tbl_shc_real_time_sketch453
+    route_tbl_0 -- CONTROL_TABLE_HIT --> tbl_shc_real_time_sketch458
+    tbl_shc_real_time_sketch476 -- CONTROL_COND_TRUE --> tbl_shc_real_time_sketch468
+    tbl_shc_real_time_sketch468 -- CONTROL_COND_FALSE --> cuckoo_hash_chose_table_0
+    tbl_shc_real_time_sketch476 -- CONTROL_DEFAULT_NEXT_TABLE --> tbl_shc_real_time_sketch476_0
+    sk_update_pkt_num_1_table -- CONTROL_DEFAULT_NEXT_TABLE --> tbl_shc_real_time_sketch296
+    tbl_shc_real_time_sketch296 -- CONTROL_COND_FALSE --> tbl_shc_real_time_sketch299
+    tbl_shc_real_time_sketch483 -- CONTROL_COND_FALSE --> tbl_shc_real_time_sketch491
+    tbl_shc_real_time_sketch449 -- IXBAR_READ --> route_tbl_0
+    tbl_shc_real_time_sketch453 -- IXBAR_READ --> route_tbl_0
+    tbl_shc_real_time_sketch449 -- IXBAR_READ --> tbl_shc_real_time_sketch464
+    tbl_shc_real_time_sketch453 -- IXBAR_READ --> tbl_shc_real_time_sketch464
+    tbl_shc_real_time_sketch449 -- IXBAR_READ --> sk_get_fingerprint_table
+    tbl_shc_real_time_sketch453 -- IXBAR_READ --> sk_get_fingerprint_table
+    tbl_shc_real_time_sketch458 -- ACTION_READ --> tbl_shc_real_time_sketch468
+    route_tbl_0 -- ACTION_READ --> tbl_shc_real_time_sketch468
+    tbl_shc_real_time_sketch464 -- IXBAR_READ --> cuckoo_hash_chose_table_0
+    tbl_shc_real_time_sketch464 -- ACTION_READ --> tbl_shc_real_time_sketch476_0
+    sk_get_fingerprint_table -- IXBAR_READ --> sk_update_pkt_1_table
+    tbl_shc_real_time_sketch476_0 -- IXBAR_READ --> sk_update_pkt_1_table
+    tbl_shc_real_time_sketch468 -- IXBAR_READ --> sk_update_pkt_1_table
+    cuckoo_hash_chose_table_0 -- IXBAR_READ --> sk_update_pkt_1_table
+    sk_update_pkt_1_table -- ACTION_READ --> sk_update_pkt_num_1_table
+    sk_update_pkt_1_table -- IXBAR_READ --> sk_update_pkt_num_1_table
+    tbl_shc_real_time_sketch476_0 -- IXBAR_READ --> sk_update_pkt_num_1_table
+    tbl_shc_real_time_sketch468 -- IXBAR_READ --> sk_update_pkt_num_1_table
+    cuckoo_hash_chose_table_0 -- IXBAR_READ --> sk_update_pkt_num_1_table
+    sk_update_pkt_num_1_table -- ACTION_READ --> tbl_shc_real_time_sketch296
+    tbl_shc_real_time_sketch296 -- ACTION_READ --> tbl_shc_real_time_sketch483
+    tbl_shc_real_time_sketch299 -- ACTION_READ --> tbl_shc_real_time_sketch483
+    tbl_shc_real_time_sketch458 -- ACTION_READ --> tbl_shc_real_time_sketch483
+    tbl_shc_real_time_sketch299 -- ANTI_NEXT_TABLE_DATA --> tbl_shc_real_time_sketch483
+    sk_update_pkt_1_table -- ANTI_NEXT_TABLE_DATA --> sk_update_pkt_num_1_table
+    cuckoo_hash_chose_table_0 -- ANTI_NEXT_TABLE_DATA --> sk_update_pkt_1_table
+    cuckoo_hash_chose_table_0 -- ANTI_NEXT_TABLE_DATA --> sk_update_pkt_num_1_table
+    tbl_shc_real_time_sketch476_0 -- ANTI_NEXT_TABLE_DATA --> sk_update_pkt_1_table
+    tbl_shc_real_time_sketch476_0 -- ANTI_NEXT_TABLE_DATA --> sk_update_pkt_num_1_table
+    tbl_shc_real_time_sketch458 -- ANTI_NEXT_TABLE_DATA --> tbl_shc_real_time_sketch476
+    tbl_shc_real_time_sketch464 -- ANTI_NEXT_TABLE_DATA --> tbl_shc_real_time_sketch476
+    sk_get_fingerprint_table -- ANTI_NEXT_TABLE_DATA --> sk_update_pkt_1_table
+    tbl_shc_real_time_sketch453 -- ANTI_NEXT_TABLE_DATA --> route_tbl_0
+    tbl_shc_real_time_sketch453 -- ANTI_NEXT_TABLE_DATA --> tbl_shc_real_time_sketch464
+    tbl_shc_real_time_sketch453 -- ANTI_NEXT_TABLE_DATA --> sk_get_fingerprint_table
+    tbl_shc_real_time_sketch458 -- ANTI_NEXT_TABLE_DATA --> tbl_shc_real_time_sketch483
+MIN STAGE INFO
+    Each table also indicates its dependency chain length
+    First number refers to a dependency chain from which each tables are not split
+    Second number refers to a dependency chain from which each tables are split as on  last allocation pass
+ Stage #0
+     sk_count_pkt_num_table 6 6
+     tbl_shc_real_time_sketch449 6 6
+	- Edge CONTROL_DEFAULT_NEXT_TABLE sk_count_pkt_num_table
+     tbl_shc_real_time_sketch453 6 6
+	- Edge CONTROL_COND_FALSE tbl_shc_real_time_sketch449
+ Stage #1
+     route_tbl_0 5 5
+	- Edge IXBAR_READ tbl_shc_real_time_sketch449
+	- Edge IXBAR_READ tbl_shc_real_time_sketch453
+     tbl_shc_real_time_sketch464 5 5
+	- Edge IXBAR_READ tbl_shc_real_time_sketch449
+	- Edge IXBAR_READ tbl_shc_real_time_sketch453
+     sk_get_fingerprint_table 4 4
+	- Edge IXBAR_READ tbl_shc_real_time_sketch449
+	- Edge IXBAR_READ tbl_shc_real_time_sketch453
+     tbl_shc_real_time_sketch476 4 4
+	- Edge ANTI_NEXT_TABLE_DATA tbl_shc_real_time_sketch458
+	- Edge ANTI_NEXT_TABLE_DATA tbl_shc_real_time_sketch464
+     tbl_shc_real_time_sketch458 5 5
+	- Edge CONTROL_TABLE_HIT route_tbl_0
+ Stage #2
+     tbl_shc_real_time_sketch468 4 4
+	- Edge ACTION_READ tbl_shc_real_time_sketch458
+	- Edge ACTION_READ route_tbl_0
+     cuckoo_hash_chose_table_0 4 4
+	- Edge CONTROL_COND_FALSE tbl_shc_real_time_sketch468
+	- Edge IXBAR_READ tbl_shc_real_time_sketch464
+     tbl_shc_real_time_sketch476_0 4 4
+	- Edge ACTION_READ tbl_shc_real_time_sketch464
+ Stage #3
+     sk_update_pkt_1_table 3 3
+	- Edge IXBAR_READ tbl_shc_real_time_sketch476_0
+	- Edge IXBAR_READ tbl_shc_real_time_sketch468
+	- Edge IXBAR_READ cuckoo_hash_chose_table_0
+ Stage #4
+     sk_update_pkt_num_1_table 2 2
+	- Edge ACTION_READ sk_update_pkt_1_table
+	- Edge IXBAR_READ sk_update_pkt_1_table
+ Stage #5
+     tbl_shc_real_time_sketch296 1 1
+	- Edge ACTION_READ sk_update_pkt_num_1_table
+     tbl_shc_real_time_sketch299 1 1
+	- Edge CONTROL_COND_FALSE tbl_shc_real_time_sketch296
+ Stage #6
+     tbl_shc_real_time_sketch483 0 0
+	- Edge ACTION_READ tbl_shc_real_time_sketch296
+	- Edge ACTION_READ tbl_shc_real_time_sketch299
+     tbl_shc_real_time_sketch491 0 0
+	- Edge CONTROL_COND_FALSE tbl_shc_real_time_sketch483
+
+FindDependencyGraph : Power Calculation
+ingress: [2212693]
+  0: sk_count_pkt_num_table(ingress::hdr.ipv4.$valid == 1;, 1 => $false){ GE 0+10, 0 0K }
+    stateful ShcIngress.sk.pkt_num 1   
+    $default: [2212698] 1 10 100 1110 11111 111111 1111111
+      1: tbl_shc_real_time_sketch449(ingress::hdr.inner_ipv4.$valid == 1;, 1 => $false)
+        $false: [2212778]
+          2: tbl_shc_real_time_sketch453
+      10: route_tbl_0{ E 54+1, 4 [1x2 16K 16K 16K 16K] }
+        $hit: [2213033]
+          20: tbl_shc_real_time_sketch458
+      21: tbl_shc_real_time_sketch464
+      22: sk_get_fingerprint_table
+      23: tbl_shc_real_time_sketch476(ingress::hdr.cuckoo_hashes.$valid == 1; => $true, 1)
+        $true: [2213774]
+          31: tbl_shc_real_time_sketch468(ingress::ig_md.table_hit == 1;, 1 => $false)
+            $false: [2213184]
+              32: cuckoo_hash_chose_table_0{ E -8+3, 0 [1x1 1K] }
+        $default: [2213638]
+          30: tbl_shc_real_time_sketch476_0{ E 0+16, 4 0K }
+      40: sk_update_pkt_1_table
+        stateful ShcIngress.sk.hash1_1 66 K
+      50: sk_update_pkt_num_1_table(ingress::ig_md.hash_index_done == 1;, 1 => $false)
+        stateful ShcIngress.sk.hash1_1_n 66 K
+        $default: [2214021]
+          60: tbl_shc_real_time_sketch296(ingress::ig_md.cs_count == 10;, 1 => $false)
+            $false: [2214222]
+              61: tbl_shc_real_time_sketch299
+        $false: [2339166]
+      70: tbl_shc_real_time_sketch483(ingress::ig_md.eflag == 1 && ingress::ig_md.table_hit == 0;, 1 => $false)
+        $false: [2214349]
+          71: tbl_shc_real_time_sketch491
+    $false: [2338445]
+egress: [2221139]
+
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch453
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch449
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch458
+DepStagesThruDomFrontier postorder : route_tbl_0
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch464
+DepStagesThruDomFrontier postorder : sk_get_fingerprint_table
+DepStagesThruDomFrontier postorder : cuckoo_hash_chose_table_0
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch468
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch476_0
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch476
+DepStagesThruDomFrontier postorder : sk_update_pkt_1_table
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch299
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch296
+DepStagesThruDomFrontier postorder : sk_update_pkt_num_1_table
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch491
+DepStagesThruDomFrontier postorder : tbl_shc_real_time_sketch483
+DepStagesThruDomFrontier postorder : sk_count_pkt_num_table
+    Maximum stage number according to dependences: 
+      INGRESS: 6
+      EGRESS: -1
+GRAPH
+    sk_count_pkt_num_table -- CONTROL_DEFAULT_NEXT_TABLE --> tbl_shc_real_time_sketch449
+    sk_count_pkt_num_table -- CONTROL_DEFAULT_NEXT_TABLE --> route_tbl_0
+    sk_count_pkt_num_table -- CONTROL_DEFAULT_NEXT_TABLE --> tbl_shc_real_time_sketch464
+    sk_count_pkt_num_table -- CONTROL_DEFAULT_NEXT_TABLE --> sk_get_fingerprint_table
+    sk_count_pkt_num_table -- CONTROL_DEFAULT_NEXT_TABLE --> tbl_shc_real_time_sketch476
+    sk_count_pkt_num_table -- CONTROL_DEFAULT_NEXT_TABLE --> sk_update_pkt_1_table
+    sk_count_pkt_num_table -- CONTROL_DEFAULT_NEXT_TABLE --> sk_update_pkt_num_1_table
+    sk_count_pkt_num_table -- CONTROL_DEFAULT_NEXT_TABLE --> tbl_shc_real_time_sketch483
+    tbl_shc_real_time_sketch449 -- CONTROL_COND_FALSE --> tbl_shc_real_time_sketch453
+    route_tbl_0 -- CONTROL_TABLE_HIT --> tbl_shc_real_time_sketch458
+    tbl_shc_real_time_sketch476 -- CONTROL_COND_TRUE --> tbl_shc_real_time_sketch468
+    tbl_shc_real_time_sketch468 -- CONTROL_COND_FALSE --> cuckoo_hash_chose_table_0
+    tbl_shc_real_time_sketch476 -- CONTROL_DEFAULT_NEXT_TABLE --> tbl_shc_real_time_sketch476_0
+    sk_update_pkt_num_1_table -- CONTROL_DEFAULT_NEXT_TABLE --> tbl_shc_real_time_sketch296
+    tbl_shc_real_time_sketch296 -- CONTROL_COND_FALSE --> tbl_shc_real_time_sketch299
+    tbl_shc_real_time_sketch483 -- CONTROL_COND_FALSE --> tbl_shc_real_time_sketch491
+    tbl_shc_real_time_sketch449 -- IXBAR_READ --> route_tbl_0
+    tbl_shc_real_time_sketch453 -- IXBAR_READ --> route_tbl_0
+    tbl_shc_real_time_sketch449 -- IXBAR_READ --> tbl_shc_real_time_sketch464
+    tbl_shc_real_time_sketch453 -- IXBAR_READ --> tbl_shc_real_time_sketch464
+    tbl_shc_real_time_sketch449 -- IXBAR_READ --> sk_get_fingerprint_table
+    tbl_shc_real_time_sketch453 -- IXBAR_READ --> sk_get_fingerprint_table
+    tbl_shc_real_time_sketch458 -- ACTION_READ --> tbl_shc_real_time_sketch468
+    route_tbl_0 -- ACTION_READ --> tbl_shc_real_time_sketch468
+    tbl_shc_real_time_sketch464 -- IXBAR_READ --> cuckoo_hash_chose_table_0
+    tbl_shc_real_time_sketch464 -- ACTION_READ --> tbl_shc_real_time_sketch476_0
+    sk_get_fingerprint_table -- IXBAR_READ --> sk_update_pkt_1_table
+    tbl_shc_real_time_sketch476_0 -- IXBAR_READ --> sk_update_pkt_1_table
+    tbl_shc_real_time_sketch468 -- IXBAR_READ --> sk_update_pkt_1_table
+    cuckoo_hash_chose_table_0 -- IXBAR_READ --> sk_update_pkt_1_table
+    sk_update_pkt_1_table -- ACTION_READ --> sk_update_pkt_num_1_table
+    sk_update_pkt_1_table -- IXBAR_READ --> sk_update_pkt_num_1_table
+    tbl_shc_real_time_sketch476_0 -- IXBAR_READ --> sk_update_pkt_num_1_table
+    tbl_shc_real_time_sketch468 -- IXBAR_READ --> sk_update_pkt_num_1_table
+    cuckoo_hash_chose_table_0 -- IXBAR_READ --> sk_update_pkt_num_1_table
+    sk_update_pkt_num_1_table -- ACTION_READ --> tbl_shc_real_time_sketch296
+    tbl_shc_real_time_sketch296 -- ACTION_READ --> tbl_shc_real_time_sketch483
+    tbl_shc_real_time_sketch299 -- ACTION_READ --> tbl_shc_real_time_sketch483
+    tbl_shc_real_time_sketch458 -- ACTION_READ --> tbl_shc_real_time_sketch483
+    tbl_shc_real_time_sketch299 -- ANTI_NEXT_TABLE_DATA --> tbl_shc_real_time_sketch483
+    sk_update_pkt_1_table -- ANTI_NEXT_TABLE_DATA --> sk_update_pkt_num_1_table
+    cuckoo_hash_chose_table_0 -- ANTI_NEXT_TABLE_DATA --> sk_update_pkt_1_table
+    cuckoo_hash_chose_table_0 -- ANTI_NEXT_TABLE_DATA --> sk_update_pkt_num_1_table
+    tbl_shc_real_time_sketch476_0 -- ANTI_NEXT_TABLE_DATA --> sk_update_pkt_1_table
+    tbl_shc_real_time_sketch476_0 -- ANTI_NEXT_TABLE_DATA --> sk_update_pkt_num_1_table
+    tbl_shc_real_time_sketch458 -- ANTI_NEXT_TABLE_DATA --> tbl_shc_real_time_sketch476
+    tbl_shc_real_time_sketch464 -- ANTI_NEXT_TABLE_DATA --> tbl_shc_real_time_sketch476
+    sk_get_fingerprint_table -- ANTI_NEXT_TABLE_DATA --> sk_update_pkt_1_table
+    tbl_shc_real_time_sketch453 -- ANTI_NEXT_TABLE_DATA --> route_tbl_0
+    tbl_shc_real_time_sketch453 -- ANTI_NEXT_TABLE_DATA --> tbl_shc_real_time_sketch464
+    tbl_shc_real_time_sketch453 -- ANTI_NEXT_TABLE_DATA --> sk_get_fingerprint_table
+    tbl_shc_real_time_sketch458 -- ANTI_NEXT_TABLE_DATA --> tbl_shc_real_time_sketch483
+MIN STAGE INFO
+    Each table also indicates its dependency chain length
+    First number refers to a dependency chain from which each tables are not split
+    Second number refers to a dependency chain from which each tables are split as on  last allocation pass
+ Stage #0
+     sk_count_pkt_num_table 6 6
+     tbl_shc_real_time_sketch449 6 6
+	- Edge CONTROL_DEFAULT_NEXT_TABLE sk_count_pkt_num_table
+     tbl_shc_real_time_sketch453 6 6
+	- Edge CONTROL_COND_FALSE tbl_shc_real_time_sketch449
+ Stage #1
+     route_tbl_0 5 5
+	- Edge IXBAR_READ tbl_shc_real_time_sketch449
+	- Edge IXBAR_READ tbl_shc_real_time_sketch453
+     tbl_shc_real_time_sketch464 5 5
+	- Edge IXBAR_READ tbl_shc_real_time_sketch449
+	- Edge IXBAR_READ tbl_shc_real_time_sketch453
+     sk_get_fingerprint_table 4 4
+	- Edge IXBAR_READ tbl_shc_real_time_sketch449
+	- Edge IXBAR_READ tbl_shc_real_time_sketch453
+     tbl_shc_real_time_sketch476 4 4
+	- Edge ANTI_NEXT_TABLE_DATA tbl_shc_real_time_sketch458
+	- Edge ANTI_NEXT_TABLE_DATA tbl_shc_real_time_sketch464
+     tbl_shc_real_time_sketch458 5 5
+	- Edge CONTROL_TABLE_HIT route_tbl_0
+ Stage #2
+     tbl_shc_real_time_sketch468 4 4
+	- Edge ACTION_READ tbl_shc_real_time_sketch458
+	- Edge ACTION_READ route_tbl_0
+     cuckoo_hash_chose_table_0 4 4
+	- Edge CONTROL_COND_FALSE tbl_shc_real_time_sketch468
+	- Edge IXBAR_READ tbl_shc_real_time_sketch464
+     tbl_shc_real_time_sketch476_0 4 4
+	- Edge ACTION_READ tbl_shc_real_time_sketch464
+ Stage #3
+     sk_update_pkt_1_table 3 3
+	- Edge IXBAR_READ tbl_shc_real_time_sketch476_0
+	- Edge IXBAR_READ tbl_shc_real_time_sketch468
+	- Edge IXBAR_READ cuckoo_hash_chose_table_0
+ Stage #4
+     sk_update_pkt_num_1_table 2 2
+	- Edge ACTION_READ sk_update_pkt_1_table
+	- Edge IXBAR_READ sk_update_pkt_1_table
+ Stage #5
+     tbl_shc_real_time_sketch296 1 1
+	- Edge ACTION_READ sk_update_pkt_num_1_table
+     tbl_shc_real_time_sketch299 1 1
+	- Edge CONTROL_COND_FALSE tbl_shc_real_time_sketch296
+ Stage #6
+     tbl_shc_real_time_sketch483 0 0
+	- Edge ACTION_READ tbl_shc_real_time_sketch296
+	- Edge ACTION_READ tbl_shc_real_time_sketch299
+     tbl_shc_real_time_sketch491 0 0
+	- Edge CONTROL_COND_FALSE tbl_shc_real_time_sketch483
+

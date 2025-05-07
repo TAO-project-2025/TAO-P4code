@@ -1,0 +1,27 @@
+digraph ShcIngressParser{
+start [shape=rectangle,label="start
+(hdr.ethernet.ether_type)"]
+parse_ipv4 [shape=rectangle,label="parse_ipv4
+(hdr.ipv4.protocol)"]
+parse_udp [shape=rectangle,label="parse_udp
+(hdr.udp.dst_port)"]
+parse_vxlan [shape=rectangle,label="parse_vxlan
+(hdr.inner_ethernet.ether_type)"]
+parse_inner_ipv4 [shape=rectangle,label="parse_inner_ipv4
+(hdr.inner_ipv4.protocol)"]
+parse_cuckoo_hashes [shape=rectangle,label="parse_cuckoo_hashes"]
+accept [shape=rectangle,label="accept"]
+reject [shape=rectangle,label="reject"]
+start -> parse_ipv4 [label="16w0x800"]
+start -> accept [label="default"]
+parse_ipv4 -> parse_udp [label="8w17"]
+parse_ipv4 -> parse_cuckoo_hashes [label="8w100"]
+parse_ipv4 -> accept [label="default"]
+parse_udp -> parse_vxlan [label="16w4789"]
+parse_udp -> accept [label="default"]
+parse_vxlan -> parse_inner_ipv4 [label="16w0x800"]
+parse_vxlan -> accept [label="default"]
+parse_inner_ipv4 -> parse_cuckoo_hashes [label="8w100"]
+parse_inner_ipv4 -> accept [label="default"]
+parse_cuckoo_hashes -> accept [label="always"]
+}

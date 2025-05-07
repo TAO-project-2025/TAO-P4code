@@ -1,0 +1,2 @@
+total_insert: 131078
+table usage = 57823

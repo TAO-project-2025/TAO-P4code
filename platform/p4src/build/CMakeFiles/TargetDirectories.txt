@@ -1,0 +1,10 @@
+/share_test/platform/p4src/build/CMakeFiles/install.dir
+/share_test/platform/p4src/build/CMakeFiles/list_install_components.dir
+/share_test/platform/p4src/build/CMakeFiles/rebuild_cache.dir
+/share_test/platform/p4src/build/CMakeFiles/bf-p4c.dir
+/share_test/platform/p4src/build/CMakeFiles/install/strip.dir
+/share_test/platform/p4src/build/CMakeFiles/install/local.dir
+/share_test/platform/p4src/build/CMakeFiles/driver.dir
+/share_test/platform/p4src/build/CMakeFiles/shc_real_time_sketch.dir
+/share_test/platform/p4src/build/CMakeFiles/edit_cache.dir
+/share_test/platform/p4src/build/CMakeFiles/shc_real_time_sketch-tofino.dir

@@ -1,0 +1,623 @@
+{
+  "tables" : [
+    {
+      "name" : "tbl_shc_real_time_sketch449",
+      "actions" : [
+        {
+          "name" : "shc_real_time_sketch449",
+          "primitives" : [
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "ig_md.src_addr"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "0"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.inner_ipv4.src_addr"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "ig_md.dst_addr"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "0"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.inner_ipv4.dst_addr"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_shc_real_time_sketch453",
+      "actions" : [
+        {
+          "name" : "shc_real_time_sketch453",
+          "primitives" : [
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "ig_md.src_addr"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "0"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.ipv4.src_addr"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "ig_md.dst_addr"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "0"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.ipv4.dst_addr"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "ShcIngress.route_tbl",
+      "actions" : [
+        {
+          "name" : "ShcIngress.route_for_nexthop",
+          "primitives" : [
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "ig_md.nhop_id"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "0"
+              },
+              "src1" : {
+                "type" : "action_param",
+                "name" : "nhop_id"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "ig_intr_md_for_tm.ucast_egress_port"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "511"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "ig_intr_md.ingress_port"
+              }
+            }
+          ]
+        },
+        {
+          "name" : "ShcIngress.route_for_miss",
+          "primitives" : [
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "ig_intr_md_for_tm.ucast_egress_port"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "511"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "9w160"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "ig_intr_md_for_tm.bypass_egress"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1w1"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_shc_real_time_sketch458",
+      "actions" : [
+        {
+          "name" : "shc_real_time_sketch458",
+          "primitives" : [
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "ig_md.table_hit"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1w1"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_shc_real_time_sketch464",
+      "actions" : [
+        {
+          "name" : "shc_real_time_sketch464",
+          "primitives" : [
+            {
+              "name" : "SetFieldToHashIndexPrimitive",
+              "dst" : {
+                "type" : "phv",
+                "name" : "ig_md.cuckoo_hash_tmp"
+              },
+              "idx" : {
+                "type" : "hash",
+                "name" : "hash_ig_md.cuckoo_hash_tmp",
+                "algorithm" : "random"
+              },
+              "hash_inputs" : ["ig_md.src_addr", "ig_md.dst_addr"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_shc_real_time_sketch468",
+      "actions" : [
+        {
+          "name" : "shc_real_time_sketch468",
+          "primitives" : [
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "ig_md.cuckoo_hash_index"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "0"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "ig_md.nhop_id"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "ShcIngress.cuckoo_hash_chose_table",
+      "actions" : [
+        {
+          "name" : "NoAction",
+          "primitives" : []
+        },
+        {
+          "name" : "ShcIngress.cuckoo_hash_chose_1",
+          "primitives" : [
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "ig_md.cuckoo_hash_index"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "0"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.cuckoo_hashes.cuckoo_hash1"
+              }
+            }
+          ]
+        },
+        {
+          "name" : "ShcIngress.cuckoo_hash_chose_2",
+          "primitives" : [
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "ig_md.cuckoo_hash_index"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "0"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.cuckoo_hashes.cuckoo_hash2"
+              }
+            }
+          ]
+        },
+        {
+          "name" : "ShcIngress.cuckoo_hash_chose_3",
+          "primitives" : [
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "ig_md.cuckoo_hash_index"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "0"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.cuckoo_hashes.cuckoo_hash3"
+              }
+            }
+          ]
+        },
+        {
+          "name" : "ShcIngress.cuckoo_hash_chose_4",
+          "primitives" : [
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "ig_md.cuckoo_hash_index"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "0"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.cuckoo_hashes.cuckoo_hash4"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_shc_real_time_sketch476",
+      "actions" : [
+        {
+          "name" : "shc_real_time_sketch476",
+          "primitives" : [
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "ig_md.cuckoo_hash_index"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "16w0"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_shc_real_time_sketch476_0",
+      "actions" : [
+        {
+          "name" : "shc_real_time_sketch476_0",
+          "primitives" : [
+            {
+              "name" : "DirectAluPrimitive",
+              "operation" : "and",
+              "dst" : {
+                "type" : "phv",
+                "name" : "ig_md.cuckoo_hash_index"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "ig_md.cuckoo_hash_tmp"
+              },
+              "src2" : {
+                "type" : "immediate",
+                "name" : "16w16383"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "ShcIngress.sk.count_pkt_num_table",
+      "actions" : [
+        {
+          "name" : "ShcIngress.sk.count_pkt_num",
+          "primitives" : [
+            {
+              "name" : "ExecuteStatefulAluPrimitive",
+              "dst" : {
+                "type" : "stateful",
+                "name" : "ShcIngress.sk.pkt_num"
+              },
+              "idx" : {
+                "type" : "immediate",
+                "name" : "1w0"
+              },
+              "stateful_alu_details" : {
+                "name" : "sk_pkt_num_count",
+                "single_bit_mode" : false,
+                "output_value" : {
+                  "operand_1_type" : "memory",
+                  "operand_1_value" : "memory_lo"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "ShcIngress.sk.get_fingerprint_table",
+      "actions" : [
+        {
+          "name" : "ShcIngress.sk.get_hash_value",
+          "primitives" : [
+            {
+              "name" : "SetFieldToHashIndexPrimitive",
+              "dst" : {
+                "type" : "phv",
+                "name" : "ig_md.fingerprint"
+              },
+              "idx" : {
+                "type" : "hash",
+                "name" : "hash_ig_md.fingerprint",
+                "algorithm" : "crc_16"
+              },
+              "hash_inputs" : ["ig_md.src_addr", "ig_md.dst_addr"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "ShcIngress.sk.update_pkt_1_table",
+      "actions" : [
+        {
+          "name" : "ShcIngress.sk.update_pkt_1",
+          "primitives" : [
+            {
+              "name" : "ExecuteStatefulAluFromHashPrimitive",
+              "dst" : {
+                "type" : "stateful",
+                "name" : "ShcIngress.sk.hash1_1"
+              },
+              "idx" : {
+                "type" : "hash",
+                "name" : "hash_ShcIngress.sk.hash1_1",
+                "algorithm" : "identity"
+              },
+              "hash_inputs" : ["ig_md.cuckoo_hash_index$150"],
+              "stateful_alu_details" : {
+                "name" : "sk_pkt_update",
+                "single_bit_mode" : false,
+                "output_dst" : "ig_md.fp_cmp_re"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "ig_md.hash_index_done"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1w1"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "ShcIngress.sk.update_pkt_num_1_table",
+      "actions" : [
+        {
+          "name" : "ShcIngress.sk.update_pkt_num_1",
+          "primitives" : [
+            {
+              "name" : "ExecuteStatefulAluFromHashPrimitive",
+              "dst" : {
+                "type" : "stateful",
+                "name" : "ShcIngress.sk.hash1_1_n"
+              },
+              "idx" : {
+                "type" : "hash",
+                "name" : "hash_ShcIngress.sk.hash1_1_n",
+                "algorithm" : "identity"
+              },
+              "hash_inputs" : ["ig_md.cuckoo_hash_index$150"],
+              "stateful_alu_details" : {
+                "name" : "sk_pkt_num_0",
+                "single_bit_mode" : false,
+                "output_value" : {
+                  "operand_1_type" : "memory",
+                  "operand_1_value" : "memory_lo"
+                },
+                "output_dst" : "ig_md.cs_count"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_shc_real_time_sketch296",
+      "actions" : [
+        {
+          "name" : "shc_real_time_sketch296",
+          "primitives" : [
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "ig_md.eflag"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1w1"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_shc_real_time_sketch299",
+      "actions" : [
+        {
+          "name" : "shc_real_time_sketch299",
+          "primitives" : [
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "ig_md.eflag"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1w0"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_shc_real_time_sketch483",
+      "actions" : [
+        {
+          "name" : "shc_real_time_sketch483",
+          "primitives" : [
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "ig_intr_md_for_dprsr.digest_type"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "7"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "3w1"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_shc_real_time_sketch491",
+      "actions" : [
+        {
+          "name" : "shc_real_time_sketch491",
+          "primitives" : [
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "ig_intr_md_for_dprsr.digest_type"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "7"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "3w0"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

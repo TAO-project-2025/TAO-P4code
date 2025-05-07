@@ -1,0 +1,2636 @@
+{
+    "schema_version": "1.0.0",
+    "symbols": [
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 315,
+                    "column": 44
+                }
+            ],
+            "symbol_name": "ShcIngress.ac_num1",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 314,
+                "column": 35
+            },
+            "symbol_type": "Declaration_Instance_Type_Specialized"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 323,
+                    "column": 44
+                }
+            ],
+            "symbol_name": "ShcIngress.ac_num2",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 322,
+                "column": 35
+            },
+            "symbol_type": "Declaration_Instance_Type_Specialized"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 464,
+                    "column": 37
+                }
+            ],
+            "symbol_name": "ShcIngress.hash1",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 352,
+                "column": 43
+            },
+            "symbol_type": "Declaration_Instance_Type_Specialized"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 240,
+                    "column": 50
+                }
+            ],
+            "symbol_name": "ShcIngress.sk.hash1_1",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 239,
+                "column": 50
+            },
+            "symbol_type": "Declaration_Instance_Type_Specialized"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 265,
+                    "column": 49
+                }
+            ],
+            "symbol_name": "ShcIngress.sk.hash1_1_n",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 264,
+                "column": 51
+            },
+            "symbol_type": "Declaration_Instance_Type_Specialized"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 226,
+                    "column": 29
+                }
+            ],
+            "symbol_name": "ShcIngress.sk.hash2",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 223,
+                "column": 42
+            },
+            "symbol_type": "Declaration_Instance_Type_Specialized"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 196,
+                    "column": 44
+                }
+            ],
+            "symbol_name": "ShcIngress.sk.pkt_num",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 195,
+                "column": 35
+            },
+            "symbol_type": "Declaration_Instance_Type_Specialized"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 277,
+                    "column": 26
+                }
+            ],
+            "symbol_name": "ShcIngress.sk.pkt_num_1",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 265,
+                "column": 60
+            },
+            "symbol_type": "Declaration_Instance_Type_Specialized"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 204,
+                    "column": 25
+                }
+            ],
+            "symbol_name": "ShcIngress.sk.pkt_num_count",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 196,
+                "column": 53
+            },
+            "symbol_type": "Declaration_Instance_Type_Specialized"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 252,
+                    "column": 27
+                }
+            ],
+            "symbol_name": "ShcIngress.sk.pkt_update_1",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 240,
+                "column": 59
+            },
+            "symbol_type": "Declaration_Instance_Type_Specialized"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 528,
+                    "column": 13
+                }
+            ],
+            "symbol_name": "ShcIngressDeparser.flowkey_digest",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 521,
+                "column": 32
+            },
+            "symbol_type": "Declaration_Instance_Type_Specialized"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 560,
+                    "column": 39
+                }
+            ],
+            "symbol_name": "ShcIngressDeparser.inner_ipv4_checksum",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 524,
+                "column": 16
+            },
+            "symbol_type": "Declaration_Instance_Type_Extern"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 545,
+                    "column": 33
+                }
+            ],
+            "symbol_name": "ShcIngressDeparser.ipv4_checksum",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 523,
+                "column": 16
+            },
+            "symbol_type": "Declaration_Instance_Type_Extern"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 640,
+                    "column": 8
+                }
+            ],
+            "symbol_name": "pipe",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 638,
+                "column": 30
+            },
+            "symbol_type": "Declaration_Instance_Type_Specialized"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 402,
+                    "column": 13
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 415,
+                    "column": 26
+                }
+            ],
+            "symbol_name": "NoAction",
+            "declaration": {
+                "file": "/home/buildsde/bf-sde-9.7.0/install/share/p4c/p4include/core.p4",
+                "line": 70,
+                "column": 8
+            },
+            "symbol_type": "P4Action"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 403,
+                    "column": 13
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 409,
+                    "column": 17
+                }
+            ],
+            "symbol_name": "ShcIngress.cuckoo_hash_chose_1",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 385,
+                "column": 12
+            },
+            "symbol_type": "P4Action"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 404,
+                    "column": 13
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 410,
+                    "column": 17
+                }
+            ],
+            "symbol_name": "ShcIngress.cuckoo_hash_chose_2",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 388,
+                "column": 12
+            },
+            "symbol_type": "P4Action"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 405,
+                    "column": 13
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 411,
+                    "column": 17
+                }
+            ],
+            "symbol_name": "ShcIngress.cuckoo_hash_chose_3",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 391,
+                "column": 12
+            },
+            "symbol_type": "P4Action"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 406,
+                    "column": 13
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 412,
+                    "column": 17
+                }
+            ],
+            "symbol_name": "ShcIngress.cuckoo_hash_chose_4",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 394,
+                "column": 12
+            },
+            "symbol_type": "P4Action"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 377,
+                    "column": 13
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 379,
+                    "column": 32
+                }
+            ],
+            "symbol_name": "ShcIngress.route_for_miss",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 361,
+                "column": 12
+            },
+            "symbol_type": "P4Action"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 376,
+                    "column": 13
+                }
+            ],
+            "symbol_name": "ShcIngress.route_for_nexthop",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 354,
+                "column": 12
+            },
+            "symbol_type": "P4Action"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 209,
+                    "column": 13
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 212,
+                    "column": 32
+                }
+            ],
+            "symbol_name": "ShcIngress.sk.count_pkt_num",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 203,
+                "column": 12
+            },
+            "symbol_type": "P4Action"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 230,
+                    "column": 13
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 233,
+                    "column": 26
+                }
+            ],
+            "symbol_name": "ShcIngress.sk.get_hash_value",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 225,
+                "column": 12
+            },
+            "symbol_type": "P4Action"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 257,
+                    "column": 13
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 260,
+                    "column": 26
+                }
+            ],
+            "symbol_name": "ShcIngress.sk.update_pkt_1",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 251,
+                "column": 12
+            },
+            "symbol_type": "P4Action"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 281,
+                    "column": 13
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 284,
+                    "column": 26
+                }
+            ],
+            "symbol_name": "ShcIngress.sk.update_pkt_num_1",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 276,
+                "column": 12
+            },
+            "symbol_type": "P4Action"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 472,
+                    "column": 21
+                }
+            ],
+            "symbol_name": "ShcIngress.cuckoo_hash_chose_table",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 397,
+                "column": 11
+            },
+            "symbol_type": "P4Table"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 457,
+                    "column": 16
+                }
+            ],
+            "symbol_name": "ShcIngress.route_tbl",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 367,
+                "column": 11
+            },
+            "symbol_type": "P4Table"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 288,
+                    "column": 9
+                }
+            ],
+            "symbol_name": "ShcIngress.sk.count_pkt_num_table",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 207,
+                "column": 11
+            },
+            "symbol_type": "P4Table"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 290,
+                    "column": 9
+                }
+            ],
+            "symbol_name": "ShcIngress.sk.get_fingerprint_table",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 228,
+                "column": 11
+            },
+            "symbol_type": "P4Table"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 291,
+                    "column": 9
+                }
+            ],
+            "symbol_name": "ShcIngress.sk.update_pkt_1_table",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 255,
+                "column": 11
+            },
+            "symbol_type": "P4Table"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 294,
+                    "column": 13
+                }
+            ],
+            "symbol_name": "ShcIngress.sk.update_pkt_num_1_table",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 279,
+                "column": 11
+            },
+            "symbol_type": "P4Table"
+        },
+        {
+            "references": [],
+            "symbol_name": "tbl_shc_real_time_sketch296",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 296,
+                "column": 29
+            },
+            "symbol_type": "P4Table"
+        },
+        {
+            "references": [],
+            "symbol_name": "tbl_shc_real_time_sketch299",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 299,
+                "column": 29
+            },
+            "symbol_type": "P4Table"
+        },
+        {
+            "references": [],
+            "symbol_name": "tbl_shc_real_time_sketch449",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 449,
+                "column": 32,
+                "end_line": 450
+            },
+            "symbol_type": "P4Table"
+        },
+        {
+            "references": [],
+            "symbol_name": "tbl_shc_real_time_sketch453",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 453,
+                "column": 32,
+                "end_line": 454
+            },
+            "symbol_type": "P4Table"
+        },
+        {
+            "references": [],
+            "symbol_name": "tbl_shc_real_time_sketch458",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 458,
+                "column": 33
+            },
+            "symbol_type": "P4Table"
+        },
+        {
+            "references": [],
+            "symbol_name": "tbl_shc_real_time_sketch464",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 464,
+                "column": 35
+            },
+            "symbol_type": "P4Table"
+        },
+        {
+            "references": [],
+            "symbol_name": "tbl_shc_real_time_sketch468",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 468,
+                "column": 45
+            },
+            "symbol_type": "P4Table"
+        },
+        {
+            "references": [],
+            "symbol_name": "tbl_shc_real_time_sketch471",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 471,
+                "column": 45
+            },
+            "symbol_type": "P4Table"
+        },
+        {
+            "references": [],
+            "symbol_name": "tbl_shc_real_time_sketch476",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 476,
+                "column": 17
+            },
+            "symbol_type": "P4Table"
+        },
+        {
+            "references": [],
+            "symbol_name": "tbl_shc_real_time_sketch476_0",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 476,
+                "column": 17
+            },
+            "symbol_type": "P4Table"
+        },
+        {
+            "references": [],
+            "symbol_name": "tbl_shc_real_time_sketch483",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 483,
+                "column": 41
+            },
+            "symbol_type": "P4Table"
+        },
+        {
+            "references": [],
+            "symbol_name": "tbl_shc_real_time_sketch491",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 491,
+                "column": 41
+            },
+            "symbol_type": "P4Table"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 598,
+                    "column": 21
+                }
+            ],
+            "symbol_name": "ShcEgressParser.eg_intr_md",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 595,
+                "column": 41
+            },
+            "symbol_type": "Parameter_Type_Header"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 598,
+                    "column": 9
+                }
+            ],
+            "symbol_name": "ShcEgressParser.pkt",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 592,
+                "column": 19
+            },
+            "symbol_type": "Parameter_Type_Extern"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 318,
+                    "column": 13
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 326,
+                    "column": 13
+                }
+            ],
+            "symbol_name": "ShcIngress.ac_n",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 324,
+                "column": 55
+            },
+            "symbol_type": "Parameter_Type_Bits"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 466,
+                    "column": 16
+                }
+            ],
+            "symbol_name": "ShcIngress.hdr.cuckoo_hashes",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 305,
+                "column": 40
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 386,
+                    "column": 35
+                }
+            ],
+            "symbol_name": "ShcIngress.hdr.cuckoo_hashes.cuckoo_hash1",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 305,
+                "column": 40
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 389,
+                    "column": 35
+                }
+            ],
+            "symbol_name": "ShcIngress.hdr.cuckoo_hashes.cuckoo_hash2",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 305,
+                "column": 40
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 392,
+                    "column": 35
+                }
+            ],
+            "symbol_name": "ShcIngress.hdr.cuckoo_hashes.cuckoo_hash3",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 305,
+                "column": 40
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 395,
+                    "column": 35
+                }
+            ],
+            "symbol_name": "ShcIngress.hdr.cuckoo_hashes.cuckoo_hash4",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 305,
+                "column": 40
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 448,
+                    "column": 16
+                }
+            ],
+            "symbol_name": "ShcIngress.hdr.inner_ipv4",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 305,
+                "column": 40
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 450,
+                    "column": 34
+                }
+            ],
+            "symbol_name": "ShcIngress.hdr.inner_ipv4.dst_addr",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 305,
+                "column": 40
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 449,
+                    "column": 34
+                }
+            ],
+            "symbol_name": "ShcIngress.hdr.inner_ipv4.src_addr",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 305,
+                "column": 40
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 440,
+                    "column": 13
+                }
+            ],
+            "symbol_name": "ShcIngress.hdr.ipv4",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 305,
+                "column": 40
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 454,
+                    "column": 34
+                }
+            ],
+            "symbol_name": "ShcIngress.hdr.ipv4.dst_addr",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 305,
+                "column": 40
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 453,
+                    "column": 34
+                }
+            ],
+            "symbol_name": "ShcIngress.hdr.ipv4.src_addr",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 305,
+                "column": 40
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 483,
+                    "column": 17
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 491,
+                    "column": 17
+                }
+            ],
+            "symbol_name": "ShcIngress.ig_dprsr_md.digest_type",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 310,
+                "column": 66
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 356,
+                    "column": 38
+                }
+            ],
+            "symbol_name": "ShcIngress.ig_intr_md.ingress_port",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 308,
+                "column": 50
+            },
+            "symbol_type": "Parameter_Type_Header"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 277,
+                    "column": 9
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 295,
+                    "column": 16
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 480,
+                    "column": 22
+                }
+            ],
+            "symbol_name": "ShcIngress.ig_md.cs_count",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 306,
+                "column": 47
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 471,
+                    "column": 21
+                }
+            ],
+            "symbol_name": "ShcIngress.ig_md.cuckoo_hash_chose",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 306,
+                "column": 47
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 252,
+                    "column": 57
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 277,
+                    "column": 53
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 386,
+                    "column": 9
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 389,
+                    "column": 9
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 392,
+                    "column": 9
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 395,
+                    "column": 9
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 468,
+                    "column": 21
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 476,
+                    "column": 17
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 480,
+                    "column": 22
+                }
+            ],
+            "symbol_name": "ShcIngress.ig_md.cuckoo_hash_index",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 306,
+                "column": 47
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 464,
+                    "column": 13
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 471,
+                    "column": 55
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 476,
+                    "column": 52
+                }
+            ],
+            "symbol_name": "ShcIngress.ig_md.cuckoo_hash_tmp",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 306,
+                "column": 47
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 226,
+                    "column": 56
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 371,
+                    "column": 13
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 450,
+                    "column": 17
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 454,
+                    "column": 17
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 464,
+                    "column": 64
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 480,
+                    "column": 22
+                }
+            ],
+            "symbol_name": "ShcIngress.ig_md.dst_addr",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 306,
+                "column": 47
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 296,
+                    "column": 17
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 299,
+                    "column": 17
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 480,
+                    "column": 22
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 482,
+                    "column": 16
+                }
+            ],
+            "symbol_name": "ShcIngress.ig_md.eflag",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 306,
+                "column": 47
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 226,
+                    "column": 9
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 242,
+                    "column": 16
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 247,
+                    "column": 33
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 480,
+                    "column": 22
+                }
+            ],
+            "symbol_name": "ShcIngress.ig_md.fingerprint",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 306,
+                "column": 47
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 252,
+                    "column": 9
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 267,
+                    "column": 16
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 480,
+                    "column": 22
+                }
+            ],
+            "symbol_name": "ShcIngress.ig_md.fp_cmp_re",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 306,
+                "column": 47
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 253,
+                    "column": 9
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 293,
+                    "column": 12
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 480,
+                    "column": 22
+                }
+            ],
+            "symbol_name": "ShcIngress.ig_md.hash_index_done",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 306,
+                "column": 47
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 355,
+                    "column": 9
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 468,
+                    "column": 47
+                }
+            ],
+            "symbol_name": "ShcIngress.ig_md.nhop_id",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 306,
+                "column": 47
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 204,
+                    "column": 9
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 480,
+                    "column": 22
+                }
+            ],
+            "symbol_name": "ShcIngress.ig_md.pkt_n_c",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 306,
+                "column": 47
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 205,
+                    "column": 9
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 480,
+                    "column": 22
+                }
+            ],
+            "symbol_name": "ShcIngress.ig_md.pkt_n_done_flag",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 306,
+                "column": 47
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 226,
+                    "column": 40
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 370,
+                    "column": 13
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 449,
+                    "column": 17
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 453,
+                    "column": 17
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 464,
+                    "column": 48
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 480,
+                    "column": 22
+                }
+            ],
+            "symbol_name": "ShcIngress.ig_md.src_addr",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 306,
+                "column": 47
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 458,
+                    "column": 17
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 467,
+                    "column": 20
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 482,
+                    "column": 36
+                }
+            ],
+            "symbol_name": "ShcIngress.ig_md.table_hit",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 306,
+                "column": 47
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 363,
+                    "column": 9
+                }
+            ],
+            "symbol_name": "ShcIngress.ig_tm_md.bypass_egress",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 311,
+                "column": 60
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 356,
+                    "column": 9
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 362,
+                    "column": 9
+                }
+            ],
+            "symbol_name": "ShcIngress.ig_tm_md.ucast_egress_port",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 311,
+                "column": 60
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 199,
+                    "column": 13
+                }
+            ],
+            "symbol_name": "ShcIngress.pkt_n",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 197,
+                "column": 55
+            },
+            "symbol_type": "Parameter_Type_Bits"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 243,
+                    "column": 17
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 246,
+                    "column": 17
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 273,
+                    "column": 13
+                }
+            ],
+            "symbol_name": "ShcIngress.pkt_num_o",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 266,
+                "column": 53
+            },
+            "symbol_type": "Parameter_Type_Bits"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 198,
+                    "column": 13
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 198,
+                    "column": 29
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 199,
+                    "column": 21
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 242,
+                    "column": 37
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 247,
+                    "column": 17
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 268,
+                    "column": 17
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 268,
+                    "column": 33
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 271,
+                    "column": 17
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 273,
+                    "column": 25
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 317,
+                    "column": 13
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 317,
+                    "column": 29
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 318,
+                    "column": 20
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 325,
+                    "column": 13
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 325,
+                    "column": 29
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 326,
+                    "column": 20
+                }
+            ],
+            "symbol_name": "ShcIngress.register_data",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 266,
+                "column": 27
+            },
+            "symbol_type": "Parameter_Type_Bits"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 355,
+                    "column": 25
+                }
+            ],
+            "symbol_name": "ShcIngress.route_for_nexthop.nhop_id",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 354,
+                "column": 38
+            },
+            "symbol_type": "Parameter_Type_Bits"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 574,
+                    "column": 18
+                }
+            ],
+            "symbol_name": "ShcIngressDeparser.hdr.ethernet",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 517,
+                "column": 24
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 578,
+                    "column": 18
+                }
+            ],
+            "symbol_name": "ShcIngressDeparser.hdr.inner_ethernet",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 517,
+                "column": 24
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 579,
+                    "column": 18
+                }
+            ],
+            "symbol_name": "ShcIngressDeparser.hdr.inner_ipv4",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 517,
+                "column": 24
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 563,
+                    "column": 13
+                }
+            ],
+            "symbol_name": "ShcIngressDeparser.hdr.inner_ipv4.dscp",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 517,
+                "column": 24
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 572,
+                    "column": 13
+                }
+            ],
+            "symbol_name": "ShcIngressDeparser.hdr.inner_ipv4.dst_addr",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 517,
+                "column": 24
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 564,
+                    "column": 13
+                }
+            ],
+            "symbol_name": "ShcIngressDeparser.hdr.inner_ipv4.ecn",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 517,
+                "column": 24
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 567,
+                    "column": 13
+                }
+            ],
+            "symbol_name": "ShcIngressDeparser.hdr.inner_ipv4.flags",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 517,
+                "column": 24
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 568,
+                    "column": 13
+                }
+            ],
+            "symbol_name": "ShcIngressDeparser.hdr.inner_ipv4.frag_offset",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 517,
+                "column": 24
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 560,
+                    "column": 9
+                }
+            ],
+            "symbol_name": "ShcIngressDeparser.hdr.inner_ipv4.hdr_checksum",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 517,
+                "column": 24
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 566,
+                    "column": 13
+                }
+            ],
+            "symbol_name": "ShcIngressDeparser.hdr.inner_ipv4.identification",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 517,
+                "column": 24
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 562,
+                    "column": 13
+                }
+            ],
+            "symbol_name": "ShcIngressDeparser.hdr.inner_ipv4.ihl",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 517,
+                "column": 24
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 570,
+                    "column": 13
+                }
+            ],
+            "symbol_name": "ShcIngressDeparser.hdr.inner_ipv4.protocol",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 517,
+                "column": 24
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 571,
+                    "column": 13
+                }
+            ],
+            "symbol_name": "ShcIngressDeparser.hdr.inner_ipv4.src_addr",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 517,
+                "column": 24
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 565,
+                    "column": 13
+                }
+            ],
+            "symbol_name": "ShcIngressDeparser.hdr.inner_ipv4.total_len",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 517,
+                "column": 24
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 569,
+                    "column": 13
+                }
+            ],
+            "symbol_name": "ShcIngressDeparser.hdr.inner_ipv4.ttl",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 517,
+                "column": 24
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 561,
+                    "column": 13
+                }
+            ],
+            "symbol_name": "ShcIngressDeparser.hdr.inner_ipv4.version",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 517,
+                "column": 24
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 575,
+                    "column": 18
+                }
+            ],
+            "symbol_name": "ShcIngressDeparser.hdr.ipv4",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 517,
+                "column": 24
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 548,
+                    "column": 13
+                }
+            ],
+            "symbol_name": "ShcIngressDeparser.hdr.ipv4.dscp",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 517,
+                "column": 24
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 557,
+                    "column": 13
+                }
+            ],
+            "symbol_name": "ShcIngressDeparser.hdr.ipv4.dst_addr",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 517,
+                "column": 24
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 549,
+                    "column": 13
+                }
+            ],
+            "symbol_name": "ShcIngressDeparser.hdr.ipv4.ecn",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 517,
+                "column": 24
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 552,
+                    "column": 13
+                }
+            ],
+            "symbol_name": "ShcIngressDeparser.hdr.ipv4.flags",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 517,
+                "column": 24
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 553,
+                    "column": 13
+                }
+            ],
+            "symbol_name": "ShcIngressDeparser.hdr.ipv4.frag_offset",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 517,
+                "column": 24
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 545,
+                    "column": 9
+                }
+            ],
+            "symbol_name": "ShcIngressDeparser.hdr.ipv4.hdr_checksum",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 517,
+                "column": 24
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 551,
+                    "column": 13
+                }
+            ],
+            "symbol_name": "ShcIngressDeparser.hdr.ipv4.identification",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 517,
+                "column": 24
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 547,
+                    "column": 13
+                }
+            ],
+            "symbol_name": "ShcIngressDeparser.hdr.ipv4.ihl",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 517,
+                "column": 24
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 555,
+                    "column": 13
+                }
+            ],
+            "symbol_name": "ShcIngressDeparser.hdr.ipv4.protocol",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 517,
+                "column": 24
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 556,
+                    "column": 13
+                }
+            ],
+            "symbol_name": "ShcIngressDeparser.hdr.ipv4.src_addr",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 517,
+                "column": 24
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 550,
+                    "column": 13
+                }
+            ],
+            "symbol_name": "ShcIngressDeparser.hdr.ipv4.total_len",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 517,
+                "column": 24
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 554,
+                    "column": 13
+                }
+            ],
+            "symbol_name": "ShcIngressDeparser.hdr.ipv4.ttl",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 517,
+                "column": 24
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 546,
+                    "column": 13
+                }
+            ],
+            "symbol_name": "ShcIngressDeparser.hdr.ipv4.version",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 517,
+                "column": 24
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 576,
+                    "column": 18
+                }
+            ],
+            "symbol_name": "ShcIngressDeparser.hdr.udp",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 517,
+                "column": 24
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 577,
+                    "column": 18
+                }
+            ],
+            "symbol_name": "ShcIngressDeparser.hdr.vxlan",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 517,
+                "column": 24
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 527,
+                    "column": 12
+                }
+            ],
+            "symbol_name": "ShcIngressDeparser.ig_dprsr_md.digest_type",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 519,
+                "column": 50
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 539,
+                    "column": 17
+                }
+            ],
+            "symbol_name": "ShcIngressDeparser.ig_md.ac_count",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 518,
+                "column": 31
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 530,
+                    "column": 17
+                }
+            ],
+            "symbol_name": "ShcIngressDeparser.ig_md.dst_addr",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 518,
+                "column": 31
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 529,
+                    "column": 17
+                }
+            ],
+            "symbol_name": "ShcIngressDeparser.ig_md.src_addr",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 518,
+                "column": 31
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 574,
+                    "column": 9
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 575,
+                    "column": 9
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 576,
+                    "column": 9
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 577,
+                    "column": 9
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 578,
+                    "column": 9
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 579,
+                    "column": 9
+                }
+            ],
+            "symbol_name": "ShcIngressDeparser.pkt",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 516,
+                "column": 16
+            },
+            "symbol_type": "Parameter_Type_Extern"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 184,
+                    "column": 21
+                }
+            ],
+            "symbol_name": "ShcIngressParser.hdr.cuckoo_hashes",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 113,
+                "column": 26
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 129,
+                    "column": 21
+                }
+            ],
+            "symbol_name": "ShcIngressParser.hdr.ethernet",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 113,
+                "column": 26
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 130,
+                    "column": 27
+                }
+            ],
+            "symbol_name": "ShcIngressParser.hdr.ethernet.ether_type",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 113,
+                "column": 26
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 165,
+                    "column": 21
+                }
+            ],
+            "symbol_name": "ShcIngressParser.hdr.inner_ethernet",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 113,
+                "column": 26
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 166,
+                    "column": 27
+                }
+            ],
+            "symbol_name": "ShcIngressParser.hdr.inner_ethernet.ether_type",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 113,
+                "column": 26
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 173,
+                    "column": 21
+                }
+            ],
+            "symbol_name": "ShcIngressParser.hdr.inner_ipv4",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 113,
+                "column": 26
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 176,
+                    "column": 27
+                }
+            ],
+            "symbol_name": "ShcIngressParser.hdr.inner_ipv4.protocol",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 113,
+                "column": 26
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 138,
+                    "column": 21
+                }
+            ],
+            "symbol_name": "ShcIngressParser.hdr.ipv4",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 113,
+                "column": 26
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 141,
+                    "column": 27
+                }
+            ],
+            "symbol_name": "ShcIngressParser.hdr.ipv4.protocol",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 113,
+                "column": 26
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 150,
+                    "column": 21
+                }
+            ],
+            "symbol_name": "ShcIngressParser.hdr.udp",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 113,
+                "column": 26
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 151,
+                    "column": 27
+                }
+            ],
+            "symbol_name": "ShcIngressParser.hdr.udp.dst_port",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 113,
+                "column": 26
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 158,
+                    "column": 21
+                }
+            ],
+            "symbol_name": "ShcIngressParser.hdr.vxlan",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 113,
+                "column": 26
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 159,
+                    "column": 21
+                }
+            ],
+            "symbol_name": "ShcIngressParser.hdr.vxlan.vni",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 113,
+                "column": 26
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 118,
+                    "column": 21
+                }
+            ],
+            "symbol_name": "ShcIngressParser.ig_intr_md",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 115,
+                "column": 42
+            },
+            "symbol_type": "Parameter_Type_Header"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 122,
+                    "column": 9
+                }
+            ],
+            "symbol_name": "ShcIngressParser.ig_md.cs_count",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 114,
+                "column": 36
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 120,
+                    "column": 9
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 160,
+                    "column": 9
+                }
+            ],
+            "symbol_name": "ShcIngressParser.ig_md.eflag",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 114,
+                "column": 36
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 121,
+                    "column": 9
+                }
+            ],
+            "symbol_name": "ShcIngressParser.ig_md.table_hit",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 114,
+                "column": 36
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 159,
+                    "column": 9
+                }
+            ],
+            "symbol_name": "ShcIngressParser.ig_md.vni",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 114,
+                "column": 36
+            },
+            "symbol_type": "Parameter_Type_Struct"
+        },
+        {
+            "references": [
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 118,
+                    "column": 9
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 119,
+                    "column": 9
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 129,
+                    "column": 9
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 138,
+                    "column": 9
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 150,
+                    "column": 9
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 158,
+                    "column": 9
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 165,
+                    "column": 9
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 173,
+                    "column": 9
+                },
+                {
+                    "file": "shc_real_time_sketch.p4",
+                    "line": 184,
+                    "column": 9
+                }
+            ],
+            "symbol_name": "ShcIngressParser.pkt",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 112,
+                "column": 19
+            },
+            "symbol_type": "Parameter_Type_Extern"
+        },
+        {
+            "references": [],
+            "symbol_name": "cond-1",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 440,
+                "column": 9
+            },
+            "symbol_type": "IfStatement"
+        },
+        {
+            "references": [],
+            "symbol_name": "cond-2",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 448,
+                "column": 13
+            },
+            "symbol_type": "IfStatement"
+        },
+        {
+            "references": [],
+            "symbol_name": "cond-3",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 466,
+                "column": 13
+            },
+            "symbol_type": "IfStatement"
+        },
+        {
+            "references": [],
+            "symbol_name": "cond-4",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 467,
+                "column": 17
+            },
+            "symbol_type": "IfStatement"
+        },
+        {
+            "references": [],
+            "symbol_name": "cond-5",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 293,
+                "column": 9
+            },
+            "symbol_type": "IfStatement"
+        },
+        {
+            "references": [],
+            "symbol_name": "cond-6",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 295,
+                "column": 13
+            },
+            "symbol_type": "IfStatement"
+        },
+        {
+            "references": [],
+            "symbol_name": "cond-7",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 482,
+                "column": 13
+            },
+            "symbol_type": "IfStatement"
+        },
+        {
+            "references": [],
+            "symbol_name": "cond-8",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 440,
+                "column": 9
+            },
+            "symbol_type": "IfStatement"
+        },
+        {
+            "references": [],
+            "symbol_name": "cond-9",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 448,
+                "column": 13
+            },
+            "symbol_type": "IfStatement"
+        },
+        {
+            "references": [],
+            "symbol_name": "cond-10",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 466,
+                "column": 13
+            },
+            "symbol_type": "IfStatement"
+        },
+        {
+            "references": [],
+            "symbol_name": "cond-11",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 467,
+                "column": 17
+            },
+            "symbol_type": "IfStatement"
+        },
+        {
+            "references": [],
+            "symbol_name": "cond-12",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 293,
+                "column": 9
+            },
+            "symbol_type": "IfStatement"
+        },
+        {
+            "references": [],
+            "symbol_name": "cond-13",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 295,
+                "column": 13
+            },
+            "symbol_type": "IfStatement"
+        },
+        {
+            "references": [],
+            "symbol_name": "cond-14",
+            "declaration": {
+                "file": "shc_real_time_sketch.p4",
+                "line": 482,
+                "column": 13
+            },
+            "symbol_type": "IfStatement"
+        }
+    ],
+    "source_root": "/share_test/platform/p4src"
+}

@@ -1,0 +1,6874 @@
+{
+  "schema_version": "2.4.0",
+  "resources": {
+    "parser": {
+      "parsers": [
+        {
+          "gress": "egress",
+          "states": [
+            {
+              "shifts": 27,
+              "previous_state_name": "$entry_point.start",
+              "extracts": [
+                {
+                  "buffer_offset": 0,
+                  "bit_width": 16,
+                  "extractor_id": 0,
+                  "dest_container": 144
+                }
+              ],
+              "next_state_id": 3,
+              "tcam_row": 255,
+              "has_counter": false,
+              "next_state_name": "END",
+              "previous_state_id": 10,
+              "matchesOn": []
+            }
+          ],
+          "nStates": 256,
+          "parser_id": 0
+        },
+        {
+          "gress": "ingress",
+          "states": [
+            {
+              "shifts": 0,
+              "previous_state_name": "$entry_point",
+              "extracts": [],
+              "next_state_id": 0,
+              "tcam_row": 255,
+              "has_counter": false,
+              "savesTo": [
+                {
+                  "buffer_offset": 28,
+                  "hardware_id": 0
+                }
+              ],
+              "next_state_name": "start",
+              "previous_state_id": 1,
+              "matchesOn": []
+            },
+            {
+              "shifts": 30,
+              "previous_state_name": "start",
+              "extracts": [
+                {
+                  "buffer_offset": 0,
+                  "bit_width": 16,
+                  "extractor_id": 0,
+                  "dest_container": 128
+                },
+                {
+                  "buffer_offset": 16,
+                  "bit_width": 16,
+                  "extractor_id": 1,
+                  "dest_container": 330
+                },
+                {
+                  "buffer_offset": 18,
+                  "bit_width": 32,
+                  "extractor_id": 0,
+                  "dest_container": 261
+                },
+                {
+                  "buffer_offset": 22,
+                  "bit_width": 16,
+                  "extractor_id": 2,
+                  "dest_container": 329
+                },
+                {
+                  "buffer_offset": 24,
+                  "bit_width": 32,
+                  "extractor_id": 1,
+                  "dest_container": 260
+                },
+                {
+                  "buffer_offset": 28,
+                  "bit_width": 16,
+                  "extractor_id": 3,
+                  "dest_container": 328
+                },
+                {
+                  "bit_width": 8,
+                  "extractor_id": 0,
+                  "dest_container": 66,
+                  "constant_value": 1
+                }
+              ],
+              "next_state_id": 2,
+              "tcam_row": 254,
+              "has_counter": false,
+              "next_state_name": "parse_ipv4",
+              "previous_state_id": 0,
+              "matchesOn": [
+                {
+                  "value": "0x0800",
+                  "hardware_id": 0,
+                  "bit_width": 16
+                }
+              ]
+            },
+            {
+              "shifts": 30,
+              "previous_state_name": "start",
+              "extracts": [
+                {
+                  "buffer_offset": 0,
+                  "bit_width": 16,
+                  "extractor_id": 0,
+                  "dest_container": 128
+                },
+                {
+                  "buffer_offset": 16,
+                  "bit_width": 16,
+                  "extractor_id": 1,
+                  "dest_container": 330
+                },
+                {
+                  "buffer_offset": 18,
+                  "bit_width": 32,
+                  "extractor_id": 0,
+                  "dest_container": 261
+                },
+                {
+                  "buffer_offset": 22,
+                  "bit_width": 16,
+                  "extractor_id": 2,
+                  "dest_container": 329
+                },
+                {
+                  "buffer_offset": 24,
+                  "bit_width": 32,
+                  "extractor_id": 1,
+                  "dest_container": 260
+                },
+                {
+                  "buffer_offset": 28,
+                  "bit_width": 16,
+                  "extractor_id": 3,
+                  "dest_container": 328
+                },
+                {
+                  "bit_width": 8,
+                  "extractor_id": 0,
+                  "dest_container": 66,
+                  "constant_value": 1
+                }
+              ],
+              "next_state_id": 3,
+              "tcam_row": 253,
+              "has_counter": false,
+              "next_state_name": "END",
+              "previous_state_id": 0,
+              "matchesOn": [
+                {
+                  "value": "0x****",
+                  "hardware_id": 0,
+                  "bit_width": 16
+                }
+              ]
+            },
+            {
+              "shifts": 20,
+              "previous_state_name": "parse_ipv4",
+              "extracts": [
+                {
+                  "buffer_offset": 0,
+                  "bit_width": 16,
+                  "extractor_id": 0,
+                  "dest_container": 327
+                },
+                {
+                  "buffer_offset": 2,
+                  "bit_width": 8,
+                  "extractor_id": 0,
+                  "dest_container": 291
+                },
+                {
+                  "buffer_offset": 3,
+                  "bit_width": 8,
+                  "extractor_id": 1,
+                  "dest_container": 290
+                },
+                {
+                  "buffer_offset": 4,
+                  "bit_width": 8,
+                  "extractor_id": 2,
+                  "dest_container": 289
+                },
+                {
+                  "buffer_offset": 5,
+                  "bit_width": 8,
+                  "extractor_id": 3,
+                  "dest_container": 288
+                },
+                {
+                  "buffer_offset": 6,
+                  "bit_width": 32,
+                  "extractor_id": 0,
+                  "dest_container": 257
+                },
+                {
+                  "buffer_offset": 8,
+                  "bit_width": 32,
+                  "extractor_id": 1,
+                  "dest_container": 265
+                },
+                {
+                  "buffer_offset": 12,
+                  "bit_width": 32,
+                  "extractor_id": 2,
+                  "dest_container": 4
+                },
+                {
+                  "buffer_offset": 16,
+                  "bit_width": 32,
+                  "extractor_id": 3,
+                  "dest_container": 1
+                }
+              ],
+              "next_state_id": 4,
+              "tcam_row": 252,
+              "has_counter": false,
+              "savesTo": [
+                {
+                  "buffer_offset": 9,
+                  "hardware_id": 2
+                }
+              ],
+              "next_state_name": "parse_ipv4.$split_0",
+              "previous_state_id": 2,
+              "matchesOn": []
+            },
+            {
+              "shifts": 0,
+              "previous_state_name": "parse_ipv4.$split_0",
+              "extracts": [
+                {
+                  "bit_width": 8,
+                  "extractor_id": 0,
+                  "dest_container": 66,
+                  "constant_value": 2
+                }
+              ],
+              "next_state_id": 5,
+              "tcam_row": 251,
+              "has_counter": false,
+              "savesTo": [
+                {
+                  "buffer_offset": 2,
+                  "hardware_id": 0
+                }
+              ],
+              "next_state_name": "parse_udp",
+              "previous_state_id": 4,
+              "matchesOn": [
+                {
+                  "value": "0x11",
+                  "hardware_id": 2,
+                  "bit_width": 8
+                }
+              ]
+            },
+            {
+              "shifts": 0,
+              "previous_state_name": "parse_ipv4.$split_0",
+              "extracts": [
+                {
+                  "bit_width": 8,
+                  "extractor_id": 0,
+                  "dest_container": 66,
+                  "constant_value": 2
+                }
+              ],
+              "next_state_id": 6,
+              "tcam_row": 250,
+              "has_counter": false,
+              "next_state_name": "parse_cuckoo_hashes",
+              "previous_state_id": 4,
+              "matchesOn": [
+                {
+                  "value": "0x64",
+                  "hardware_id": 2,
+                  "bit_width": 8
+                }
+              ]
+            },
+            {
+              "shifts": 0,
+              "previous_state_name": "parse_ipv4.$split_0",
+              "extracts": [
+                {
+                  "bit_width": 8,
+                  "extractor_id": 0,
+                  "dest_container": 66,
+                  "constant_value": 2
+                }
+              ],
+              "next_state_id": 3,
+              "tcam_row": 249,
+              "has_counter": false,
+              "next_state_name": "END",
+              "previous_state_id": 4,
+              "matchesOn": [
+                {
+                  "value": "0x**",
+                  "hardware_id": 2,
+                  "bit_width": 8
+                }
+              ]
+            },
+            {
+              "shifts": 8,
+              "previous_state_name": "parse_udp",
+              "extracts": [
+                {
+                  "buffer_offset": 0,
+                  "bit_width": 32,
+                  "extractor_id": 0,
+                  "dest_container": 259
+                },
+                {
+                  "buffer_offset": 4,
+                  "bit_width": 32,
+                  "extractor_id": 1,
+                  "dest_container": 258
+                },
+                {
+                  "bit_width": 8,
+                  "extractor_id": 0,
+                  "dest_container": 66,
+                  "constant_value": 4
+                }
+              ],
+              "next_state_id": 7,
+              "tcam_row": 248,
+              "has_counter": false,
+              "next_state_name": "parse_vxlan",
+              "previous_state_id": 5,
+              "matchesOn": [
+                {
+                  "value": "0x12b5",
+                  "hardware_id": 0,
+                  "bit_width": 16
+                }
+              ]
+            },
+            {
+              "shifts": 8,
+              "previous_state_name": "parse_udp",
+              "extracts": [
+                {
+                  "buffer_offset": 0,
+                  "bit_width": 32,
+                  "extractor_id": 0,
+                  "dest_container": 259
+                },
+                {
+                  "buffer_offset": 4,
+                  "bit_width": 32,
+                  "extractor_id": 1,
+                  "dest_container": 258
+                },
+                {
+                  "bit_width": 8,
+                  "extractor_id": 0,
+                  "dest_container": 66,
+                  "constant_value": 4
+                }
+              ],
+              "next_state_id": 3,
+              "tcam_row": 247,
+              "has_counter": false,
+              "next_state_name": "END",
+              "previous_state_id": 5,
+              "matchesOn": [
+                {
+                  "value": "0x****",
+                  "hardware_id": 0,
+                  "bit_width": 16
+                }
+              ]
+            },
+            {
+              "shifts": 20,
+              "previous_state_name": "parse_vxlan",
+              "extracts": [
+                {
+                  "buffer_offset": 0,
+                  "bit_width": 16,
+                  "extractor_id": 0,
+                  "dest_container": 323
+                },
+                {
+                  "buffer_offset": 2,
+                  "bit_width": 16,
+                  "extractor_id": 1,
+                  "dest_container": 322
+                },
+                {
+                  "buffer_offset": 4,
+                  "bit_width": 16,
+                  "extractor_id": 2,
+                  "dest_container": 321
+                },
+                {
+                  "buffer_offset": 6,
+                  "bit_width": 16,
+                  "extractor_id": 3,
+                  "dest_container": 320
+                },
+                {
+                  "buffer_offset": 8,
+                  "bit_width": 8,
+                  "extractor_id": 0,
+                  "dest_container": 295
+                },
+                {
+                  "buffer_offset": 9,
+                  "bit_width": 8,
+                  "extractor_id": 1,
+                  "dest_container": 294
+                },
+                {
+                  "buffer_offset": 10,
+                  "bit_width": 32,
+                  "extractor_id": 0,
+                  "dest_container": 263
+                },
+                {
+                  "buffer_offset": 14,
+                  "bit_width": 8,
+                  "extractor_id": 2,
+                  "dest_container": 293
+                },
+                {
+                  "buffer_offset": 15,
+                  "bit_width": 8,
+                  "extractor_id": 3,
+                  "dest_container": 292
+                },
+                {
+                  "buffer_offset": 16,
+                  "bit_width": 32,
+                  "extractor_id": 1,
+                  "dest_container": 262
+                }
+              ],
+              "next_state_id": 8,
+              "tcam_row": 246,
+              "has_counter": false,
+              "savesTo": [
+                {
+                  "buffer_offset": 20,
+                  "hardware_id": 0
+                }
+              ],
+              "next_state_name": "parse_vxlan.$split_0",
+              "previous_state_id": 7,
+              "matchesOn": []
+            },
+            {
+              "shifts": 2,
+              "previous_state_name": "parse_vxlan.$split_0",
+              "extracts": [
+                {
+                  "buffer_offset": 0,
+                  "bit_width": 16,
+                  "extractor_id": 0,
+                  "dest_container": 331
+                },
+                {
+                  "bit_width": 8,
+                  "extractor_id": 0,
+                  "dest_container": 66,
+                  "constant_value": 24
+                }
+              ],
+              "next_state_id": 9,
+              "tcam_row": 245,
+              "has_counter": false,
+              "savesTo": [
+                {
+                  "buffer_offset": 11,
+                  "hardware_id": 2
+                }
+              ],
+              "next_state_name": "parse_inner_ipv4",
+              "previous_state_id": 8,
+              "matchesOn": [
+                {
+                  "value": "0x0800",
+                  "hardware_id": 0,
+                  "bit_width": 16
+                }
+              ]
+            },
+            {
+              "shifts": 2,
+              "previous_state_name": "parse_vxlan.$split_0",
+              "extracts": [
+                {
+                  "buffer_offset": 0,
+                  "bit_width": 16,
+                  "extractor_id": 0,
+                  "dest_container": 331
+                },
+                {
+                  "bit_width": 8,
+                  "extractor_id": 0,
+                  "dest_container": 66,
+                  "constant_value": 24
+                }
+              ],
+              "next_state_id": 3,
+              "tcam_row": 244,
+              "has_counter": false,
+              "next_state_name": "END",
+              "previous_state_id": 8,
+              "matchesOn": [
+                {
+                  "value": "0x****",
+                  "hardware_id": 0,
+                  "bit_width": 16
+                }
+              ]
+            },
+            {
+              "shifts": 20,
+              "previous_state_name": "parse_inner_ipv4",
+              "extracts": [
+                {
+                  "buffer_offset": 0,
+                  "bit_width": 16,
+                  "extractor_id": 0,
+                  "dest_container": 326
+                },
+                {
+                  "buffer_offset": 2,
+                  "bit_width": 16,
+                  "extractor_id": 1,
+                  "dest_container": 325
+                },
+                {
+                  "buffer_offset": 4,
+                  "bit_width": 16,
+                  "extractor_id": 2,
+                  "dest_container": 324
+                },
+                {
+                  "buffer_offset": 6,
+                  "bit_width": 32,
+                  "extractor_id": 0,
+                  "dest_container": 256
+                },
+                {
+                  "buffer_offset": 8,
+                  "bit_width": 32,
+                  "extractor_id": 1,
+                  "dest_container": 264
+                },
+                {
+                  "buffer_offset": 12,
+                  "bit_width": 32,
+                  "extractor_id": 2,
+                  "dest_container": 3
+                },
+                {
+                  "buffer_offset": 16,
+                  "bit_width": 32,
+                  "extractor_id": 3,
+                  "dest_container": 0
+                },
+                {
+                  "bit_width": 8,
+                  "extractor_id": 0,
+                  "dest_container": 66,
+                  "constant_value": 32
+                }
+              ],
+              "next_state_id": 6,
+              "tcam_row": 243,
+              "has_counter": false,
+              "next_state_name": "parse_cuckoo_hashes",
+              "previous_state_id": 9,
+              "matchesOn": [
+                {
+                  "value": "0x64",
+                  "hardware_id": 2,
+                  "bit_width": 8
+                }
+              ]
+            },
+            {
+              "shifts": 20,
+              "previous_state_name": "parse_inner_ipv4",
+              "extracts": [
+                {
+                  "buffer_offset": 0,
+                  "bit_width": 16,
+                  "extractor_id": 0,
+                  "dest_container": 326
+                },
+                {
+                  "buffer_offset": 2,
+                  "bit_width": 16,
+                  "extractor_id": 1,
+                  "dest_container": 325
+                },
+                {
+                  "buffer_offset": 4,
+                  "bit_width": 16,
+                  "extractor_id": 2,
+                  "dest_container": 324
+                },
+                {
+                  "buffer_offset": 6,
+                  "bit_width": 32,
+                  "extractor_id": 0,
+                  "dest_container": 256
+                },
+                {
+                  "buffer_offset": 8,
+                  "bit_width": 32,
+                  "extractor_id": 1,
+                  "dest_container": 264
+                },
+                {
+                  "buffer_offset": 12,
+                  "bit_width": 32,
+                  "extractor_id": 2,
+                  "dest_container": 3
+                },
+                {
+                  "buffer_offset": 16,
+                  "bit_width": 32,
+                  "extractor_id": 3,
+                  "dest_container": 0
+                },
+                {
+                  "bit_width": 8,
+                  "extractor_id": 0,
+                  "dest_container": 66,
+                  "constant_value": 32
+                }
+              ],
+              "next_state_id": 3,
+              "tcam_row": 242,
+              "has_counter": false,
+              "next_state_name": "END",
+              "previous_state_id": 9,
+              "matchesOn": [
+                {
+                  "value": "0x**",
+                  "hardware_id": 2,
+                  "bit_width": 8
+                }
+              ]
+            },
+            {
+              "shifts": 16,
+              "previous_state_name": "parse_cuckoo_hashes",
+              "extracts": [
+                {
+                  "buffer_offset": 0,
+                  "bit_width": 32,
+                  "extractor_id": 0,
+                  "dest_container": 6
+                },
+                {
+                  "buffer_offset": 4,
+                  "bit_width": 32,
+                  "extractor_id": 1,
+                  "dest_container": 7
+                },
+                {
+                  "buffer_offset": 8,
+                  "bit_width": 32,
+                  "extractor_id": 2,
+                  "dest_container": 8
+                },
+                {
+                  "buffer_offset": 12,
+                  "bit_width": 32,
+                  "extractor_id": 3,
+                  "dest_container": 9
+                },
+                {
+                  "bit_width": 8,
+                  "extractor_id": 0,
+                  "dest_container": 66,
+                  "constant_value": 64
+                }
+              ],
+              "next_state_id": 3,
+              "tcam_row": 241,
+              "has_counter": false,
+              "next_state_name": "END",
+              "previous_state_id": 6,
+              "matchesOn": []
+            }
+          ],
+          "nStates": 256,
+          "phase0": {
+            "used_by": "ShcIngressParser.$PORT_METADATA",
+            "used_for": "set_port_metadata"
+          },
+          "parser_id": 0
+        }
+      ],
+      "nParsers": 18
+    },
+    "deparser": [
+      {
+        "gress": "ingress",
+        "mirror_table": {
+          "nTables": 0,
+          "table_phv": [],
+          "maxBytes": 0
+        },
+        "fde_entries": [
+          {
+            "entry": 0,
+            "chunks": [
+              {
+                "chunk": {
+                  "phv_container": 330
+                },
+                "chunk_number": 0
+              },
+              {
+                "chunk": {
+                  "phv_container": 330
+                },
+                "chunk_number": 1
+              },
+              {
+                "chunk": {
+                  "phv_container": 261
+                },
+                "chunk_number": 2
+              },
+              {
+                "chunk": {
+                  "phv_container": 261
+                },
+                "chunk_number": 3
+              }
+            ],
+            "pov_name": "hdr.ethernet.$valid",
+            "pov_bit": 0
+          },
+          {
+            "entry": 1,
+            "chunks": [
+              {
+                "chunk": {
+                  "phv_container": 261
+                },
+                "chunk_number": 0
+              },
+              {
+                "chunk": {
+                  "phv_container": 261
+                },
+                "chunk_number": 1
+              },
+              {
+                "chunk": {
+                  "phv_container": 329
+                },
+                "chunk_number": 2
+              },
+              {
+                "chunk": {
+                  "phv_container": 329
+                },
+                "chunk_number": 3
+              }
+            ],
+            "pov_name": "hdr.ethernet.$valid",
+            "pov_bit": 0
+          },
+          {
+            "entry": 2,
+            "chunks": [
+              {
+                "chunk": {
+                  "phv_container": 260
+                },
+                "chunk_number": 0
+              },
+              {
+                "chunk": {
+                  "phv_container": 260
+                },
+                "chunk_number": 1
+              },
+              {
+                "chunk": {
+                  "phv_container": 260
+                },
+                "chunk_number": 2
+              },
+              {
+                "chunk": {
+                  "phv_container": 260
+                },
+                "chunk_number": 3
+              }
+            ],
+            "pov_name": "hdr.ethernet.$valid",
+            "pov_bit": 0
+          },
+          {
+            "entry": 3,
+            "chunks": [
+              {
+                "chunk": {
+                  "phv_container": 328
+                },
+                "chunk_number": 0
+              },
+              {
+                "chunk": {
+                  "phv_container": 328
+                },
+                "chunk_number": 1
+              }
+            ],
+            "pov_name": "hdr.ethernet.$valid",
+            "pov_bit": 0
+          },
+          {
+            "entry": 4,
+            "chunks": [
+              {
+                "chunk": {
+                  "phv_container": 327
+                },
+                "chunk_number": 0
+              },
+              {
+                "chunk": {
+                  "phv_container": 327
+                },
+                "chunk_number": 1
+              },
+              {
+                "chunk": {
+                  "phv_container": 291
+                },
+                "chunk_number": 2
+              },
+              {
+                "chunk": {
+                  "phv_container": 290
+                },
+                "chunk_number": 3
+              }
+            ],
+            "pov_name": "hdr.ipv4.$valid",
+            "pov_bit": 1
+          },
+          {
+            "entry": 5,
+            "chunks": [
+              {
+                "chunk": {
+                  "phv_container": 289
+                },
+                "chunk_number": 0
+              },
+              {
+                "chunk": {
+                  "phv_container": 288
+                },
+                "chunk_number": 1
+              },
+              {
+                "chunk": {
+                  "phv_container": 257
+                },
+                "chunk_number": 2
+              },
+              {
+                "chunk": {
+                  "phv_container": 257
+                },
+                "chunk_number": 3
+              }
+            ],
+            "pov_name": "hdr.ipv4.$valid",
+            "pov_bit": 1
+          },
+          {
+            "entry": 6,
+            "chunks": [
+              {
+                "chunk": {
+                  "phv_container": 257
+                },
+                "chunk_number": 0
+              },
+              {
+                "chunk": {
+                  "phv_container": 257
+                },
+                "chunk_number": 1
+              },
+              {
+                "chunk": {
+                  "csum_engine": 0
+                },
+                "chunk_number": 2
+              },
+              {
+                "chunk": {
+                  "csum_engine": 0
+                },
+                "chunk_number": 3
+              }
+            ],
+            "pov_name": "hdr.ipv4.$valid",
+            "pov_bit": 1
+          },
+          {
+            "entry": 7,
+            "chunks": [
+              {
+                "chunk": {
+                  "phv_container": 4
+                },
+                "chunk_number": 0
+              },
+              {
+                "chunk": {
+                  "phv_container": 4
+                },
+                "chunk_number": 1
+              },
+              {
+                "chunk": {
+                  "phv_container": 4
+                },
+                "chunk_number": 2
+              },
+              {
+                "chunk": {
+                  "phv_container": 4
+                },
+                "chunk_number": 3
+              }
+            ],
+            "pov_name": "hdr.ipv4.$valid",
+            "pov_bit": 1
+          },
+          {
+            "entry": 8,
+            "chunks": [
+              {
+                "chunk": {
+                  "phv_container": 1
+                },
+                "chunk_number": 0
+              },
+              {
+                "chunk": {
+                  "phv_container": 1
+                },
+                "chunk_number": 1
+              },
+              {
+                "chunk": {
+                  "phv_container": 1
+                },
+                "chunk_number": 2
+              },
+              {
+                "chunk": {
+                  "phv_container": 1
+                },
+                "chunk_number": 3
+              }
+            ],
+            "pov_name": "hdr.ipv4.$valid",
+            "pov_bit": 1
+          },
+          {
+            "entry": 9,
+            "chunks": [
+              {
+                "chunk": {
+                  "phv_container": 259
+                },
+                "chunk_number": 0
+              },
+              {
+                "chunk": {
+                  "phv_container": 259
+                },
+                "chunk_number": 1
+              },
+              {
+                "chunk": {
+                  "phv_container": 259
+                },
+                "chunk_number": 2
+              },
+              {
+                "chunk": {
+                  "phv_container": 259
+                },
+                "chunk_number": 3
+              }
+            ],
+            "pov_name": "hdr.udp.$valid",
+            "pov_bit": 2
+          },
+          {
+            "entry": 10,
+            "chunks": [
+              {
+                "chunk": {
+                  "phv_container": 258
+                },
+                "chunk_number": 0
+              },
+              {
+                "chunk": {
+                  "phv_container": 258
+                },
+                "chunk_number": 1
+              },
+              {
+                "chunk": {
+                  "phv_container": 258
+                },
+                "chunk_number": 2
+              },
+              {
+                "chunk": {
+                  "phv_container": 258
+                },
+                "chunk_number": 3
+              }
+            ],
+            "pov_name": "hdr.udp.$valid",
+            "pov_bit": 2
+          },
+          {
+            "entry": 11,
+            "chunks": [
+              {
+                "chunk": {
+                  "phv_container": 323
+                },
+                "chunk_number": 0
+              },
+              {
+                "chunk": {
+                  "phv_container": 323
+                },
+                "chunk_number": 1
+              },
+              {
+                "chunk": {
+                  "phv_container": 322
+                },
+                "chunk_number": 2
+              },
+              {
+                "chunk": {
+                  "phv_container": 322
+                },
+                "chunk_number": 3
+              }
+            ],
+            "pov_name": "hdr.vxlan.$valid",
+            "pov_bit": 3
+          },
+          {
+            "entry": 12,
+            "chunks": [
+              {
+                "chunk": {
+                  "phv_container": 321
+                },
+                "chunk_number": 0
+              },
+              {
+                "chunk": {
+                  "phv_container": 321
+                },
+                "chunk_number": 1
+              },
+              {
+                "chunk": {
+                  "phv_container": 320
+                },
+                "chunk_number": 2
+              },
+              {
+                "chunk": {
+                  "phv_container": 320
+                },
+                "chunk_number": 3
+              }
+            ],
+            "pov_name": "hdr.vxlan.$valid",
+            "pov_bit": 3
+          },
+          {
+            "entry": 13,
+            "chunks": [
+              {
+                "chunk": {
+                  "phv_container": 295
+                },
+                "chunk_number": 0
+              },
+              {
+                "chunk": {
+                  "phv_container": 294
+                },
+                "chunk_number": 1
+              },
+              {
+                "chunk": {
+                  "phv_container": 263
+                },
+                "chunk_number": 2
+              },
+              {
+                "chunk": {
+                  "phv_container": 263
+                },
+                "chunk_number": 3
+              }
+            ],
+            "pov_name": "hdr.inner_ethernet.$valid",
+            "pov_bit": 4
+          },
+          {
+            "entry": 14,
+            "chunks": [
+              {
+                "chunk": {
+                  "phv_container": 263
+                },
+                "chunk_number": 0
+              },
+              {
+                "chunk": {
+                  "phv_container": 263
+                },
+                "chunk_number": 1
+              },
+              {
+                "chunk": {
+                  "phv_container": 293
+                },
+                "chunk_number": 2
+              },
+              {
+                "chunk": {
+                  "phv_container": 292
+                },
+                "chunk_number": 3
+              }
+            ],
+            "pov_name": "hdr.inner_ethernet.$valid",
+            "pov_bit": 4
+          },
+          {
+            "entry": 15,
+            "chunks": [
+              {
+                "chunk": {
+                  "phv_container": 262
+                },
+                "chunk_number": 0
+              },
+              {
+                "chunk": {
+                  "phv_container": 262
+                },
+                "chunk_number": 1
+              },
+              {
+                "chunk": {
+                  "phv_container": 262
+                },
+                "chunk_number": 2
+              },
+              {
+                "chunk": {
+                  "phv_container": 262
+                },
+                "chunk_number": 3
+              }
+            ],
+            "pov_name": "hdr.inner_ethernet.$valid",
+            "pov_bit": 4
+          },
+          {
+            "entry": 16,
+            "chunks": [
+              {
+                "chunk": {
+                  "phv_container": 331
+                },
+                "chunk_number": 0
+              },
+              {
+                "chunk": {
+                  "phv_container": 331
+                },
+                "chunk_number": 1
+              }
+            ],
+            "pov_name": "hdr.inner_ethernet.$valid",
+            "pov_bit": 4
+          },
+          {
+            "entry": 17,
+            "chunks": [
+              {
+                "chunk": {
+                  "phv_container": 326
+                },
+                "chunk_number": 0
+              },
+              {
+                "chunk": {
+                  "phv_container": 326
+                },
+                "chunk_number": 1
+              },
+              {
+                "chunk": {
+                  "phv_container": 325
+                },
+                "chunk_number": 2
+              },
+              {
+                "chunk": {
+                  "phv_container": 325
+                },
+                "chunk_number": 3
+              }
+            ],
+            "pov_name": "hdr.inner_ipv4.$valid",
+            "pov_bit": 5
+          },
+          {
+            "entry": 18,
+            "chunks": [
+              {
+                "chunk": {
+                  "phv_container": 324
+                },
+                "chunk_number": 0
+              },
+              {
+                "chunk": {
+                  "phv_container": 324
+                },
+                "chunk_number": 1
+              },
+              {
+                "chunk": {
+                  "phv_container": 256
+                },
+                "chunk_number": 2
+              },
+              {
+                "chunk": {
+                  "phv_container": 256
+                },
+                "chunk_number": 3
+              }
+            ],
+            "pov_name": "hdr.inner_ipv4.$valid",
+            "pov_bit": 5
+          },
+          {
+            "entry": 19,
+            "chunks": [
+              {
+                "chunk": {
+                  "phv_container": 256
+                },
+                "chunk_number": 0
+              },
+              {
+                "chunk": {
+                  "phv_container": 256
+                },
+                "chunk_number": 1
+              },
+              {
+                "chunk": {
+                  "csum_engine": 1
+                },
+                "chunk_number": 2
+              },
+              {
+                "chunk": {
+                  "csum_engine": 1
+                },
+                "chunk_number": 3
+              }
+            ],
+            "pov_name": "hdr.inner_ipv4.$valid",
+            "pov_bit": 5
+          },
+          {
+            "entry": 20,
+            "chunks": [
+              {
+                "chunk": {
+                  "phv_container": 3
+                },
+                "chunk_number": 0
+              },
+              {
+                "chunk": {
+                  "phv_container": 3
+                },
+                "chunk_number": 1
+              },
+              {
+                "chunk": {
+                  "phv_container": 3
+                },
+                "chunk_number": 2
+              },
+              {
+                "chunk": {
+                  "phv_container": 3
+                },
+                "chunk_number": 3
+              }
+            ],
+            "pov_name": "hdr.inner_ipv4.$valid",
+            "pov_bit": 5
+          }
+        ],
+        "learning_table": {
+          "nTables": 1,
+          "table_phv": [
+            {
+              "bytes": [
+                {
+                  "byte_number": 0,
+                  "phv_container": 64
+                },
+                {
+                  "byte_number": 1,
+                  "phv_container": 5
+                },
+                {
+                  "byte_number": 2,
+                  "phv_container": 2
+                },
+                {
+                  "byte_number": 3,
+                  "phv_container": 14
+                }
+              ],
+              "table_id": 1
+            }
+          ],
+          "maxBytes": 4,
+          "index_phv": 64
+        },
+        "resubmit_table": {
+          "nTables": 0,
+          "table_phv": [],
+          "maxBytes": 0
+        },
+        "pov": {
+          "pov_bits": [
+            {
+              "phv_container_bit": 0,
+              "phv_container": 66,
+              "pov_bit": 0,
+              "pov_name": "hdr.ethernet.$valid"
+            },
+            {
+              "phv_container_bit": 1,
+              "phv_container": 66,
+              "pov_bit": 1,
+              "pov_name": "hdr.ipv4.$valid"
+            },
+            {
+              "phv_container_bit": 2,
+              "phv_container": 66,
+              "pov_bit": 2,
+              "pov_name": "hdr.udp.$valid"
+            },
+            {
+              "phv_container_bit": 3,
+              "phv_container": 66,
+              "pov_bit": 3,
+              "pov_name": "hdr.vxlan.$valid"
+            },
+            {
+              "phv_container_bit": 4,
+              "phv_container": 66,
+              "pov_bit": 4,
+              "pov_name": "hdr.inner_ethernet.$valid"
+            },
+            {
+              "phv_container_bit": 5,
+              "phv_container": 66,
+              "pov_bit": 5,
+              "pov_name": "hdr.inner_ipv4.$valid"
+            },
+            {
+              "phv_container_bit": 6,
+              "phv_container": 66,
+              "pov_bit": 6,
+              "pov_name": "hdr.cuckoo_hashes.$valid"
+            }
+          ],
+          "size": 7
+        },
+        "nFdeEntries": 192
+      },
+      {
+        "gress": "egress",
+        "mirror_table": {
+          "nTables": 0,
+          "table_phv": [],
+          "maxBytes": 0
+        },
+        "fde_entries": [],
+        "learning_table": {
+          "nTables": 0,
+          "table_phv": [],
+          "maxBytes": 0
+        },
+        "resubmit_table": {
+          "nTables": 0,
+          "table_phv": [],
+          "maxBytes": 0
+        },
+        "pov": {
+          "pov_bits": [],
+          "size": 0
+        },
+        "nFdeEntries": 192
+      }
+    ],
+    "mau": {
+      "mau_stages": [
+        {
+          "vliw": {
+            "instructions": [
+              {
+                "color_usages": [
+                  {
+                    "gress": "ingress",
+                    "color": 0,
+                    "usages": [
+                      {
+                        "action_names": [
+                          "ShcIngress.sk.count_pkt_num"
+                        ],
+                        "used_by": "ShcIngress.sk.count_pkt_num_table"
+                      }
+                    ]
+                  },
+                  {
+                    "gress": "ingress",
+                    "color": 1,
+                    "usages": [
+                      {
+                        "action_names": [
+                          "shc_real_time_sketch449"
+                        ],
+                        "used_by": "tbl_shc_real_time_sketch449"
+                      }
+                    ]
+                  }
+                ],
+                "instruction_number": 0
+              },
+              {
+                "color_usages": [
+                  {
+                    "gress": "ingress",
+                    "color": 0,
+                    "usages": [
+                      {
+                        "action_names": [
+                          "shc_real_time_sketch453"
+                        ],
+                        "used_by": "tbl_shc_real_time_sketch453"
+                      }
+                    ]
+                  }
+                ],
+                "instruction_number": 1
+              }
+            ],
+            "size": 32
+          },
+          "exm_result_buses": {
+            "size": 16,
+            "ids": []
+          },
+          "action_bus_bytes": {
+            "bytes": [],
+            "size": 128
+          },
+          "stage_number": 0,
+          "gateways": {
+            "gateways": [
+              {
+                "row": 0,
+                "unit_id": 1,
+                "usages": [
+                  {
+                    "used_by": "cond-8",
+                    "used_for": "gateway"
+                  }
+                ]
+              },
+              {
+                "row": 0,
+                "unit_id": 0,
+                "usages": [
+                  {
+                    "used_by": "cond-9",
+                    "used_for": "gateway"
+                  }
+                ]
+              }
+            ],
+            "nRows": 8,
+            "nUnits": 2
+          },
+          "exm_search_buses": {
+            "size": 16,
+            "ids": [
+              {
+                "id": 0,
+                "usages": [
+                  {
+                    "used_by": "cond-9",
+                    "used_for": "gateway"
+                  }
+                ]
+              },
+              {
+                "id": 1,
+                "usages": [
+                  {
+                    "used_by": "cond-8",
+                    "used_for": "gateway"
+                  }
+                ]
+              }
+            ]
+          },
+          "tcams": {
+            "tcams": [],
+            "nRows": 12,
+            "nColumns": 2
+          },
+          "statistic_alus": {
+            "stats": [],
+            "nAlus": 4
+          },
+          "rams": {
+            "srams": [
+              {
+                "row": 7,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.pkt_num",
+                    "used_for": "stateful_ram"
+                  }
+                ],
+                "column": 4
+              },
+              {
+                "row": 7,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.pkt_num",
+                    "used_for": "stateful_ram"
+                  }
+                ],
+                "column": 5
+              }
+            ],
+            "nRows": 8,
+            "nColumns": 10
+          },
+          "stashes": {
+            "nRows": 8,
+            "nUnits": 2,
+            "stashes": []
+          },
+          "action_slots": [
+            {
+              "maximum_slots": 32,
+              "slot_bit_width": 8,
+              "number_used": 0
+            },
+            {
+              "maximum_slots": 32,
+              "slot_bit_width": 16,
+              "number_used": 0
+            },
+            {
+              "maximum_slots": 32,
+              "slot_bit_width": 32,
+              "number_used": 0
+            }
+          ],
+          "logical_tables": {
+            "size": 16,
+            "ids": [
+              {
+                "table_name": "ShcIngress.sk.count_pkt_num_table",
+                "id": 0
+              },
+              {
+                "table_name": "tbl_shc_real_time_sketch449",
+                "id": 1
+              },
+              {
+                "table_name": "tbl_shc_real_time_sketch453",
+                "id": 2
+              }
+            ]
+          },
+          "hash_bits": {
+            "nBits": 52,
+            "bits": [],
+            "nFunctions": 8
+          },
+          "map_rams": {
+            "nRows": 8,
+            "nUnits": 6,
+            "maprams": [
+              {
+                "row": 7,
+                "unit_id": 0,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.pkt_num",
+                    "used_for": "stateful_ram"
+                  }
+                ]
+              },
+              {
+                "row": 7,
+                "unit_id": 1,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.pkt_num",
+                    "used_for": "stateful_ram"
+                  }
+                ]
+              }
+            ]
+          },
+          "meter_alus": {
+            "meters": [
+              {
+                "row": 7,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.pkt_num",
+                    "used_for": "stateful_ram"
+                  }
+                ]
+              }
+            ],
+            "nAlus": 4
+          },
+          "hash_distribution_units": {
+            "nUnitIds": 3,
+            "nHashIds": 2,
+            "units": []
+          },
+          "xbar_bytes": {
+            "bytes": [
+              {
+                "byte_number": 0,
+                "byte_type": "exact",
+                "usages": [
+                  {
+                    "used_by": "cond-9",
+                    "used_for": "gateway",
+                    "slices": [
+                      {
+                        "offset": 5,
+                        "field_name": "ingress::hdr.inner_ipv4.$valid",
+                        "lsb": 0,
+                        "msb": 0
+                      }
+                    ]
+                  },
+                  {
+                    "used_by": "cond-8",
+                    "used_for": "gateway",
+                    "slices": [
+                      {
+                        "offset": 1,
+                        "field_name": "ingress::hdr.ipv4.$valid",
+                        "lsb": 0,
+                        "msb": 0
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "ternary_size": 66,
+            "size": 194,
+            "exact_size": 128
+          },
+          "tind_result_buses": {
+            "size": 16,
+            "ids": [
+              {
+                "id": 0,
+                "usages": [
+                  {
+                    "used_by": "tbl_shc_real_time_sketch449",
+                    "used_for": "ternary_indirection_ram"
+                  }
+                ]
+              },
+              {
+                "id": 1,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.count_pkt_num_table",
+                    "used_for": "ternary_indirection_ram"
+                  }
+                ]
+              },
+              {
+                "id": 2,
+                "usages": [
+                  {
+                    "used_by": "tbl_shc_real_time_sketch453",
+                    "used_for": "ternary_indirection_ram"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "vliw": {
+            "instructions": [
+              {
+                "color_usages": [
+                  {
+                    "gress": "ingress",
+                    "color": 0,
+                    "usages": [
+                      {
+                        "action_names": [
+                          "ShcIngress.route_for_miss"
+                        ],
+                        "used_by": "ShcIngress.route_tbl"
+                      }
+                    ]
+                  }
+                ],
+                "instruction_number": 1
+              },
+              {
+                "color_usages": [
+                  {
+                    "gress": "ingress",
+                    "color": 1,
+                    "usages": [
+                      {
+                        "action_names": [
+                          "ShcIngress.route_for_nexthop"
+                        ],
+                        "used_by": "ShcIngress.route_tbl"
+                      }
+                    ]
+                  }
+                ],
+                "instruction_number": 0
+              }
+            ],
+            "size": 32
+          },
+          "exm_result_buses": {
+            "size": 16,
+            "ids": [
+              {
+                "id": 14,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "match_entry_ram"
+                  }
+                ]
+              }
+            ]
+          },
+          "action_bus_bytes": {
+            "bytes": [
+              {
+                "byte_number": 96,
+                "used_by_tables": [
+                  "ShcIngress.route_tbl"
+                ]
+              },
+              {
+                "byte_number": 97,
+                "used_by_tables": [
+                  "ShcIngress.route_tbl"
+                ]
+              },
+              {
+                "byte_number": 98,
+                "used_by_tables": [
+                  "ShcIngress.route_tbl"
+                ]
+              },
+              {
+                "byte_number": 99,
+                "used_by_tables": [
+                  "ShcIngress.route_tbl"
+                ]
+              }
+            ],
+            "size": 128
+          },
+          "stage_number": 1,
+          "gateways": {
+            "gateways": [],
+            "nRows": 8,
+            "nUnits": 2
+          },
+          "exm_search_buses": {
+            "size": 16,
+            "ids": [
+              {
+                "id": 14,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "match_entry_ram"
+                  }
+                ]
+              }
+            ]
+          },
+          "tcams": {
+            "tcams": [],
+            "nRows": 12,
+            "nColumns": 2
+          },
+          "statistic_alus": {
+            "stats": [],
+            "nAlus": 4
+          },
+          "rams": {
+            "srams": [
+              {
+                "row": 7,
+                "way": 0,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "match_entry_ram"
+                  }
+                ],
+                "column": 0
+              },
+              {
+                "row": 7,
+                "way": 0,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "match_entry_ram"
+                  }
+                ],
+                "column": 1
+              },
+              {
+                "row": 7,
+                "way": 0,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "match_entry_ram"
+                  }
+                ],
+                "column": 2
+              },
+              {
+                "row": 7,
+                "way": 0,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "match_entry_ram"
+                  }
+                ],
+                "column": 4
+              },
+              {
+                "row": 7,
+                "way": 0,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "match_entry_ram"
+                  }
+                ],
+                "column": 5
+              },
+              {
+                "row": 7,
+                "way": 0,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "match_entry_ram"
+                  }
+                ],
+                "column": 6
+              },
+              {
+                "row": 7,
+                "way": 0,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "match_entry_ram"
+                  }
+                ],
+                "column": 7
+              },
+              {
+                "row": 7,
+                "way": 0,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "match_entry_ram"
+                  }
+                ],
+                "column": 8
+              },
+              {
+                "row": 6,
+                "way": 1,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "match_entry_ram"
+                  }
+                ],
+                "column": 0
+              },
+              {
+                "row": 6,
+                "way": 1,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "match_entry_ram"
+                  }
+                ],
+                "column": 1
+              },
+              {
+                "row": 6,
+                "way": 1,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "match_entry_ram"
+                  }
+                ],
+                "column": 2
+              },
+              {
+                "row": 6,
+                "way": 1,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "match_entry_ram"
+                  }
+                ],
+                "column": 4
+              },
+              {
+                "row": 6,
+                "way": 1,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "match_entry_ram"
+                  }
+                ],
+                "column": 5
+              },
+              {
+                "row": 6,
+                "way": 1,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "match_entry_ram"
+                  }
+                ],
+                "column": 6
+              },
+              {
+                "row": 6,
+                "way": 1,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "match_entry_ram"
+                  }
+                ],
+                "column": 7
+              },
+              {
+                "row": 6,
+                "way": 1,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "match_entry_ram"
+                  }
+                ],
+                "column": 8
+              },
+              {
+                "row": 5,
+                "way": 2,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "match_entry_ram"
+                  }
+                ],
+                "column": 0
+              },
+              {
+                "row": 5,
+                "way": 2,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "match_entry_ram"
+                  }
+                ],
+                "column": 1
+              },
+              {
+                "row": 5,
+                "way": 2,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "match_entry_ram"
+                  }
+                ],
+                "column": 2
+              },
+              {
+                "row": 5,
+                "way": 2,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "match_entry_ram"
+                  }
+                ],
+                "column": 4
+              },
+              {
+                "row": 5,
+                "way": 2,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "match_entry_ram"
+                  }
+                ],
+                "column": 5
+              },
+              {
+                "row": 5,
+                "way": 2,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "match_entry_ram"
+                  }
+                ],
+                "column": 6
+              },
+              {
+                "row": 5,
+                "way": 2,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "match_entry_ram"
+                  }
+                ],
+                "column": 7
+              },
+              {
+                "row": 5,
+                "way": 2,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "match_entry_ram"
+                  }
+                ],
+                "column": 8
+              },
+              {
+                "row": 4,
+                "way": 3,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "match_entry_ram"
+                  }
+                ],
+                "column": 0
+              },
+              {
+                "row": 4,
+                "way": 3,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "match_entry_ram"
+                  }
+                ],
+                "column": 1
+              },
+              {
+                "row": 4,
+                "way": 3,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "match_entry_ram"
+                  }
+                ],
+                "column": 2
+              },
+              {
+                "row": 4,
+                "way": 3,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "match_entry_ram"
+                  }
+                ],
+                "column": 4
+              },
+              {
+                "row": 4,
+                "way": 3,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "match_entry_ram"
+                  }
+                ],
+                "column": 5
+              },
+              {
+                "row": 4,
+                "way": 3,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "match_entry_ram"
+                  }
+                ],
+                "column": 6
+              },
+              {
+                "row": 4,
+                "way": 3,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "match_entry_ram"
+                  }
+                ],
+                "column": 7
+              },
+              {
+                "row": 4,
+                "way": 3,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "match_entry_ram"
+                  }
+                ],
+                "column": 8
+              },
+              {
+                "row": 7,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl$action",
+                    "used_for": "action_ram"
+                  }
+                ],
+                "column": 9
+              },
+              {
+                "row": 7,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl$action",
+                    "used_for": "action_ram"
+                  }
+                ],
+                "column": 3
+              },
+              {
+                "row": 6,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl$action",
+                    "used_for": "action_ram"
+                  }
+                ],
+                "column": 9
+              },
+              {
+                "row": 6,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl$action",
+                    "used_for": "action_ram"
+                  }
+                ],
+                "column": 3
+              },
+              {
+                "row": 5,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl$action",
+                    "used_for": "action_ram"
+                  }
+                ],
+                "column": 9
+              },
+              {
+                "row": 5,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl$action",
+                    "used_for": "action_ram"
+                  }
+                ],
+                "column": 3
+              },
+              {
+                "row": 4,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl$action",
+                    "used_for": "action_ram"
+                  }
+                ],
+                "column": 9
+              },
+              {
+                "row": 4,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl$action",
+                    "used_for": "action_ram"
+                  }
+                ],
+                "column": 3
+              },
+              {
+                "row": 3,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl$action",
+                    "used_for": "action_ram"
+                  }
+                ],
+                "column": 4
+              },
+              {
+                "row": 3,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl$action",
+                    "used_for": "action_ram"
+                  }
+                ],
+                "column": 5
+              },
+              {
+                "row": 3,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl$action",
+                    "used_for": "action_ram"
+                  }
+                ],
+                "column": 6
+              },
+              {
+                "row": 3,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl$action",
+                    "used_for": "action_ram"
+                  }
+                ],
+                "column": 7
+              },
+              {
+                "row": 3,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl$action",
+                    "used_for": "action_ram"
+                  }
+                ],
+                "column": 8
+              },
+              {
+                "row": 3,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl$action",
+                    "used_for": "action_ram"
+                  }
+                ],
+                "column": 9
+              },
+              {
+                "row": 3,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl$action",
+                    "used_for": "action_ram"
+                  }
+                ],
+                "column": 0
+              },
+              {
+                "row": 3,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl$action",
+                    "used_for": "action_ram"
+                  }
+                ],
+                "column": 1
+              }
+            ],
+            "nRows": 8,
+            "nColumns": 10
+          },
+          "stashes": {
+            "nRows": 8,
+            "nUnits": 2,
+            "stashes": [
+              {
+                "row": 7,
+                "unit_id": 0,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "match_entry_ram"
+                  }
+                ]
+              }
+            ]
+          },
+          "action_slots": [
+            {
+              "maximum_slots": 32,
+              "slot_bit_width": 8,
+              "number_used": 0
+            },
+            {
+              "maximum_slots": 32,
+              "slot_bit_width": 16,
+              "number_used": 0
+            },
+            {
+              "maximum_slots": 32,
+              "slot_bit_width": 32,
+              "number_used": 0
+            }
+          ],
+          "logical_tables": {
+            "size": 16,
+            "ids": [
+              {
+                "table_name": "ShcIngress.route_tbl",
+                "id": 0
+              }
+            ]
+          },
+          "hash_bits": {
+            "nBits": 52,
+            "bits": [
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 0,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 0
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 0,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 1
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 0,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 2
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 0,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 3
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 0,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 4
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 0,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 5
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 0,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 6
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 0,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 7
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 0,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 8
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 0,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 9
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 0,
+                    "type": "way_select"
+                  }
+                ],
+                "hash_bit": 40
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 0,
+                    "type": "way_select"
+                  }
+                ],
+                "hash_bit": 41
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 0,
+                    "type": "way_select"
+                  }
+                ],
+                "hash_bit": 42
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 1,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 10
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 1,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 11
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 1,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 12
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 1,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 13
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 1,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 14
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 1,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 15
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 1,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 16
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 1,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 17
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 1,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 18
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 1,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 19
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 1,
+                    "type": "way_select"
+                  }
+                ],
+                "hash_bit": 43
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 1,
+                    "type": "way_select"
+                  }
+                ],
+                "hash_bit": 44
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 1,
+                    "type": "way_select"
+                  }
+                ],
+                "hash_bit": 45
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 2,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 20
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 2,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 21
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 2,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 22
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 2,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 23
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 2,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 24
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 2,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 25
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 2,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 26
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 2,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 27
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 2,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 28
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 2,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 29
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 2,
+                    "type": "way_select"
+                  }
+                ],
+                "hash_bit": 46
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 2,
+                    "type": "way_select"
+                  }
+                ],
+                "hash_bit": 47
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 2,
+                    "type": "way_select"
+                  }
+                ],
+                "hash_bit": 48
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 3,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 30
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 3,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 31
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 3,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 32
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 3,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 33
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 3,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 34
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 3,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 35
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 3,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 36
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 3,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 37
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 3,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 38
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 3,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 39
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 3,
+                    "type": "way_select"
+                  }
+                ],
+                "hash_bit": 49
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 3,
+                    "type": "way_select"
+                  }
+                ],
+                "hash_bit": 50
+              },
+              {
+                "used_by_table": "ShcIngress.route_tbl",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 3,
+                    "type": "way_select"
+                  }
+                ],
+                "hash_bit": 51
+              }
+            ],
+            "nFunctions": 8
+          },
+          "map_rams": {
+            "nRows": 8,
+            "nUnits": 6,
+            "maprams": [
+              {
+                "row": 4,
+                "unit_id": 0,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "idletime"
+                  }
+                ]
+              },
+              {
+                "row": 4,
+                "unit_id": 1,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "idletime"
+                  }
+                ]
+              },
+              {
+                "row": 4,
+                "unit_id": 2,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "idletime"
+                  }
+                ]
+              },
+              {
+                "row": 4,
+                "unit_id": 3,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "idletime"
+                  }
+                ]
+              },
+              {
+                "row": 4,
+                "unit_id": 4,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "idletime"
+                  }
+                ]
+              },
+              {
+                "row": 4,
+                "unit_id": 5,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "idletime"
+                  }
+                ]
+              },
+              {
+                "row": 5,
+                "unit_id": 0,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "idletime"
+                  }
+                ]
+              },
+              {
+                "row": 5,
+                "unit_id": 1,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "idletime"
+                  }
+                ]
+              },
+              {
+                "row": 5,
+                "unit_id": 2,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "idletime"
+                  }
+                ]
+              },
+              {
+                "row": 5,
+                "unit_id": 3,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "idletime"
+                  }
+                ]
+              },
+              {
+                "row": 5,
+                "unit_id": 4,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "idletime"
+                  }
+                ]
+              },
+              {
+                "row": 5,
+                "unit_id": 5,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "idletime"
+                  }
+                ]
+              },
+              {
+                "row": 6,
+                "unit_id": 0,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "idletime"
+                  }
+                ]
+              },
+              {
+                "row": 6,
+                "unit_id": 1,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "idletime"
+                  }
+                ]
+              },
+              {
+                "row": 6,
+                "unit_id": 2,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "idletime"
+                  }
+                ]
+              },
+              {
+                "row": 6,
+                "unit_id": 3,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "idletime"
+                  }
+                ]
+              }
+            ]
+          },
+          "meter_alus": {
+            "meters": [],
+            "nAlus": 4
+          },
+          "hash_distribution_units": {
+            "nUnitIds": 3,
+            "nHashIds": 2,
+            "units": []
+          },
+          "xbar_bytes": {
+            "bytes": [
+              {
+                "byte_number": 3,
+                "byte_type": "exact",
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "exact_match",
+                    "slices": [
+                      {
+                        "offset": 0,
+                        "field_name": "ingress::ig_md.dst_addr",
+                        "lsb": 24,
+                        "msb": 31
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "byte_number": 7,
+                "byte_type": "exact",
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "exact_match",
+                    "slices": [
+                      {
+                        "offset": 0,
+                        "field_name": "ingress::ig_md.src_addr",
+                        "lsb": 24,
+                        "msb": 31
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "byte_number": 2,
+                "byte_type": "exact",
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "exact_match",
+                    "slices": [
+                      {
+                        "offset": 0,
+                        "field_name": "ingress::ig_md.dst_addr",
+                        "lsb": 16,
+                        "msb": 23
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "byte_number": 6,
+                "byte_type": "exact",
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "exact_match",
+                    "slices": [
+                      {
+                        "offset": 0,
+                        "field_name": "ingress::ig_md.src_addr",
+                        "lsb": 16,
+                        "msb": 23
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "byte_number": 1,
+                "byte_type": "exact",
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "exact_match",
+                    "slices": [
+                      {
+                        "offset": 0,
+                        "field_name": "ingress::ig_md.dst_addr",
+                        "lsb": 8,
+                        "msb": 15
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "byte_number": 5,
+                "byte_type": "exact",
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "exact_match",
+                    "slices": [
+                      {
+                        "offset": 0,
+                        "field_name": "ingress::ig_md.src_addr",
+                        "lsb": 8,
+                        "msb": 15
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "byte_number": 0,
+                "byte_type": "exact",
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "exact_match",
+                    "slices": [
+                      {
+                        "offset": 0,
+                        "field_name": "ingress::ig_md.dst_addr",
+                        "lsb": 0,
+                        "msb": 7
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "byte_number": 4,
+                "byte_type": "exact",
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.route_tbl",
+                    "used_for": "exact_match",
+                    "slices": [
+                      {
+                        "offset": 0,
+                        "field_name": "ingress::ig_md.src_addr",
+                        "lsb": 0,
+                        "msb": 7
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "ternary_size": 66,
+            "size": 194,
+            "exact_size": 128
+          },
+          "tind_result_buses": {
+            "size": 16,
+            "ids": []
+          }
+        },
+        {
+          "vliw": {
+            "instructions": [
+              {
+                "color_usages": [
+                  {
+                    "gress": "ingress",
+                    "color": 1,
+                    "usages": [
+                      {
+                        "action_names": [
+                          "shc_real_time_sketch458"
+                        ],
+                        "used_by": "tbl_shc_real_time_sketch458"
+                      }
+                    ]
+                  }
+                ],
+                "instruction_number": 0
+              },
+              {
+                "color_usages": [
+                  {
+                    "gress": "ingress",
+                    "color": 0,
+                    "usages": [
+                      {
+                        "action_names": [
+                          "shc_real_time_sketch464"
+                        ],
+                        "used_by": "tbl_shc_real_time_sketch464"
+                      }
+                    ]
+                  },
+                  {
+                    "gress": "ingress",
+                    "color": 1,
+                    "usages": [
+                      {
+                        "action_names": [
+                          "ShcIngress.sk.get_hash_value"
+                        ],
+                        "used_by": "ShcIngress.sk.get_fingerprint_table"
+                      }
+                    ]
+                  }
+                ],
+                "instruction_number": 1
+              },
+              {
+                "color_usages": [
+                  {
+                    "gress": "ingress",
+                    "color": 0,
+                    "usages": [
+                      {
+                        "action_names": [
+                          "shc_real_time_sketch476"
+                        ],
+                        "used_by": "tbl_shc_real_time_sketch476"
+                      }
+                    ]
+                  }
+                ],
+                "instruction_number": 2
+              }
+            ],
+            "size": 32
+          },
+          "exm_result_buses": {
+            "size": 16,
+            "ids": [
+              {
+                "id": 0,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.get_fingerprint_table",
+                    "used_for": "match_entry_ram"
+                  }
+                ]
+              },
+              {
+                "id": 1,
+                "usages": [
+                  {
+                    "used_by": "tbl_shc_real_time_sketch464",
+                    "used_for": "match_entry_ram"
+                  }
+                ]
+              }
+            ]
+          },
+          "action_bus_bytes": {
+            "bytes": [
+              {
+                "byte_number": 96,
+                "used_by_tables": [
+                  "tbl_shc_real_time_sketch464"
+                ]
+              },
+              {
+                "byte_number": 97,
+                "used_by_tables": [
+                  "tbl_shc_real_time_sketch464"
+                ]
+              },
+              {
+                "byte_number": 98,
+                "used_by_tables": [
+                  "tbl_shc_real_time_sketch464"
+                ]
+              },
+              {
+                "byte_number": 99,
+                "used_by_tables": [
+                  "tbl_shc_real_time_sketch464"
+                ]
+              },
+              {
+                "byte_number": 100,
+                "used_by_tables": [
+                  "ShcIngress.sk.get_fingerprint_table"
+                ]
+              },
+              {
+                "byte_number": 101,
+                "used_by_tables": [
+                  "ShcIngress.sk.get_fingerprint_table"
+                ]
+              },
+              {
+                "byte_number": 102,
+                "used_by_tables": [
+                  "ShcIngress.sk.get_fingerprint_table"
+                ]
+              },
+              {
+                "byte_number": 103,
+                "used_by_tables": [
+                  "ShcIngress.sk.get_fingerprint_table"
+                ]
+              }
+            ],
+            "size": 128
+          },
+          "stage_number": 2,
+          "gateways": {
+            "gateways": [
+              {
+                "row": 1,
+                "unit_id": 0,
+                "usages": [
+                  {
+                    "used_by": "tbl_shc_real_time_sketch464-gateway",
+                    "used_for": "gateway"
+                  }
+                ]
+              },
+              {
+                "row": 0,
+                "unit_id": 1,
+                "usages": [
+                  {
+                    "used_by": "sk_get_fingerprint_table-gateway",
+                    "used_for": "gateway"
+                  }
+                ]
+              },
+              {
+                "row": 0,
+                "unit_id": 0,
+                "usages": [
+                  {
+                    "used_by": "cond-10",
+                    "used_for": "gateway"
+                  }
+                ]
+              }
+            ],
+            "nRows": 8,
+            "nUnits": 2
+          },
+          "exm_search_buses": {
+            "size": 16,
+            "ids": [
+              {
+                "id": 0,
+                "usages": [
+                  {
+                    "used_by": "sk_get_fingerprint_table-gateway",
+                    "used_for": "gateway"
+                  },
+                  {
+                    "used_by": "cond-10",
+                    "used_for": "gateway"
+                  }
+                ]
+              },
+              {
+                "id": 2,
+                "usages": [
+                  {
+                    "used_by": "tbl_shc_real_time_sketch464-gateway",
+                    "used_for": "gateway"
+                  }
+                ]
+              }
+            ]
+          },
+          "tcams": {
+            "tcams": [],
+            "nRows": 12,
+            "nColumns": 2
+          },
+          "statistic_alus": {
+            "stats": [],
+            "nAlus": 4
+          },
+          "rams": {
+            "srams": [],
+            "nRows": 8,
+            "nColumns": 10
+          },
+          "stashes": {
+            "nRows": 8,
+            "nUnits": 2,
+            "stashes": []
+          },
+          "action_slots": [
+            {
+              "maximum_slots": 32,
+              "slot_bit_width": 8,
+              "number_used": 0
+            },
+            {
+              "maximum_slots": 32,
+              "slot_bit_width": 16,
+              "number_used": 0
+            },
+            {
+              "maximum_slots": 32,
+              "slot_bit_width": 32,
+              "number_used": 0
+            }
+          ],
+          "logical_tables": {
+            "size": 16,
+            "ids": [
+              {
+                "table_name": "tbl_shc_real_time_sketch458",
+                "id": 0
+              },
+              {
+                "table_name": "tbl_shc_real_time_sketch464",
+                "id": 1
+              },
+              {
+                "table_name": "ShcIngress.sk.get_fingerprint_table",
+                "id": 2
+              },
+              {
+                "table_name": "tbl_shc_real_time_sketch476",
+                "id": 3
+              }
+            ]
+          },
+          "hash_bits": {
+            "nBits": 52,
+            "bits": [
+              {
+                "used_by_table": "tbl_shc_real_time_sketch464",
+                "used_for": "immediate lo",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 0,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 0
+              },
+              {
+                "used_by_table": "tbl_shc_real_time_sketch464",
+                "used_for": "immediate lo",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 1,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 1
+              },
+              {
+                "used_by_table": "tbl_shc_real_time_sketch464",
+                "used_for": "immediate lo",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 2,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 2
+              },
+              {
+                "used_by_table": "tbl_shc_real_time_sketch464",
+                "used_for": "immediate lo",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 3,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 3
+              },
+              {
+                "used_by_table": "tbl_shc_real_time_sketch464",
+                "used_for": "immediate lo",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 4,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 4
+              },
+              {
+                "used_by_table": "tbl_shc_real_time_sketch464",
+                "used_for": "immediate lo",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 5,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 5
+              },
+              {
+                "used_by_table": "tbl_shc_real_time_sketch464",
+                "used_for": "immediate lo",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 6,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 6
+              },
+              {
+                "used_by_table": "tbl_shc_real_time_sketch464",
+                "used_for": "immediate lo",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 7,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 7
+              },
+              {
+                "used_by_table": "tbl_shc_real_time_sketch464",
+                "used_for": "immediate lo",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 8,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 8
+              },
+              {
+                "used_by_table": "tbl_shc_real_time_sketch464",
+                "used_for": "immediate lo",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 9,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 9
+              },
+              {
+                "used_by_table": "tbl_shc_real_time_sketch464",
+                "used_for": "immediate lo",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 10,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 10
+              },
+              {
+                "used_by_table": "tbl_shc_real_time_sketch464",
+                "used_for": "immediate lo",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 11,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 11
+              },
+              {
+                "used_by_table": "tbl_shc_real_time_sketch464",
+                "used_for": "immediate lo",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 12,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 12
+              },
+              {
+                "used_by_table": "tbl_shc_real_time_sketch464",
+                "used_for": "immediate lo",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 13,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 13
+              },
+              {
+                "used_by_table": "tbl_shc_real_time_sketch464",
+                "used_for": "immediate lo",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 14,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 14
+              },
+              {
+                "used_by_table": "tbl_shc_real_time_sketch464",
+                "used_for": "immediate lo",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 15,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 15
+              },
+              {
+                "used_by_table": "ShcIngress.sk.get_fingerprint_table",
+                "used_for": "immediate lo",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 0,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 16
+              },
+              {
+                "used_by_table": "ShcIngress.sk.get_fingerprint_table",
+                "used_for": "immediate lo",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 1,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 17
+              },
+              {
+                "used_by_table": "ShcIngress.sk.get_fingerprint_table",
+                "used_for": "immediate lo",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 2,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 18
+              },
+              {
+                "used_by_table": "ShcIngress.sk.get_fingerprint_table",
+                "used_for": "immediate lo",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 3,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 19
+              },
+              {
+                "used_by_table": "ShcIngress.sk.get_fingerprint_table",
+                "used_for": "immediate lo",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 4,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 20
+              },
+              {
+                "used_by_table": "ShcIngress.sk.get_fingerprint_table",
+                "used_for": "immediate lo",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 5,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 21
+              },
+              {
+                "used_by_table": "ShcIngress.sk.get_fingerprint_table",
+                "used_for": "immediate lo",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 6,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 22
+              },
+              {
+                "used_by_table": "ShcIngress.sk.get_fingerprint_table",
+                "used_for": "immediate lo",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 7,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 23
+              },
+              {
+                "used_by_table": "ShcIngress.sk.get_fingerprint_table",
+                "used_for": "immediate lo",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 8,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 24
+              },
+              {
+                "used_by_table": "ShcIngress.sk.get_fingerprint_table",
+                "used_for": "immediate lo",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 9,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 25
+              },
+              {
+                "used_by_table": "ShcIngress.sk.get_fingerprint_table",
+                "used_for": "immediate lo",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 10,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 26
+              },
+              {
+                "used_by_table": "ShcIngress.sk.get_fingerprint_table",
+                "used_for": "immediate lo",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 11,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 27
+              },
+              {
+                "used_by_table": "ShcIngress.sk.get_fingerprint_table",
+                "used_for": "immediate lo",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 12,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 28
+              },
+              {
+                "used_by_table": "ShcIngress.sk.get_fingerprint_table",
+                "used_for": "immediate lo",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 13,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 29
+              },
+              {
+                "used_by_table": "ShcIngress.sk.get_fingerprint_table",
+                "used_for": "immediate lo",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 14,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 30
+              },
+              {
+                "used_by_table": "ShcIngress.sk.get_fingerprint_table",
+                "used_for": "immediate lo",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 15,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 31
+              }
+            ],
+            "nFunctions": 8
+          },
+          "map_rams": {
+            "nRows": 8,
+            "nUnits": 6,
+            "maprams": []
+          },
+          "meter_alus": {
+            "meters": [],
+            "nAlus": 4
+          },
+          "hash_distribution_units": {
+            "nUnitIds": 3,
+            "nHashIds": 2,
+            "units": [
+              {
+                "hash_id": 0,
+                "unit_id": 0,
+                "usages": [
+                  {
+                    "used_by": "tbl_shc_real_time_sketch464",
+                    "used_for": "immediate lo"
+                  }
+                ]
+              },
+              {
+                "hash_id": 0,
+                "unit_id": 1,
+                "usages": [
+                  {
+                    "used_by": "sk_get_fingerprint_table",
+                    "used_for": "immediate lo"
+                  }
+                ]
+              }
+            ]
+          },
+          "xbar_bytes": {
+            "bytes": [
+              {
+                "byte_number": 0,
+                "byte_type": "exact",
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.get_fingerprint_table",
+                    "used_for": "immediate lo",
+                    "slices": [
+                      {
+                        "offset": 0,
+                        "field_name": "ingress::ig_md.dst_addr",
+                        "lsb": 0,
+                        "msb": 7
+                      }
+                    ]
+                  },
+                  {
+                    "used_by": "tbl_shc_real_time_sketch464",
+                    "used_for": "immediate lo",
+                    "slices": [
+                      {
+                        "offset": 0,
+                        "field_name": "ingress::ig_md.dst_addr",
+                        "lsb": 0,
+                        "msb": 7
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "byte_number": 1,
+                "byte_type": "exact",
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.get_fingerprint_table",
+                    "used_for": "immediate lo",
+                    "slices": [
+                      {
+                        "offset": 0,
+                        "field_name": "ingress::ig_md.dst_addr",
+                        "lsb": 8,
+                        "msb": 15
+                      }
+                    ]
+                  },
+                  {
+                    "used_by": "tbl_shc_real_time_sketch464",
+                    "used_for": "immediate lo",
+                    "slices": [
+                      {
+                        "offset": 0,
+                        "field_name": "ingress::ig_md.dst_addr",
+                        "lsb": 8,
+                        "msb": 15
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "byte_number": 2,
+                "byte_type": "exact",
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.get_fingerprint_table",
+                    "used_for": "immediate lo",
+                    "slices": [
+                      {
+                        "offset": 0,
+                        "field_name": "ingress::ig_md.dst_addr",
+                        "lsb": 16,
+                        "msb": 23
+                      }
+                    ]
+                  },
+                  {
+                    "used_by": "tbl_shc_real_time_sketch464",
+                    "used_for": "immediate lo",
+                    "slices": [
+                      {
+                        "offset": 0,
+                        "field_name": "ingress::ig_md.dst_addr",
+                        "lsb": 16,
+                        "msb": 23
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "byte_number": 3,
+                "byte_type": "exact",
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.get_fingerprint_table",
+                    "used_for": "immediate lo",
+                    "slices": [
+                      {
+                        "offset": 0,
+                        "field_name": "ingress::ig_md.dst_addr",
+                        "lsb": 24,
+                        "msb": 31
+                      }
+                    ]
+                  },
+                  {
+                    "used_by": "tbl_shc_real_time_sketch464",
+                    "used_for": "immediate lo",
+                    "slices": [
+                      {
+                        "offset": 0,
+                        "field_name": "ingress::ig_md.dst_addr",
+                        "lsb": 24,
+                        "msb": 31
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "byte_number": 4,
+                "byte_type": "exact",
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.get_fingerprint_table",
+                    "used_for": "immediate lo",
+                    "slices": [
+                      {
+                        "offset": 0,
+                        "field_name": "ingress::ig_md.src_addr",
+                        "lsb": 0,
+                        "msb": 7
+                      }
+                    ]
+                  },
+                  {
+                    "used_by": "tbl_shc_real_time_sketch464",
+                    "used_for": "immediate lo",
+                    "slices": [
+                      {
+                        "offset": 0,
+                        "field_name": "ingress::ig_md.src_addr",
+                        "lsb": 0,
+                        "msb": 7
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "byte_number": 5,
+                "byte_type": "exact",
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.get_fingerprint_table",
+                    "used_for": "immediate lo",
+                    "slices": [
+                      {
+                        "offset": 0,
+                        "field_name": "ingress::ig_md.src_addr",
+                        "lsb": 8,
+                        "msb": 15
+                      }
+                    ]
+                  },
+                  {
+                    "used_by": "tbl_shc_real_time_sketch464",
+                    "used_for": "immediate lo",
+                    "slices": [
+                      {
+                        "offset": 0,
+                        "field_name": "ingress::ig_md.src_addr",
+                        "lsb": 8,
+                        "msb": 15
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "byte_number": 6,
+                "byte_type": "exact",
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.get_fingerprint_table",
+                    "used_for": "immediate lo",
+                    "slices": [
+                      {
+                        "offset": 0,
+                        "field_name": "ingress::ig_md.src_addr",
+                        "lsb": 16,
+                        "msb": 23
+                      }
+                    ]
+                  },
+                  {
+                    "used_by": "tbl_shc_real_time_sketch464",
+                    "used_for": "immediate lo",
+                    "slices": [
+                      {
+                        "offset": 0,
+                        "field_name": "ingress::ig_md.src_addr",
+                        "lsb": 16,
+                        "msb": 23
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "byte_number": 7,
+                "byte_type": "exact",
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.get_fingerprint_table",
+                    "used_for": "immediate lo",
+                    "slices": [
+                      {
+                        "offset": 0,
+                        "field_name": "ingress::ig_md.src_addr",
+                        "lsb": 24,
+                        "msb": 31
+                      }
+                    ]
+                  },
+                  {
+                    "used_by": "tbl_shc_real_time_sketch464",
+                    "used_for": "immediate lo",
+                    "slices": [
+                      {
+                        "offset": 0,
+                        "field_name": "ingress::ig_md.src_addr",
+                        "lsb": 24,
+                        "msb": 31
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "byte_number": 8,
+                "byte_type": "exact",
+                "usages": [
+                  {
+                    "used_by": "cond-10",
+                    "used_for": "gateway",
+                    "slices": [
+                      {
+                        "offset": 6,
+                        "field_name": "ingress::hdr.cuckoo_hashes.$valid",
+                        "lsb": 0,
+                        "msb": 0
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "ternary_size": 66,
+            "size": 194,
+            "exact_size": 128
+          },
+          "tind_result_buses": {
+            "size": 16,
+            "ids": [
+              {
+                "id": 0,
+                "usages": [
+                  {
+                    "used_by": "tbl_shc_real_time_sketch458",
+                    "used_for": "ternary_indirection_ram"
+                  }
+                ]
+              },
+              {
+                "id": 1,
+                "usages": [
+                  {
+                    "used_by": "tbl_shc_real_time_sketch476",
+                    "used_for": "ternary_indirection_ram"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "vliw": {
+            "instructions": [
+              {
+                "color_usages": [
+                  {
+                    "gress": "ingress",
+                    "color": 0,
+                    "usages": [
+                      {
+                        "action_names": [
+                          "shc_real_time_sketch468"
+                        ],
+                        "used_by": "tbl_shc_real_time_sketch468"
+                      }
+                    ]
+                  }
+                ],
+                "instruction_number": 1
+              },
+              {
+                "color_usages": [
+                  {
+                    "gress": "ingress",
+                    "color": 0,
+                    "usages": [
+                      {
+                        "action_names": [
+                          "NoAction"
+                        ],
+                        "used_by": "ShcIngress.cuckoo_hash_chose_table"
+                      }
+                    ]
+                  },
+                  {
+                    "gress": "ingress",
+                    "color": 1,
+                    "usages": [
+                      {
+                        "action_names": [
+                          "shc_real_time_sketch476_0"
+                        ],
+                        "used_by": "tbl_shc_real_time_sketch476_0"
+                      }
+                    ]
+                  }
+                ],
+                "instruction_number": 0
+              },
+              {
+                "color_usages": [
+                  {
+                    "gress": "ingress",
+                    "color": 0,
+                    "usages": [
+                      {
+                        "action_names": [
+                          "ShcIngress.cuckoo_hash_chose_1"
+                        ],
+                        "used_by": "ShcIngress.cuckoo_hash_chose_table"
+                      }
+                    ]
+                  }
+                ],
+                "instruction_number": 2
+              },
+              {
+                "color_usages": [
+                  {
+                    "gress": "ingress",
+                    "color": 0,
+                    "usages": [
+                      {
+                        "action_names": [
+                          "ShcIngress.cuckoo_hash_chose_2"
+                        ],
+                        "used_by": "ShcIngress.cuckoo_hash_chose_table"
+                      }
+                    ]
+                  }
+                ],
+                "instruction_number": 3
+              },
+              {
+                "color_usages": [
+                  {
+                    "gress": "ingress",
+                    "color": 0,
+                    "usages": [
+                      {
+                        "action_names": [
+                          "ShcIngress.cuckoo_hash_chose_3"
+                        ],
+                        "used_by": "ShcIngress.cuckoo_hash_chose_table"
+                      }
+                    ]
+                  }
+                ],
+                "instruction_number": 4
+              },
+              {
+                "color_usages": [
+                  {
+                    "gress": "ingress",
+                    "color": 0,
+                    "usages": [
+                      {
+                        "action_names": [
+                          "ShcIngress.cuckoo_hash_chose_4"
+                        ],
+                        "used_by": "ShcIngress.cuckoo_hash_chose_table"
+                      }
+                    ]
+                  }
+                ],
+                "instruction_number": 5
+              }
+            ],
+            "size": 32
+          },
+          "exm_result_buses": {
+            "size": 16,
+            "ids": [
+              {
+                "id": 14,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.cuckoo_hash_chose_table",
+                    "used_for": "match_entry_ram"
+                  }
+                ]
+              }
+            ]
+          },
+          "action_bus_bytes": {
+            "bytes": [
+              {
+                "byte_number": 96,
+                "used_by_tables": [
+                  "tbl_shc_real_time_sketch476_0"
+                ]
+              },
+              {
+                "byte_number": 97,
+                "used_by_tables": [
+                  "tbl_shc_real_time_sketch476_0"
+                ]
+              },
+              {
+                "byte_number": 98,
+                "used_by_tables": [
+                  "tbl_shc_real_time_sketch476_0"
+                ]
+              },
+              {
+                "byte_number": 99,
+                "used_by_tables": [
+                  "tbl_shc_real_time_sketch476_0"
+                ]
+              }
+            ],
+            "size": 128
+          },
+          "stage_number": 3,
+          "gateways": {
+            "gateways": [
+              {
+                "row": 7,
+                "unit_id": 0,
+                "usages": [
+                  {
+                    "used_by": "cond-11",
+                    "used_for": "gateway"
+                  }
+                ]
+              }
+            ],
+            "nRows": 8,
+            "nUnits": 2
+          },
+          "exm_search_buses": {
+            "size": 16,
+            "ids": [
+              {
+                "id": 14,
+                "usages": [
+                  {
+                    "used_by": "cond-11",
+                    "used_for": "gateway"
+                  },
+                  {
+                    "used_by": "ShcIngress.cuckoo_hash_chose_table",
+                    "used_for": "match_entry_ram"
+                  }
+                ]
+              }
+            ]
+          },
+          "tcams": {
+            "tcams": [],
+            "nRows": 12,
+            "nColumns": 2
+          },
+          "statistic_alus": {
+            "stats": [],
+            "nAlus": 4
+          },
+          "rams": {
+            "srams": [
+              {
+                "row": 7,
+                "way": 0,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.cuckoo_hash_chose_table",
+                    "used_for": "match_entry_ram"
+                  }
+                ],
+                "column": 0
+              }
+            ],
+            "nRows": 8,
+            "nColumns": 10
+          },
+          "stashes": {
+            "nRows": 8,
+            "nUnits": 2,
+            "stashes": [
+              {
+                "row": 7,
+                "unit_id": 0,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.cuckoo_hash_chose_table",
+                    "used_for": "match_entry_ram"
+                  }
+                ]
+              }
+            ]
+          },
+          "action_slots": [
+            {
+              "maximum_slots": 32,
+              "slot_bit_width": 8,
+              "number_used": 0
+            },
+            {
+              "maximum_slots": 32,
+              "slot_bit_width": 16,
+              "number_used": 0
+            },
+            {
+              "maximum_slots": 32,
+              "slot_bit_width": 32,
+              "number_used": 0
+            }
+          ],
+          "logical_tables": {
+            "size": 16,
+            "ids": [
+              {
+                "table_name": "tbl_shc_real_time_sketch468",
+                "id": 1
+              },
+              {
+                "table_name": "ShcIngress.cuckoo_hash_chose_table",
+                "id": 2
+              },
+              {
+                "table_name": "tbl_shc_real_time_sketch476_0",
+                "id": 0
+              }
+            ]
+          },
+          "hash_bits": {
+            "nBits": 52,
+            "bits": [
+              {
+                "used_by_table": "ShcIngress.cuckoo_hash_chose_table",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 0,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 0
+              },
+              {
+                "used_by_table": "ShcIngress.cuckoo_hash_chose_table",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 0,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 1
+              },
+              {
+                "used_by_table": "ShcIngress.cuckoo_hash_chose_table",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 0,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 2
+              },
+              {
+                "used_by_table": "ShcIngress.cuckoo_hash_chose_table",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 0,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 3
+              },
+              {
+                "used_by_table": "ShcIngress.cuckoo_hash_chose_table",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 0,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 4
+              },
+              {
+                "used_by_table": "ShcIngress.cuckoo_hash_chose_table",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 0,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 5
+              },
+              {
+                "used_by_table": "ShcIngress.cuckoo_hash_chose_table",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 0,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 6
+              },
+              {
+                "used_by_table": "ShcIngress.cuckoo_hash_chose_table",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 0,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 7
+              },
+              {
+                "used_by_table": "ShcIngress.cuckoo_hash_chose_table",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 0,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 8
+              },
+              {
+                "used_by_table": "ShcIngress.cuckoo_hash_chose_table",
+                "used_for": "exact_match",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 0,
+                    "type": "way_line_select"
+                  }
+                ],
+                "hash_bit": 9
+              }
+            ],
+            "nFunctions": 8
+          },
+          "map_rams": {
+            "nRows": 8,
+            "nUnits": 6,
+            "maprams": []
+          },
+          "meter_alus": {
+            "meters": [],
+            "nAlus": 4
+          },
+          "hash_distribution_units": {
+            "nUnitIds": 3,
+            "nHashIds": 2,
+            "units": []
+          },
+          "xbar_bytes": {
+            "bytes": [
+              {
+                "byte_number": 0,
+                "byte_type": "exact",
+                "usages": [
+                  {
+                    "used_by": "cond-11",
+                    "used_for": "gateway",
+                    "slices": [
+                      {
+                        "offset": 1,
+                        "field_name": "ingress::ig_md.table_hit",
+                        "lsb": 0,
+                        "msb": 0
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "byte_number": 4,
+                "byte_type": "exact",
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.cuckoo_hash_chose_table",
+                    "used_for": "exact_match",
+                    "slices": [
+                      {
+                        "offset": 0,
+                        "field_name": "ingress::ig_md.cuckoo_hash_tmp",
+                        "lsb": 0,
+                        "msb": 1
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "ternary_size": 66,
+            "size": 194,
+            "exact_size": 128
+          },
+          "tind_result_buses": {
+            "size": 16,
+            "ids": [
+              {
+                "id": 0,
+                "usages": [
+                  {
+                    "used_by": "tbl_shc_real_time_sketch468",
+                    "used_for": "ternary_indirection_ram"
+                  }
+                ]
+              },
+              {
+                "id": 1,
+                "usages": [
+                  {
+                    "used_by": "tbl_shc_real_time_sketch476_0",
+                    "used_for": "ternary_indirection_ram"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "vliw": {
+            "instructions": [
+              {
+                "color_usages": [
+                  {
+                    "gress": "ingress",
+                    "color": 1,
+                    "usages": [
+                      {
+                        "action_names": [
+                          "ShcIngress.sk.update_pkt_1"
+                        ],
+                        "used_by": "ShcIngress.sk.update_pkt_1_table"
+                      }
+                    ]
+                  }
+                ],
+                "instruction_number": 0
+              }
+            ],
+            "size": 32
+          },
+          "exm_result_buses": {
+            "size": 16,
+            "ids": [
+              {
+                "id": 0,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.update_pkt_1_table",
+                    "used_for": "match_entry_ram"
+                  }
+                ]
+              }
+            ]
+          },
+          "action_bus_bytes": {
+            "bytes": [
+              {
+                "byte_number": 0,
+                "used_by_tables": [
+                  "ShcIngress.sk.update_pkt_1_table"
+                ]
+              }
+            ],
+            "size": 128
+          },
+          "stage_number": 4,
+          "gateways": {
+            "gateways": [
+              {
+                "row": 0,
+                "unit_id": 0,
+                "usages": [
+                  {
+                    "used_by": "sk_update_pkt_1_table-gateway",
+                    "used_for": "gateway"
+                  }
+                ]
+              }
+            ],
+            "nRows": 8,
+            "nUnits": 2
+          },
+          "exm_search_buses": {
+            "size": 16,
+            "ids": [
+              {
+                "id": 0,
+                "usages": [
+                  {
+                    "used_by": "sk_update_pkt_1_table-gateway",
+                    "used_for": "gateway"
+                  }
+                ]
+              }
+            ]
+          },
+          "tcams": {
+            "tcams": [],
+            "nRows": 12,
+            "nColumns": 2
+          },
+          "statistic_alus": {
+            "stats": [],
+            "nAlus": 4
+          },
+          "rams": {
+            "srams": [
+              {
+                "row": 7,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.hash1_1",
+                    "used_for": "stateful_ram"
+                  }
+                ],
+                "column": 4
+              },
+              {
+                "row": 7,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.hash1_1",
+                    "used_for": "stateful_ram"
+                  }
+                ],
+                "column": 5
+              },
+              {
+                "row": 7,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.hash1_1",
+                    "used_for": "stateful_ram"
+                  }
+                ],
+                "column": 6
+              },
+              {
+                "row": 7,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.hash1_1",
+                    "used_for": "stateful_ram"
+                  }
+                ],
+                "column": 7
+              },
+              {
+                "row": 7,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.hash1_1",
+                    "used_for": "stateful_ram"
+                  }
+                ],
+                "column": 8
+              },
+              {
+                "row": 7,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.hash1_1",
+                    "used_for": "stateful_ram"
+                  }
+                ],
+                "column": 9
+              },
+              {
+                "row": 6,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.hash1_1",
+                    "used_for": "stateful_ram"
+                  }
+                ],
+                "column": 4
+              },
+              {
+                "row": 6,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.hash1_1",
+                    "used_for": "stateful_ram"
+                  }
+                ],
+                "column": 5
+              },
+              {
+                "row": 6,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.hash1_1",
+                    "used_for": "stateful_ram"
+                  }
+                ],
+                "column": 6
+              }
+            ],
+            "nRows": 8,
+            "nColumns": 10
+          },
+          "stashes": {
+            "nRows": 8,
+            "nUnits": 2,
+            "stashes": []
+          },
+          "action_slots": [
+            {
+              "maximum_slots": 32,
+              "slot_bit_width": 8,
+              "number_used": 0
+            },
+            {
+              "maximum_slots": 32,
+              "slot_bit_width": 16,
+              "number_used": 0
+            },
+            {
+              "maximum_slots": 32,
+              "slot_bit_width": 32,
+              "number_used": 0
+            }
+          ],
+          "logical_tables": {
+            "size": 16,
+            "ids": [
+              {
+                "table_name": "ShcIngress.sk.update_pkt_1_table",
+                "id": 0
+              }
+            ]
+          },
+          "hash_bits": {
+            "nBits": 52,
+            "bits": [
+              {
+                "used_by_table": "ShcIngress.sk.update_pkt_1_table",
+                "used_for": "meter address",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 0,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 0
+              },
+              {
+                "used_by_table": "ShcIngress.sk.update_pkt_1_table",
+                "used_for": "meter address",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 1,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 1
+              },
+              {
+                "used_by_table": "ShcIngress.sk.update_pkt_1_table",
+                "used_for": "meter address",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 2,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 2
+              },
+              {
+                "used_by_table": "ShcIngress.sk.update_pkt_1_table",
+                "used_for": "meter address",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 3,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 3
+              },
+              {
+                "used_by_table": "ShcIngress.sk.update_pkt_1_table",
+                "used_for": "meter address",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 4,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 4
+              },
+              {
+                "used_by_table": "ShcIngress.sk.update_pkt_1_table",
+                "used_for": "meter address",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 5,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 5
+              },
+              {
+                "used_by_table": "ShcIngress.sk.update_pkt_1_table",
+                "used_for": "meter address",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 6,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 6
+              },
+              {
+                "used_by_table": "ShcIngress.sk.update_pkt_1_table",
+                "used_for": "meter address",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 7,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 7
+              },
+              {
+                "used_by_table": "ShcIngress.sk.update_pkt_1_table",
+                "used_for": "meter address",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 8,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 8
+              },
+              {
+                "used_by_table": "ShcIngress.sk.update_pkt_1_table",
+                "used_for": "meter address",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 9,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 9
+              },
+              {
+                "used_by_table": "ShcIngress.sk.update_pkt_1_table",
+                "used_for": "meter address",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 10,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 10
+              },
+              {
+                "used_by_table": "ShcIngress.sk.update_pkt_1_table",
+                "used_for": "meter address",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 11,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 11
+              },
+              {
+                "used_by_table": "ShcIngress.sk.update_pkt_1_table",
+                "used_for": "meter address",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 12,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 12
+              },
+              {
+                "used_by_table": "ShcIngress.sk.update_pkt_1_table",
+                "used_for": "meter address",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 13,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 13
+              },
+              {
+                "used_by_table": "ShcIngress.sk.update_pkt_1_table",
+                "used_for": "meter address",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 14,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 14
+              },
+              {
+                "used_by_table": "ShcIngress.sk.update_pkt_1_table",
+                "used_for": "meter address",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 15,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 15
+              }
+            ],
+            "nFunctions": 8
+          },
+          "map_rams": {
+            "nRows": 8,
+            "nUnits": 6,
+            "maprams": [
+              {
+                "row": 7,
+                "unit_id": 0,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.hash1_1",
+                    "used_for": "stateful_ram"
+                  }
+                ]
+              },
+              {
+                "row": 7,
+                "unit_id": 1,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.hash1_1",
+                    "used_for": "stateful_ram"
+                  }
+                ]
+              },
+              {
+                "row": 7,
+                "unit_id": 2,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.hash1_1",
+                    "used_for": "stateful_ram"
+                  }
+                ]
+              },
+              {
+                "row": 7,
+                "unit_id": 3,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.hash1_1",
+                    "used_for": "stateful_ram"
+                  }
+                ]
+              },
+              {
+                "row": 7,
+                "unit_id": 4,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.hash1_1",
+                    "used_for": "stateful_ram"
+                  }
+                ]
+              },
+              {
+                "row": 7,
+                "unit_id": 5,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.hash1_1",
+                    "used_for": "stateful_ram"
+                  }
+                ]
+              },
+              {
+                "row": 6,
+                "unit_id": 0,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.hash1_1",
+                    "used_for": "stateful_ram"
+                  }
+                ]
+              },
+              {
+                "row": 6,
+                "unit_id": 1,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.hash1_1",
+                    "used_for": "stateful_ram"
+                  }
+                ]
+              },
+              {
+                "row": 6,
+                "unit_id": 2,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.hash1_1",
+                    "used_for": "stateful_ram"
+                  }
+                ]
+              }
+            ]
+          },
+          "meter_alus": {
+            "meters": [
+              {
+                "row": 7,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.hash1_1",
+                    "used_for": "stateful_ram"
+                  }
+                ]
+              }
+            ],
+            "nAlus": 4
+          },
+          "hash_distribution_units": {
+            "nUnitIds": 3,
+            "nHashIds": 2,
+            "units": [
+              {
+                "hash_id": 0,
+                "unit_id": 0,
+                "usages": [
+                  {
+                    "used_by": "sk_update_pkt_1_table",
+                    "used_for": "meter address"
+                  }
+                ]
+              }
+            ]
+          },
+          "xbar_bytes": {
+            "bytes": [
+              {
+                "byte_number": 10,
+                "byte_type": "exact",
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.hash1_1",
+                    "used_for": "stateful_alu",
+                    "slices": [
+                      {
+                        "offset": 0,
+                        "field_name": "ingress::ig_md.fingerprint",
+                        "lsb": 0,
+                        "msb": 7
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "byte_number": 11,
+                "byte_type": "exact",
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.hash1_1",
+                    "used_for": "stateful_alu",
+                    "slices": [
+                      {
+                        "offset": 0,
+                        "field_name": "ingress::ig_md.fingerprint",
+                        "lsb": 8,
+                        "msb": 15
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "byte_number": 0,
+                "byte_type": "exact",
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.update_pkt_1_table",
+                    "used_for": "meter address",
+                    "slices": [
+                      {
+                        "offset": 0,
+                        "field_name": "ingress::ig_md.cuckoo_hash_index",
+                        "lsb": 0,
+                        "msb": 7
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "byte_number": 1,
+                "byte_type": "exact",
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.update_pkt_1_table",
+                    "used_for": "meter address",
+                    "slices": [
+                      {
+                        "offset": 0,
+                        "field_name": "ingress::ig_md.cuckoo_hash_index",
+                        "lsb": 8,
+                        "msb": 15
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "ternary_size": 66,
+            "size": 194,
+            "exact_size": 128
+          },
+          "tind_result_buses": {
+            "size": 16,
+            "ids": []
+          }
+        },
+        {
+          "vliw": {
+            "instructions": [
+              {
+                "color_usages": [
+                  {
+                    "gress": "ingress",
+                    "color": 1,
+                    "usages": [
+                      {
+                        "action_names": [
+                          "ShcIngress.sk.update_pkt_num_1"
+                        ],
+                        "used_by": "ShcIngress.sk.update_pkt_num_1_table"
+                      }
+                    ]
+                  }
+                ],
+                "instruction_number": 0
+              }
+            ],
+            "size": 32
+          },
+          "exm_result_buses": {
+            "size": 16,
+            "ids": [
+              {
+                "id": 0,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.update_pkt_num_1_table",
+                    "used_for": "match_entry_ram"
+                  }
+                ]
+              }
+            ]
+          },
+          "action_bus_bytes": {
+            "bytes": [
+              {
+                "byte_number": 96,
+                "used_by_tables": [
+                  "ShcIngress.sk.update_pkt_num_1_table"
+                ]
+              },
+              {
+                "byte_number": 97,
+                "used_by_tables": [
+                  "ShcIngress.sk.update_pkt_num_1_table"
+                ]
+              },
+              {
+                "byte_number": 98,
+                "used_by_tables": [
+                  "ShcIngress.sk.update_pkt_num_1_table"
+                ]
+              },
+              {
+                "byte_number": 99,
+                "used_by_tables": [
+                  "ShcIngress.sk.update_pkt_num_1_table"
+                ]
+              }
+            ],
+            "size": 128
+          },
+          "stage_number": 5,
+          "gateways": {
+            "gateways": [
+              {
+                "row": 0,
+                "unit_id": 0,
+                "usages": [
+                  {
+                    "used_by": "cond-12",
+                    "used_for": "gateway"
+                  }
+                ]
+              }
+            ],
+            "nRows": 8,
+            "nUnits": 2
+          },
+          "exm_search_buses": {
+            "size": 16,
+            "ids": [
+              {
+                "id": 0,
+                "usages": [
+                  {
+                    "used_by": "cond-12",
+                    "used_for": "gateway"
+                  }
+                ]
+              }
+            ]
+          },
+          "tcams": {
+            "tcams": [],
+            "nRows": 12,
+            "nColumns": 2
+          },
+          "statistic_alus": {
+            "stats": [],
+            "nAlus": 4
+          },
+          "rams": {
+            "srams": [
+              {
+                "row": 7,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.hash1_1_n",
+                    "used_for": "stateful_ram"
+                  }
+                ],
+                "column": 4
+              },
+              {
+                "row": 7,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.hash1_1_n",
+                    "used_for": "stateful_ram"
+                  }
+                ],
+                "column": 5
+              },
+              {
+                "row": 7,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.hash1_1_n",
+                    "used_for": "stateful_ram"
+                  }
+                ],
+                "column": 6
+              },
+              {
+                "row": 7,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.hash1_1_n",
+                    "used_for": "stateful_ram"
+                  }
+                ],
+                "column": 7
+              },
+              {
+                "row": 7,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.hash1_1_n",
+                    "used_for": "stateful_ram"
+                  }
+                ],
+                "column": 8
+              }
+            ],
+            "nRows": 8,
+            "nColumns": 10
+          },
+          "stashes": {
+            "nRows": 8,
+            "nUnits": 2,
+            "stashes": []
+          },
+          "action_slots": [
+            {
+              "maximum_slots": 32,
+              "slot_bit_width": 8,
+              "number_used": 0
+            },
+            {
+              "maximum_slots": 32,
+              "slot_bit_width": 16,
+              "number_used": 0
+            },
+            {
+              "maximum_slots": 32,
+              "slot_bit_width": 32,
+              "number_used": 0
+            }
+          ],
+          "logical_tables": {
+            "size": 16,
+            "ids": [
+              {
+                "table_name": "ShcIngress.sk.update_pkt_num_1_table",
+                "id": 0
+              }
+            ]
+          },
+          "hash_bits": {
+            "nBits": 52,
+            "bits": [
+              {
+                "used_by_table": "ShcIngress.sk.hash1_1_n",
+                "used_for": "stateful_alu",
+                "hash_function": 0,
+                "usages": [
+                  {
+                    "value": 0,
+                    "type": "selection_bit"
+                  }
+                ],
+                "hash_bit": 0
+              },
+              {
+                "used_by_table": "ShcIngress.sk.update_pkt_num_1_table",
+                "used_for": "meter address",
+                "hash_function": 1,
+                "usages": [
+                  {
+                    "value": 0,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 0
+              },
+              {
+                "used_by_table": "ShcIngress.sk.update_pkt_num_1_table",
+                "used_for": "meter address",
+                "hash_function": 1,
+                "usages": [
+                  {
+                    "value": 1,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 1
+              },
+              {
+                "used_by_table": "ShcIngress.sk.update_pkt_num_1_table",
+                "used_for": "meter address",
+                "hash_function": 1,
+                "usages": [
+                  {
+                    "value": 2,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 2
+              },
+              {
+                "used_by_table": "ShcIngress.sk.update_pkt_num_1_table",
+                "used_for": "meter address",
+                "hash_function": 1,
+                "usages": [
+                  {
+                    "value": 3,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 3
+              },
+              {
+                "used_by_table": "ShcIngress.sk.update_pkt_num_1_table",
+                "used_for": "meter address",
+                "hash_function": 1,
+                "usages": [
+                  {
+                    "value": 4,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 4
+              },
+              {
+                "used_by_table": "ShcIngress.sk.update_pkt_num_1_table",
+                "used_for": "meter address",
+                "hash_function": 1,
+                "usages": [
+                  {
+                    "value": 5,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 5
+              },
+              {
+                "used_by_table": "ShcIngress.sk.update_pkt_num_1_table",
+                "used_for": "meter address",
+                "hash_function": 1,
+                "usages": [
+                  {
+                    "value": 6,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 6
+              },
+              {
+                "used_by_table": "ShcIngress.sk.update_pkt_num_1_table",
+                "used_for": "meter address",
+                "hash_function": 1,
+                "usages": [
+                  {
+                    "value": 7,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 7
+              },
+              {
+                "used_by_table": "ShcIngress.sk.update_pkt_num_1_table",
+                "used_for": "meter address",
+                "hash_function": 1,
+                "usages": [
+                  {
+                    "value": 8,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 8
+              },
+              {
+                "used_by_table": "ShcIngress.sk.update_pkt_num_1_table",
+                "used_for": "meter address",
+                "hash_function": 1,
+                "usages": [
+                  {
+                    "value": 9,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 9
+              },
+              {
+                "used_by_table": "ShcIngress.sk.update_pkt_num_1_table",
+                "used_for": "meter address",
+                "hash_function": 1,
+                "usages": [
+                  {
+                    "value": 10,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 10
+              },
+              {
+                "used_by_table": "ShcIngress.sk.update_pkt_num_1_table",
+                "used_for": "meter address",
+                "hash_function": 1,
+                "usages": [
+                  {
+                    "value": 11,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 11
+              },
+              {
+                "used_by_table": "ShcIngress.sk.update_pkt_num_1_table",
+                "used_for": "meter address",
+                "hash_function": 1,
+                "usages": [
+                  {
+                    "value": 12,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 12
+              },
+              {
+                "used_by_table": "ShcIngress.sk.update_pkt_num_1_table",
+                "used_for": "meter address",
+                "hash_function": 1,
+                "usages": [
+                  {
+                    "value": 13,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 13
+              },
+              {
+                "used_by_table": "ShcIngress.sk.update_pkt_num_1_table",
+                "used_for": "meter address",
+                "hash_function": 1,
+                "usages": [
+                  {
+                    "value": 14,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 14
+              },
+              {
+                "used_by_table": "ShcIngress.sk.update_pkt_num_1_table",
+                "used_for": "meter address",
+                "hash_function": 1,
+                "usages": [
+                  {
+                    "value": 15,
+                    "type": "dist_bit"
+                  }
+                ],
+                "hash_bit": 15
+              }
+            ],
+            "nFunctions": 8
+          },
+          "map_rams": {
+            "nRows": 8,
+            "nUnits": 6,
+            "maprams": [
+              {
+                "row": 7,
+                "unit_id": 0,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.hash1_1_n",
+                    "used_for": "stateful_ram"
+                  }
+                ]
+              },
+              {
+                "row": 7,
+                "unit_id": 1,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.hash1_1_n",
+                    "used_for": "stateful_ram"
+                  }
+                ]
+              },
+              {
+                "row": 7,
+                "unit_id": 2,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.hash1_1_n",
+                    "used_for": "stateful_ram"
+                  }
+                ]
+              },
+              {
+                "row": 7,
+                "unit_id": 3,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.hash1_1_n",
+                    "used_for": "stateful_ram"
+                  }
+                ]
+              },
+              {
+                "row": 7,
+                "unit_id": 4,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.hash1_1_n",
+                    "used_for": "stateful_ram"
+                  }
+                ]
+              }
+            ]
+          },
+          "meter_alus": {
+            "meters": [
+              {
+                "row": 7,
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.hash1_1_n",
+                    "used_for": "stateful_ram"
+                  }
+                ]
+              }
+            ],
+            "nAlus": 4
+          },
+          "hash_distribution_units": {
+            "nUnitIds": 3,
+            "nHashIds": 2,
+            "units": [
+              {
+                "hash_id": 0,
+                "unit_id": 0,
+                "usages": [
+                  {
+                    "used_by": "sk_update_pkt_num_1_table",
+                    "used_for": "meter address"
+                  }
+                ]
+              }
+            ]
+          },
+          "xbar_bytes": {
+            "bytes": [
+              {
+                "byte_number": 0,
+                "byte_type": "exact",
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.hash1_1_n",
+                    "used_for": "stateful_alu",
+                    "slices": [
+                      {
+                        "offset": 3,
+                        "field_name": "ingress::ig_md.fp_cmp_re",
+                        "lsb": 0,
+                        "msb": 0
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "byte_number": 1,
+                "byte_type": "exact",
+                "usages": [
+                  {
+                    "used_by": "cond-12",
+                    "used_for": "gateway",
+                    "slices": [
+                      {
+                        "offset": 7,
+                        "field_name": "ingress::ig_md.hash_index_done",
+                        "lsb": 0,
+                        "msb": 0
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "byte_number": 8,
+                "byte_type": "exact",
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.update_pkt_num_1_table",
+                    "used_for": "meter address",
+                    "slices": [
+                      {
+                        "offset": 0,
+                        "field_name": "ingress::ig_md.cuckoo_hash_index",
+                        "lsb": 0,
+                        "msb": 7
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "byte_number": 9,
+                "byte_type": "exact",
+                "usages": [
+                  {
+                    "used_by": "ShcIngress.sk.update_pkt_num_1_table",
+                    "used_for": "meter address",
+                    "slices": [
+                      {
+                        "offset": 0,
+                        "field_name": "ingress::ig_md.cuckoo_hash_index",
+                        "lsb": 8,
+                        "msb": 15
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "ternary_size": 66,
+            "size": 194,
+            "exact_size": 128
+          },
+          "tind_result_buses": {
+            "size": 16,
+            "ids": [
+              {
+                "id": 0,
+                "usages": [
+                  {
+                    "used_by": "cond-12",
+                    "used_for": "gateway"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "vliw": {
+            "instructions": [
+              {
+                "color_usages": [
+                  {
+                    "gress": "ingress",
+                    "color": 1,
+                    "usages": [
+                      {
+                        "action_names": [
+                          "shc_real_time_sketch296"
+                        ],
+                        "used_by": "tbl_shc_real_time_sketch296"
+                      }
+                    ]
+                  }
+                ],
+                "instruction_number": 0
+              },
+              {
+                "color_usages": [
+                  {
+                    "gress": "ingress",
+                    "color": 0,
+                    "usages": [
+                      {
+                        "action_names": [
+                          "shc_real_time_sketch299"
+                        ],
+                        "used_by": "tbl_shc_real_time_sketch299"
+                      }
+                    ]
+                  }
+                ],
+                "instruction_number": 1
+              }
+            ],
+            "size": 32
+          },
+          "exm_result_buses": {
+            "size": 16,
+            "ids": []
+          },
+          "action_bus_bytes": {
+            "bytes": [],
+            "size": 128
+          },
+          "stage_number": 6,
+          "gateways": {
+            "gateways": [
+              {
+                "row": 0,
+                "unit_id": 0,
+                "usages": [
+                  {
+                    "used_by": "cond-13",
+                    "used_for": "gateway"
+                  }
+                ]
+              }
+            ],
+            "nRows": 8,
+            "nUnits": 2
+          },
+          "exm_search_buses": {
+            "size": 16,
+            "ids": [
+              {
+                "id": 0,
+                "usages": [
+                  {
+                    "used_by": "cond-13",
+                    "used_for": "gateway"
+                  }
+                ]
+              }
+            ]
+          },
+          "tcams": {
+            "tcams": [],
+            "nRows": 12,
+            "nColumns": 2
+          },
+          "statistic_alus": {
+            "stats": [],
+            "nAlus": 4
+          },
+          "rams": {
+            "srams": [],
+            "nRows": 8,
+            "nColumns": 10
+          },
+          "stashes": {
+            "nRows": 8,
+            "nUnits": 2,
+            "stashes": []
+          },
+          "action_slots": [
+            {
+              "maximum_slots": 32,
+              "slot_bit_width": 8,
+              "number_used": 0
+            },
+            {
+              "maximum_slots": 32,
+              "slot_bit_width": 16,
+              "number_used": 0
+            },
+            {
+              "maximum_slots": 32,
+              "slot_bit_width": 32,
+              "number_used": 0
+            }
+          ],
+          "logical_tables": {
+            "size": 16,
+            "ids": [
+              {
+                "table_name": "tbl_shc_real_time_sketch296",
+                "id": 0
+              },
+              {
+                "table_name": "tbl_shc_real_time_sketch299",
+                "id": 1
+              }
+            ]
+          },
+          "hash_bits": {
+            "nBits": 52,
+            "bits": [],
+            "nFunctions": 8
+          },
+          "map_rams": {
+            "nRows": 8,
+            "nUnits": 6,
+            "maprams": []
+          },
+          "meter_alus": {
+            "meters": [],
+            "nAlus": 4
+          },
+          "hash_distribution_units": {
+            "nUnitIds": 3,
+            "nHashIds": 2,
+            "units": []
+          },
+          "xbar_bytes": {
+            "bytes": [
+              {
+                "byte_number": 3,
+                "byte_type": "exact",
+                "usages": [
+                  {
+                    "used_by": "cond-13",
+                    "used_for": "gateway",
+                    "slices": [
+                      {
+                        "offset": 0,
+                        "field_name": "ingress::ig_md.cs_count",
+                        "lsb": 6,
+                        "msb": 7
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "byte_number": 2,
+                "byte_type": "exact",
+                "usages": [
+                  {
+                    "used_by": "cond-13",
+                    "used_for": "gateway",
+                    "slices": [
+                      {
+                        "offset": 2,
+                        "field_name": "ingress::ig_md.cs_count",
+                        "lsb": 0,
+                        "msb": 5
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "ternary_size": 66,
+            "size": 194,
+            "exact_size": 128
+          },
+          "tind_result_buses": {
+            "size": 16,
+            "ids": [
+              {
+                "id": 0,
+                "usages": [
+                  {
+                    "used_by": "tbl_shc_real_time_sketch296",
+                    "used_for": "ternary_indirection_ram"
+                  }
+                ]
+              },
+              {
+                "id": 1,
+                "usages": [
+                  {
+                    "used_by": "tbl_shc_real_time_sketch299",
+                    "used_for": "ternary_indirection_ram"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "vliw": {
+            "instructions": [
+              {
+                "color_usages": [
+                  {
+                    "gress": "ingress",
+                    "color": 1,
+                    "usages": [
+                      {
+                        "action_names": [
+                          "shc_real_time_sketch483"
+                        ],
+                        "used_by": "tbl_shc_real_time_sketch483"
+                      }
+                    ]
+                  }
+                ],
+                "instruction_number": 0
+              },
+              {
+                "color_usages": [
+                  {
+                    "gress": "ingress",
+                    "color": 0,
+                    "usages": [
+                      {
+                        "action_names": [
+                          "shc_real_time_sketch491"
+                        ],
+                        "used_by": "tbl_shc_real_time_sketch491"
+                      }
+                    ]
+                  }
+                ],
+                "instruction_number": 1
+              }
+            ],
+            "size": 32
+          },
+          "exm_result_buses": {
+            "size": 16,
+            "ids": []
+          },
+          "action_bus_bytes": {
+            "bytes": [],
+            "size": 128
+          },
+          "stage_number": 7,
+          "gateways": {
+            "gateways": [
+              {
+                "row": 0,
+                "unit_id": 0,
+                "usages": [
+                  {
+                    "used_by": "cond-14",
+                    "used_for": "gateway"
+                  }
+                ]
+              }
+            ],
+            "nRows": 8,
+            "nUnits": 2
+          },
+          "exm_search_buses": {
+            "size": 16,
+            "ids": [
+              {
+                "id": 0,
+                "usages": [
+                  {
+                    "used_by": "cond-14",
+                    "used_for": "gateway"
+                  }
+                ]
+              }
+            ]
+          },
+          "tcams": {
+            "tcams": [],
+            "nRows": 12,
+            "nColumns": 2
+          },
+          "statistic_alus": {
+            "stats": [],
+            "nAlus": 4
+          },
+          "rams": {
+            "srams": [],
+            "nRows": 8,
+            "nColumns": 10
+          },
+          "stashes": {
+            "nRows": 8,
+            "nUnits": 2,
+            "stashes": []
+          },
+          "action_slots": [
+            {
+              "maximum_slots": 32,
+              "slot_bit_width": 8,
+              "number_used": 0
+            },
+            {
+              "maximum_slots": 32,
+              "slot_bit_width": 16,
+              "number_used": 0
+            },
+            {
+              "maximum_slots": 32,
+              "slot_bit_width": 32,
+              "number_used": 0
+            }
+          ],
+          "logical_tables": {
+            "size": 16,
+            "ids": [
+              {
+                "table_name": "tbl_shc_real_time_sketch483",
+                "id": 0
+              },
+              {
+                "table_name": "tbl_shc_real_time_sketch491",
+                "id": 1
+              }
+            ]
+          },
+          "hash_bits": {
+            "nBits": 52,
+            "bits": [],
+            "nFunctions": 8
+          },
+          "map_rams": {
+            "nRows": 8,
+            "nUnits": 6,
+            "maprams": []
+          },
+          "meter_alus": {
+            "meters": [],
+            "nAlus": 4
+          },
+          "hash_distribution_units": {
+            "nUnitIds": 3,
+            "nHashIds": 2,
+            "units": []
+          },
+          "xbar_bytes": {
+            "bytes": [
+              {
+                "byte_number": 0,
+                "byte_type": "exact",
+                "usages": [
+                  {
+                    "used_by": "cond-14",
+                    "used_for": "gateway",
+                    "slices": [
+                      {
+                        "offset": 1,
+                        "field_name": "ingress::ig_md.table_hit",
+                        "lsb": 0,
+                        "msb": 0
+                      },
+                      {
+                        "offset": 2,
+                        "field_name": "ingress::ig_md.eflag",
+                        "lsb": 0,
+                        "msb": 0
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "ternary_size": 66,
+            "size": 194,
+            "exact_size": 128
+          },
+          "tind_result_buses": {
+            "size": 16,
+            "ids": [
+              {
+                "id": 0,
+                "usages": [
+                  {
+                    "used_by": "tbl_shc_real_time_sketch483",
+                    "used_for": "ternary_indirection_ram"
+                  }
+                ]
+              },
+              {
+                "id": 1,
+                "usages": [
+                  {
+                    "used_by": "tbl_shc_real_time_sketch491",
+                    "used_for": "ternary_indirection_ram"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "nStages": 12
+    },
+    "phv_containers": {
+      "normal": [
+        {
+          "addresses": [
+            64,
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88,
+            89,
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110,
+            111,
+            112,
+            113,
+            114,
+            115,
+            116,
+            117,
+            118,
+            119,
+            120,
+            121,
+            122,
+            123,
+            124,
+            125,
+            126,
+            127
+          ],
+          "width": 8,
+          "units": 64
+        },
+        {
+          "addresses": [
+            128,
+            129,
+            130,
+            131,
+            132,
+            133,
+            134,
+            135,
+            136,
+            137,
+            138,
+            139,
+            140,
+            141,
+            142,
+            143,
+            144,
+            145,
+            146,
+            147,
+            148,
+            149,
+            150,
+            151,
+            152,
+            153,
+            154,
+            155,
+            156,
+            157,
+            158,
+            159,
+            160,
+            161,
+            162,
+            163,
+            164,
+            165,
+            166,
+            167,
+            168,
+            169,
+            170,
+            171,
+            172,
+            173,
+            174,
+            175,
+            176,
+            177,
+            178,
+            179,
+            180,
+            181,
+            182,
+            183,
+            184,
+            185,
+            186,
+            187,
+            188,
+            189,
+            190,
+            191,
+            192,
+            193,
+            194,
+            195,
+            196,
+            197,
+            198,
+            199,
+            200,
+            201,
+            202,
+            203,
+            204,
+            205,
+            206,
+            207,
+            208,
+            209,
+            210,
+            211,
+            212,
+            213,
+            214,
+            215,
+            216,
+            217,
+            218,
+            219,
+            220,
+            221,
+            222,
+            223
+          ],
+          "width": 16,
+          "units": 96
+        },
+        {
+          "addresses": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63
+          ],
+          "width": 32,
+          "units": 64
+        }
+      ],
+      "tagalong": [
+        {
+          "addresses": [
+            288,
+            289,
+            290,
+            291,
+            292,
+            293,
+            294,
+            295,
+            296,
+            297,
+            298,
+            299,
+            300,
+            301,
+            302,
+            303,
+            304,
+            305,
+            306,
+            307,
+            308,
+            309,
+            310,
+            311,
+            312,
+            313,
+            314,
+            315,
+            316,
+            317,
+            318,
+            319
+          ],
+          "width": 8,
+          "units": 32
+        },
+        {
+          "addresses": [
+            320,
+            321,
+            322,
+            323,
+            324,
+            325,
+            326,
+            327,
+            328,
+            329,
+            330,
+            331,
+            332,
+            333,
+            334,
+            335,
+            336,
+            337,
+            338,
+            339,
+            340,
+            341,
+            342,
+            343,
+            344,
+            345,
+            346,
+            347,
+            348,
+            349,
+            350,
+            351,
+            352,
+            353,
+            354,
+            355,
+            356,
+            357,
+            358,
+            359,
+            360,
+            361,
+            362,
+            363,
+            364,
+            365,
+            366,
+            367
+          ],
+          "width": 16,
+          "units": 48
+        },
+        {
+          "addresses": [
+            256,
+            257,
+            258,
+            259,
+            260,
+            261,
+            262,
+            263,
+            264,
+            265,
+            266,
+            267,
+            268,
+            269,
+            270,
+            271,
+            272,
+            273,
+            274,
+            275,
+            276,
+            277,
+            278,
+            279,
+            280,
+            281,
+            282,
+            283,
+            284,
+            285,
+            286,
+            287
+          ],
+          "width": 32,
+          "units": 32
+        }
+      ]
+    }
+  },
+  "run_id": "6418b0c6e71b6f3c",
+  "compiler_version": "9.7.0",
+  "program_name": "shc_real_time_sketch.p4",
+  "build_date": "Sat Sep 14 10:18:45 2024"
+}

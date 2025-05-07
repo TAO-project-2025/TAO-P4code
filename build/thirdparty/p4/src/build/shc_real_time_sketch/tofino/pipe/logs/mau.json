@@ -1,0 +1,1170 @@
+{
+    "build_date": "Sat Sep 14 10:18:45 2024", 
+    "program_name": "shc_real_time_sketch", 
+    "run_id": "6418b0c6e71b6f3c", 
+    "compiler_version": "9.7.0 (da5115f)", 
+    "schema_version": "1.0.0", 
+    "tables": [
+        {
+            "name": "ShcIngress.cuckoo_hash_chose_table", 
+            "gress": "ingress", 
+            "lookup_types": [
+                "exact"
+            ], 
+            "entries_requested": 4, 
+            "entries_allocated": 1024, 
+            "match_fields": [
+                {
+                    "name": "ig_md.cuckoo_hash_chose", 
+                    "start_bit": 0, 
+                    "bit_width": 2, 
+                    "lookup_type": "exact"
+                }
+            ], 
+            "action_parameters": [
+                {
+                    "action_name": "NoAction", 
+                    "parameters": []
+                }, 
+                {
+                    "action_name": "ShcIngress.cuckoo_hash_chose_1", 
+                    "parameters": []
+                }, 
+                {
+                    "action_name": "ShcIngress.cuckoo_hash_chose_2", 
+                    "parameters": []
+                }, 
+                {
+                    "action_name": "ShcIngress.cuckoo_hash_chose_3", 
+                    "parameters": []
+                }, 
+                {
+                    "action_name": "ShcIngress.cuckoo_hash_chose_4", 
+                    "parameters": []
+                }
+            ], 
+            "stage_allocation": [
+                {
+                    "stage_number": 3, 
+                    "memories": [
+                        {
+                            "memory_type": "sram", 
+                            "table_word_width": 128, 
+                            "memory_word_width": 128, 
+                            "entries_per_table_word": 1, 
+                            "table_type": "match", 
+                            "num_memories": 1, 
+                            "entries_requested": 4, 
+                            "entries_allocated": 1024, 
+                            "imm_bit_width_in_overhead_requested": 0, 
+                            "imm_bit_width_in_overhead_allocated": 0, 
+                            "entry_bit_width_requested": 6, 
+                            "entry_bit_width_allocated": 7, 
+                            "ideal_entries_per_table_word": 5, 
+                            "ideal_table_word_bit_width": 128
+                        }
+                    ], 
+                    "overhead_fields": [
+                        {
+                            "name": "version/valid", 
+                            "bit_width": 4
+                        }
+                    ], 
+                    "match_format": {
+                        "entries": [
+                            {
+                                "entry_number": 0, 
+                                "fields": [
+                                    {
+                                        "name": "action", 
+                                        "bit_width": 3, 
+                                        "start_bit": 0, 
+                                        "memory_start_bit": 0
+                                    }, 
+                                    {
+                                        "name": "version", 
+                                        "bit_width": 4, 
+                                        "start_bit": 0, 
+                                        "memory_start_bit": 112
+                                    }
+                                ]
+                            }
+                        ]
+                    }, 
+                    "action_formats": []
+                }
+            ]
+        }, 
+        {
+            "name": "ShcIngress.route_tbl", 
+            "gress": "ingress", 
+            "lookup_types": [
+                "exact"
+            ], 
+            "entries_requested": 65536, 
+            "entries_allocated": 65536, 
+            "match_fields": [
+                {
+                    "name": "ig_md.src_addr", 
+                    "start_bit": 0, 
+                    "bit_width": 32, 
+                    "lookup_type": "exact"
+                }, 
+                {
+                    "name": "ig_md.dst_addr", 
+                    "start_bit": 0, 
+                    "bit_width": 32, 
+                    "lookup_type": "exact"
+                }
+            ], 
+            "action_parameters": [
+                {
+                    "action_name": "ShcIngress.route_for_nexthop", 
+                    "parameters": [
+                        {
+                            "name": "nhop_id", 
+                            "bit_width": 32
+                        }
+                    ]
+                }, 
+                {
+                    "action_name": "ShcIngress.route_for_miss", 
+                    "parameters": []
+                }
+            ], 
+            "stage_allocation": [
+                {
+                    "stage_number": 1, 
+                    "memories": [
+                        {
+                            "memory_type": "sram", 
+                            "table_word_width": 128, 
+                            "memory_word_width": 128, 
+                            "entries_per_table_word": 2, 
+                            "table_type": "match", 
+                            "num_memories": 32, 
+                            "entries_requested": 65536, 
+                            "entries_allocated": 65536, 
+                            "imm_bit_width_in_overhead_requested": 0, 
+                            "imm_bit_width_in_overhead_allocated": 0, 
+                            "entry_bit_width_requested": 68, 
+                            "entry_bit_width_allocated": 56, 
+                            "ideal_entries_per_table_word": 2, 
+                            "ideal_table_word_bit_width": 128
+                        }, 
+                        {
+                            "memory_type": "sram", 
+                            "table_word_width": 128, 
+                            "memory_word_width": 128, 
+                            "entries_per_table_word": 4, 
+                            "table_type": "action", 
+                            "num_memories": 16, 
+                            "entry_bit_width_requested": 32, 
+                            "entry_bit_width_allocated": 32, 
+                            "ideal_entries_per_table_word": 4, 
+                            "ideal_table_word_bit_width": 128
+                        }
+                    ], 
+                    "overhead_fields": [
+                        {
+                            "name": "version/valid", 
+                            "bit_width": 4
+                        }
+                    ], 
+                    "match_format": {
+                        "entries": [
+                            {
+                                "entry_number": 1, 
+                                "fields": [
+                                    {
+                                        "name": "action", 
+                                        "bit_width": 1, 
+                                        "start_bit": 0, 
+                                        "memory_start_bit": 1
+                                    }, 
+                                    {
+                                        "name": "version", 
+                                        "bit_width": 4, 
+                                        "start_bit": 0, 
+                                        "memory_start_bit": 112
+                                    }, 
+                                    {
+                                        "name": "ig_md.dst_addr", 
+                                        "bit_width": 3, 
+                                        "start_bit": 13, 
+                                        "memory_start_bit": 5
+                                    }, 
+                                    {
+                                        "name": "ig_md.dst_addr", 
+                                        "bit_width": 8, 
+                                        "start_bit": 16, 
+                                        "memory_start_bit": 88
+                                    }, 
+                                    {
+                                        "name": "ig_md.dst_addr", 
+                                        "bit_width": 8, 
+                                        "start_bit": 24, 
+                                        "memory_start_bit": 96
+                                    }, 
+                                    {
+                                        "name": "ig_md.src_addr", 
+                                        "bit_width": 8, 
+                                        "start_bit": 0, 
+                                        "memory_start_bit": 104
+                                    }, 
+                                    {
+                                        "name": "ig_md.src_addr", 
+                                        "bit_width": 8, 
+                                        "start_bit": 8, 
+                                        "memory_start_bit": 8
+                                    }, 
+                                    {
+                                        "name": "ig_md.src_addr", 
+                                        "bit_width": 8, 
+                                        "start_bit": 16, 
+                                        "memory_start_bit": 16
+                                    }, 
+                                    {
+                                        "name": "ig_md.src_addr", 
+                                        "bit_width": 8, 
+                                        "start_bit": 24, 
+                                        "memory_start_bit": 24
+                                    }
+                                ]
+                            }, 
+                            {
+                                "entry_number": 0, 
+                                "fields": [
+                                    {
+                                        "name": "action", 
+                                        "bit_width": 1, 
+                                        "start_bit": 0, 
+                                        "memory_start_bit": 0
+                                    }, 
+                                    {
+                                        "name": "version", 
+                                        "bit_width": 4, 
+                                        "start_bit": 0, 
+                                        "memory_start_bit": 80
+                                    }, 
+                                    {
+                                        "name": "ig_md.dst_addr", 
+                                        "bit_width": 3, 
+                                        "start_bit": 13, 
+                                        "memory_start_bit": 85
+                                    }, 
+                                    {
+                                        "name": "ig_md.dst_addr", 
+                                        "bit_width": 8, 
+                                        "start_bit": 16, 
+                                        "memory_start_bit": 32
+                                    }, 
+                                    {
+                                        "name": "ig_md.dst_addr", 
+                                        "bit_width": 8, 
+                                        "start_bit": 24, 
+                                        "memory_start_bit": 40
+                                    }, 
+                                    {
+                                        "name": "ig_md.src_addr", 
+                                        "bit_width": 8, 
+                                        "start_bit": 0, 
+                                        "memory_start_bit": 48
+                                    }, 
+                                    {
+                                        "name": "ig_md.src_addr", 
+                                        "bit_width": 8, 
+                                        "start_bit": 8, 
+                                        "memory_start_bit": 56
+                                    }, 
+                                    {
+                                        "name": "ig_md.src_addr", 
+                                        "bit_width": 8, 
+                                        "start_bit": 16, 
+                                        "memory_start_bit": 64
+                                    }, 
+                                    {
+                                        "name": "ig_md.src_addr", 
+                                        "bit_width": 8, 
+                                        "start_bit": 24, 
+                                        "memory_start_bit": 72
+                                    }
+                                ]
+                            }
+                        ]
+                    }, 
+                    "action_formats": [
+                        {
+                            "name": "ShcIngress.route_for_miss", 
+                            "action_format": {
+                                "entries": [
+                                    {
+                                        "entry_number": 3, 
+                                        "fields": [
+                                            {
+                                                "name": "--padding_0_31--", 
+                                                "bit_width": 32, 
+                                                "start_bit": 0, 
+                                                "memory_start_bit": 96
+                                            }
+                                        ]
+                                    }, 
+                                    {
+                                        "entry_number": 2, 
+                                        "fields": [
+                                            {
+                                                "name": "--padding_0_31--", 
+                                                "bit_width": 32, 
+                                                "start_bit": 0, 
+                                                "memory_start_bit": 64
+                                            }
+                                        ]
+                                    }, 
+                                    {
+                                        "entry_number": 1, 
+                                        "fields": [
+                                            {
+                                                "name": "--padding_0_31--", 
+                                                "bit_width": 32, 
+                                                "start_bit": 0, 
+                                                "memory_start_bit": 32
+                                            }
+                                        ]
+                                    }, 
+                                    {
+                                        "entry_number": 0, 
+                                        "fields": [
+                                            {
+                                                "name": "--padding_0_31--", 
+                                                "bit_width": 32, 
+                                                "start_bit": 0, 
+                                                "memory_start_bit": 0
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }, 
+                            "parameter_map": []
+                        }, 
+                        {
+                            "name": "ShcIngress.route_for_nexthop", 
+                            "action_format": {
+                                "entries": [
+                                    {
+                                        "entry_number": 3, 
+                                        "fields": [
+                                            {
+                                                "name": "nhop_id", 
+                                                "bit_width": 2, 
+                                                "start_bit": 0, 
+                                                "memory_start_bit": 110
+                                            }, 
+                                            {
+                                                "name": "nhop_id", 
+                                                "bit_width": 16, 
+                                                "start_bit": 16, 
+                                                "memory_start_bit": 112
+                                            }, 
+                                            {
+                                                "name": "nhop_id", 
+                                                "bit_width": 14, 
+                                                "start_bit": 2, 
+                                                "memory_start_bit": 96
+                                            }
+                                        ]
+                                    }, 
+                                    {
+                                        "entry_number": 2, 
+                                        "fields": [
+                                            {
+                                                "name": "nhop_id", 
+                                                "bit_width": 2, 
+                                                "start_bit": 0, 
+                                                "memory_start_bit": 78
+                                            }, 
+                                            {
+                                                "name": "nhop_id", 
+                                                "bit_width": 16, 
+                                                "start_bit": 16, 
+                                                "memory_start_bit": 80
+                                            }, 
+                                            {
+                                                "name": "nhop_id", 
+                                                "bit_width": 14, 
+                                                "start_bit": 2, 
+                                                "memory_start_bit": 64
+                                            }
+                                        ]
+                                    }, 
+                                    {
+                                        "entry_number": 1, 
+                                        "fields": [
+                                            {
+                                                "name": "nhop_id", 
+                                                "bit_width": 2, 
+                                                "start_bit": 0, 
+                                                "memory_start_bit": 46
+                                            }, 
+                                            {
+                                                "name": "nhop_id", 
+                                                "bit_width": 16, 
+                                                "start_bit": 16, 
+                                                "memory_start_bit": 48
+                                            }, 
+                                            {
+                                                "name": "nhop_id", 
+                                                "bit_width": 14, 
+                                                "start_bit": 2, 
+                                                "memory_start_bit": 32
+                                            }
+                                        ]
+                                    }, 
+                                    {
+                                        "entry_number": 0, 
+                                        "fields": [
+                                            {
+                                                "name": "nhop_id", 
+                                                "bit_width": 2, 
+                                                "start_bit": 0, 
+                                                "memory_start_bit": 14
+                                            }, 
+                                            {
+                                                "name": "nhop_id", 
+                                                "bit_width": 16, 
+                                                "start_bit": 16, 
+                                                "memory_start_bit": 16
+                                            }, 
+                                            {
+                                                "name": "nhop_id", 
+                                                "bit_width": 14, 
+                                                "start_bit": 2, 
+                                                "memory_start_bit": 0
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }, 
+                            "parameter_map": []
+                        }
+                    ]
+                }
+            ]
+        }, 
+        {
+            "name": "ShcIngress.sk.count_pkt_num_table", 
+            "gress": "ingress", 
+            "lookup_types": [], 
+            "entries_requested": 1, 
+            "entries_allocated": 0, 
+            "match_fields": [], 
+            "action_parameters": [
+                {
+                    "action_name": "ShcIngress.sk.count_pkt_num", 
+                    "parameters": []
+                }
+            ], 
+            "stage_allocation": [
+                {
+                    "stage_number": 0, 
+                    "memories": [
+                        {
+                            "memory_type": "sram", 
+                            "table_word_width": 0, 
+                            "memory_word_width": 44, 
+                            "entries_per_table_word": 1, 
+                            "table_type": "match", 
+                            "num_memories": 0, 
+                            "entries_requested": 0, 
+                            "entries_allocated": 0, 
+                            "imm_bit_width_in_overhead_requested": 0, 
+                            "imm_bit_width_in_overhead_allocated": 0, 
+                            "entry_bit_width_requested": 0, 
+                            "entry_bit_width_allocated": 0, 
+                            "ideal_entries_per_table_word": 0, 
+                            "ideal_table_word_bit_width": 0
+                        }, 
+                        {
+                            "memory_type": "sram", 
+                            "table_word_width": 128, 
+                            "memory_word_width": 128, 
+                            "entries_per_table_word": 4, 
+                            "table_type": "stateful", 
+                            "num_memories": 2
+                        }
+                    ], 
+                    "overhead_fields": [], 
+                    "match_format": {
+                        "entries": [
+                            {
+                                "entry_number": 0, 
+                                "fields": []
+                            }
+                        ]
+                    }, 
+                    "action_formats": []
+                }
+            ]
+        }, 
+        {
+            "name": "ShcIngress.sk.get_fingerprint_table", 
+            "gress": "ingress", 
+            "lookup_types": [], 
+            "entries_requested": 1, 
+            "entries_allocated": 1, 
+            "match_fields": [], 
+            "action_parameters": [
+                {
+                    "action_name": "ShcIngress.sk.get_hash_value", 
+                    "parameters": []
+                }
+            ], 
+            "stage_allocation": [
+                {
+                    "stage_number": 2, 
+                    "memories": [], 
+                    "overhead_fields": [], 
+                    "match_format": {
+                        "entries": []
+                    }, 
+                    "action_formats": []
+                }
+            ]
+        }, 
+        {
+            "name": "ShcIngress.sk.update_pkt_1_table", 
+            "gress": "ingress", 
+            "lookup_types": [], 
+            "entries_requested": 1, 
+            "entries_allocated": 1, 
+            "match_fields": [], 
+            "action_parameters": [
+                {
+                    "action_name": "ShcIngress.sk.update_pkt_1", 
+                    "parameters": []
+                }
+            ], 
+            "stage_allocation": [
+                {
+                    "stage_number": 4, 
+                    "memories": [
+                        {
+                            "memory_type": "sram", 
+                            "table_word_width": 128, 
+                            "memory_word_width": 128, 
+                            "entries_per_table_word": 8, 
+                            "table_type": "stateful", 
+                            "num_memories": 9
+                        }
+                    ], 
+                    "overhead_fields": [], 
+                    "match_format": {
+                        "entries": []
+                    }, 
+                    "action_formats": []
+                }
+            ]
+        }, 
+        {
+            "name": "ShcIngress.sk.update_pkt_num_1_table", 
+            "gress": "ingress", 
+            "lookup_types": [], 
+            "entries_requested": 1, 
+            "entries_allocated": 1, 
+            "match_fields": [], 
+            "action_parameters": [
+                {
+                    "action_name": "ShcIngress.sk.update_pkt_num_1", 
+                    "parameters": []
+                }
+            ], 
+            "stage_allocation": [
+                {
+                    "stage_number": 5, 
+                    "memories": [
+                        {
+                            "memory_type": "sram", 
+                            "table_word_width": 128, 
+                            "memory_word_width": 128, 
+                            "entries_per_table_word": 16, 
+                            "table_type": "stateful", 
+                            "num_memories": 5
+                        }
+                    ], 
+                    "overhead_fields": [], 
+                    "match_format": {
+                        "entries": []
+                    }, 
+                    "action_formats": []
+                }
+            ]
+        }, 
+        {
+            "name": "ShcIngressParser.$PORT_METADATA", 
+            "gress": "ingress", 
+            "lookup_types": [
+                "exact"
+            ], 
+            "entries_requested": 288, 
+            "entries_allocated": 288, 
+            "match_fields": [
+                {
+                    "name": "ig_intr_md.ingress_port", 
+                    "start_bit": 0, 
+                    "bit_width": 9, 
+                    "lookup_type": "exact"
+                }
+            ], 
+            "action_parameters": [
+                {
+                    "action_name": "set_port_metadata", 
+                    "parameters": [
+                        {
+                            "name": "ig_intr_md", 
+                            "bit_width": 64
+                        }
+                    ]
+                }
+            ], 
+            "stage_allocation": [
+                {
+                    "stage_number": -1, 
+                    "memories": [
+                        {
+                            "memory_type": "buf", 
+                            "table_word_width": 64, 
+                            "memory_word_width": 64, 
+                            "entries_per_table_word": 1, 
+                            "table_type": "match", 
+                            "num_memories": 1, 
+                            "entries_requested": 288, 
+                            "entries_allocated": 288, 
+                            "imm_bit_width_in_overhead_requested": 64, 
+                            "imm_bit_width_in_overhead_allocated": 0, 
+                            "entry_bit_width_requested": 9, 
+                            "entry_bit_width_allocated": 64, 
+                            "ideal_entries_per_table_word": 1, 
+                            "ideal_table_word_bit_width": 128
+                        }
+                    ], 
+                    "overhead_fields": [], 
+                    "match_format": {
+                        "entries": [
+                            {
+                                "entry_number": 0, 
+                                "fields": [
+                                    {
+                                        "name": "ig_intr_md", 
+                                        "bit_width": 64, 
+                                        "start_bit": 0, 
+                                        "memory_start_bit": 0
+                                    }
+                                ]
+                            }
+                        ]
+                    }, 
+                    "action_formats": []
+                }
+            ]
+        }, 
+        {
+            "name": "tbl_shc_real_time_sketch296", 
+            "gress": "ingress", 
+            "lookup_types": [], 
+            "entries_requested": 0, 
+            "entries_allocated": 0, 
+            "match_fields": [], 
+            "action_parameters": [
+                {
+                    "action_name": "shc_real_time_sketch296", 
+                    "parameters": []
+                }
+            ], 
+            "stage_allocation": [
+                {
+                    "stage_number": 6, 
+                    "memories": [
+                        {
+                            "memory_type": "sram", 
+                            "table_word_width": 0, 
+                            "memory_word_width": 44, 
+                            "entries_per_table_word": 1, 
+                            "table_type": "match", 
+                            "num_memories": 0, 
+                            "entries_requested": 0, 
+                            "entries_allocated": 0, 
+                            "imm_bit_width_in_overhead_requested": 0, 
+                            "imm_bit_width_in_overhead_allocated": 0, 
+                            "entry_bit_width_requested": 0, 
+                            "entry_bit_width_allocated": 0, 
+                            "ideal_entries_per_table_word": 0, 
+                            "ideal_table_word_bit_width": 0
+                        }
+                    ], 
+                    "overhead_fields": [], 
+                    "match_format": {
+                        "entries": [
+                            {
+                                "entry_number": 0, 
+                                "fields": []
+                            }
+                        ]
+                    }, 
+                    "action_formats": []
+                }
+            ]
+        }, 
+        {
+            "name": "tbl_shc_real_time_sketch299", 
+            "gress": "ingress", 
+            "lookup_types": [], 
+            "entries_requested": 0, 
+            "entries_allocated": 0, 
+            "match_fields": [], 
+            "action_parameters": [
+                {
+                    "action_name": "shc_real_time_sketch299", 
+                    "parameters": []
+                }
+            ], 
+            "stage_allocation": [
+                {
+                    "stage_number": 6, 
+                    "memories": [
+                        {
+                            "memory_type": "sram", 
+                            "table_word_width": 0, 
+                            "memory_word_width": 44, 
+                            "entries_per_table_word": 1, 
+                            "table_type": "match", 
+                            "num_memories": 0, 
+                            "entries_requested": 0, 
+                            "entries_allocated": 0, 
+                            "imm_bit_width_in_overhead_requested": 0, 
+                            "imm_bit_width_in_overhead_allocated": 0, 
+                            "entry_bit_width_requested": 0, 
+                            "entry_bit_width_allocated": 0, 
+                            "ideal_entries_per_table_word": 0, 
+                            "ideal_table_word_bit_width": 0
+                        }
+                    ], 
+                    "overhead_fields": [], 
+                    "match_format": {
+                        "entries": [
+                            {
+                                "entry_number": 0, 
+                                "fields": []
+                            }
+                        ]
+                    }, 
+                    "action_formats": []
+                }
+            ]
+        }, 
+        {
+            "name": "tbl_shc_real_time_sketch449", 
+            "gress": "ingress", 
+            "lookup_types": [], 
+            "entries_requested": 0, 
+            "entries_allocated": 0, 
+            "match_fields": [], 
+            "action_parameters": [
+                {
+                    "action_name": "shc_real_time_sketch449", 
+                    "parameters": []
+                }
+            ], 
+            "stage_allocation": [
+                {
+                    "stage_number": 0, 
+                    "memories": [
+                        {
+                            "memory_type": "sram", 
+                            "table_word_width": 0, 
+                            "memory_word_width": 44, 
+                            "entries_per_table_word": 1, 
+                            "table_type": "match", 
+                            "num_memories": 0, 
+                            "entries_requested": 0, 
+                            "entries_allocated": 0, 
+                            "imm_bit_width_in_overhead_requested": 0, 
+                            "imm_bit_width_in_overhead_allocated": 0, 
+                            "entry_bit_width_requested": 0, 
+                            "entry_bit_width_allocated": 0, 
+                            "ideal_entries_per_table_word": 0, 
+                            "ideal_table_word_bit_width": 0
+                        }
+                    ], 
+                    "overhead_fields": [], 
+                    "match_format": {
+                        "entries": [
+                            {
+                                "entry_number": 0, 
+                                "fields": []
+                            }
+                        ]
+                    }, 
+                    "action_formats": []
+                }
+            ]
+        }, 
+        {
+            "name": "tbl_shc_real_time_sketch453", 
+            "gress": "ingress", 
+            "lookup_types": [], 
+            "entries_requested": 0, 
+            "entries_allocated": 0, 
+            "match_fields": [], 
+            "action_parameters": [
+                {
+                    "action_name": "shc_real_time_sketch453", 
+                    "parameters": []
+                }
+            ], 
+            "stage_allocation": [
+                {
+                    "stage_number": 0, 
+                    "memories": [
+                        {
+                            "memory_type": "sram", 
+                            "table_word_width": 0, 
+                            "memory_word_width": 44, 
+                            "entries_per_table_word": 1, 
+                            "table_type": "match", 
+                            "num_memories": 0, 
+                            "entries_requested": 0, 
+                            "entries_allocated": 0, 
+                            "imm_bit_width_in_overhead_requested": 0, 
+                            "imm_bit_width_in_overhead_allocated": 0, 
+                            "entry_bit_width_requested": 0, 
+                            "entry_bit_width_allocated": 0, 
+                            "ideal_entries_per_table_word": 0, 
+                            "ideal_table_word_bit_width": 0
+                        }
+                    ], 
+                    "overhead_fields": [], 
+                    "match_format": {
+                        "entries": [
+                            {
+                                "entry_number": 0, 
+                                "fields": []
+                            }
+                        ]
+                    }, 
+                    "action_formats": []
+                }
+            ]
+        }, 
+        {
+            "name": "tbl_shc_real_time_sketch458", 
+            "gress": "ingress", 
+            "lookup_types": [], 
+            "entries_requested": 0, 
+            "entries_allocated": 0, 
+            "match_fields": [], 
+            "action_parameters": [
+                {
+                    "action_name": "shc_real_time_sketch458", 
+                    "parameters": []
+                }
+            ], 
+            "stage_allocation": [
+                {
+                    "stage_number": 2, 
+                    "memories": [
+                        {
+                            "memory_type": "sram", 
+                            "table_word_width": 0, 
+                            "memory_word_width": 44, 
+                            "entries_per_table_word": 1, 
+                            "table_type": "match", 
+                            "num_memories": 0, 
+                            "entries_requested": 0, 
+                            "entries_allocated": 0, 
+                            "imm_bit_width_in_overhead_requested": 0, 
+                            "imm_bit_width_in_overhead_allocated": 0, 
+                            "entry_bit_width_requested": 0, 
+                            "entry_bit_width_allocated": 0, 
+                            "ideal_entries_per_table_word": 0, 
+                            "ideal_table_word_bit_width": 0
+                        }
+                    ], 
+                    "overhead_fields": [], 
+                    "match_format": {
+                        "entries": [
+                            {
+                                "entry_number": 0, 
+                                "fields": []
+                            }
+                        ]
+                    }, 
+                    "action_formats": []
+                }
+            ]
+        }, 
+        {
+            "name": "tbl_shc_real_time_sketch464", 
+            "gress": "ingress", 
+            "lookup_types": [], 
+            "entries_requested": 65536, 
+            "entries_allocated": 1, 
+            "match_fields": [], 
+            "action_parameters": [
+                {
+                    "action_name": "shc_real_time_sketch464", 
+                    "parameters": []
+                }
+            ], 
+            "stage_allocation": [
+                {
+                    "stage_number": 2, 
+                    "memories": [], 
+                    "overhead_fields": [], 
+                    "match_format": {
+                        "entries": []
+                    }, 
+                    "action_formats": []
+                }
+            ]
+        }, 
+        {
+            "name": "tbl_shc_real_time_sketch468", 
+            "gress": "ingress", 
+            "lookup_types": [], 
+            "entries_requested": 0, 
+            "entries_allocated": 0, 
+            "match_fields": [], 
+            "action_parameters": [
+                {
+                    "action_name": "shc_real_time_sketch468", 
+                    "parameters": []
+                }
+            ], 
+            "stage_allocation": [
+                {
+                    "stage_number": 3, 
+                    "memories": [
+                        {
+                            "memory_type": "sram", 
+                            "table_word_width": 0, 
+                            "memory_word_width": 44, 
+                            "entries_per_table_word": 1, 
+                            "table_type": "match", 
+                            "num_memories": 0, 
+                            "entries_requested": 0, 
+                            "entries_allocated": 0, 
+                            "imm_bit_width_in_overhead_requested": 0, 
+                            "imm_bit_width_in_overhead_allocated": 0, 
+                            "entry_bit_width_requested": 0, 
+                            "entry_bit_width_allocated": 0, 
+                            "ideal_entries_per_table_word": 0, 
+                            "ideal_table_word_bit_width": 0
+                        }
+                    ], 
+                    "overhead_fields": [], 
+                    "match_format": {
+                        "entries": [
+                            {
+                                "entry_number": 0, 
+                                "fields": []
+                            }
+                        ]
+                    }, 
+                    "action_formats": []
+                }
+            ]
+        }, 
+        {
+            "name": "tbl_shc_real_time_sketch476", 
+            "gress": "ingress", 
+            "lookup_types": [], 
+            "entries_requested": 0, 
+            "entries_allocated": 0, 
+            "match_fields": [], 
+            "action_parameters": [
+                {
+                    "action_name": "shc_real_time_sketch476", 
+                    "parameters": []
+                }
+            ], 
+            "stage_allocation": [
+                {
+                    "stage_number": 2, 
+                    "memories": [
+                        {
+                            "memory_type": "sram", 
+                            "table_word_width": 0, 
+                            "memory_word_width": 44, 
+                            "entries_per_table_word": 1, 
+                            "table_type": "match", 
+                            "num_memories": 0, 
+                            "entries_requested": 0, 
+                            "entries_allocated": 0, 
+                            "imm_bit_width_in_overhead_requested": 0, 
+                            "imm_bit_width_in_overhead_allocated": 0, 
+                            "entry_bit_width_requested": 0, 
+                            "entry_bit_width_allocated": 0, 
+                            "ideal_entries_per_table_word": 0, 
+                            "ideal_table_word_bit_width": 0
+                        }
+                    ], 
+                    "overhead_fields": [], 
+                    "match_format": {
+                        "entries": [
+                            {
+                                "entry_number": 0, 
+                                "fields": []
+                            }
+                        ]
+                    }, 
+                    "action_formats": []
+                }
+            ]
+        }, 
+        {
+            "name": "tbl_shc_real_time_sketch476_0", 
+            "gress": "ingress", 
+            "lookup_types": [], 
+            "entries_requested": 0, 
+            "entries_allocated": 0, 
+            "match_fields": [], 
+            "action_parameters": [
+                {
+                    "action_name": "shc_real_time_sketch476_0", 
+                    "parameters": []
+                }
+            ], 
+            "stage_allocation": [
+                {
+                    "stage_number": 3, 
+                    "memories": [
+                        {
+                            "memory_type": "sram", 
+                            "table_word_width": 0, 
+                            "memory_word_width": 44, 
+                            "entries_per_table_word": 1, 
+                            "table_type": "match", 
+                            "num_memories": 0, 
+                            "entries_requested": 0, 
+                            "entries_allocated": 0, 
+                            "imm_bit_width_in_overhead_requested": 16, 
+                            "imm_bit_width_in_overhead_allocated": 16, 
+                            "entry_bit_width_requested": 0, 
+                            "entry_bit_width_allocated": 0, 
+                            "ideal_entries_per_table_word": 0, 
+                            "ideal_table_word_bit_width": 0
+                        }
+                    ], 
+                    "overhead_fields": [
+                        {
+                            "name": "immediate", 
+                            "bit_width": 16
+                        }
+                    ], 
+                    "match_format": {
+                        "entries": [
+                            {
+                                "entry_number": 0, 
+                                "fields": []
+                            }
+                        ]
+                    }, 
+                    "action_formats": []
+                }
+            ]
+        }, 
+        {
+            "name": "tbl_shc_real_time_sketch483", 
+            "gress": "ingress", 
+            "lookup_types": [], 
+            "entries_requested": 0, 
+            "entries_allocated": 0, 
+            "match_fields": [], 
+            "action_parameters": [
+                {
+                    "action_name": "shc_real_time_sketch483", 
+                    "parameters": []
+                }
+            ], 
+            "stage_allocation": [
+                {
+                    "stage_number": 7, 
+                    "memories": [
+                        {
+                            "memory_type": "sram", 
+                            "table_word_width": 0, 
+                            "memory_word_width": 44, 
+                            "entries_per_table_word": 1, 
+                            "table_type": "match", 
+                            "num_memories": 0, 
+                            "entries_requested": 0, 
+                            "entries_allocated": 0, 
+                            "imm_bit_width_in_overhead_requested": 0, 
+                            "imm_bit_width_in_overhead_allocated": 0, 
+                            "entry_bit_width_requested": 0, 
+                            "entry_bit_width_allocated": 0, 
+                            "ideal_entries_per_table_word": 0, 
+                            "ideal_table_word_bit_width": 0
+                        }
+                    ], 
+                    "overhead_fields": [], 
+                    "match_format": {
+                        "entries": [
+                            {
+                                "entry_number": 0, 
+                                "fields": []
+                            }
+                        ]
+                    }, 
+                    "action_formats": []
+                }
+            ]
+        }, 
+        {
+            "name": "tbl_shc_real_time_sketch491", 
+            "gress": "ingress", 
+            "lookup_types": [], 
+            "entries_requested": 0, 
+            "entries_allocated": 0, 
+            "match_fields": [], 
+            "action_parameters": [
+                {
+                    "action_name": "shc_real_time_sketch491", 
+                    "parameters": []
+                }
+            ], 
+            "stage_allocation": [
+                {
+                    "stage_number": 7, 
+                    "memories": [
+                        {
+                            "memory_type": "sram", 
+                            "table_word_width": 0, 
+                            "memory_word_width": 44, 
+                            "entries_per_table_word": 1, 
+                            "table_type": "match", 
+                            "num_memories": 0, 
+                            "entries_requested": 0, 
+                            "entries_allocated": 0, 
+                            "imm_bit_width_in_overhead_requested": 0, 
+                            "imm_bit_width_in_overhead_allocated": 0, 
+                            "entry_bit_width_requested": 0, 
+                            "entry_bit_width_allocated": 0, 
+                            "ideal_entries_per_table_word": 0, 
+                            "ideal_table_word_bit_width": 0
+                        }
+                    ], 
+                    "overhead_fields": [], 
+                    "match_format": {
+                        "entries": [
+                            {
+                                "entry_number": 0, 
+                                "fields": []
+                            }
+                        ]
+                    }, 
+                    "action_formats": []
+                }
+            ]
+        }
+    ]
+}

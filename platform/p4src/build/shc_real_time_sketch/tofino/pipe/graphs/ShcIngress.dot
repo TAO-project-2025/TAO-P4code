@@ -1,0 +1,39 @@
+digraph ShcIngress {
+subgraph cluster {
+graph [
+label="", labeljust=r, style=bold];
+0[label=__START__, margin="", shape=rectangle, style=solid];
+1[label=__EXIT__, margin="", shape=rectangle, style=solid];
+2[label="hdr.ipv4.isValid();", margin="", shape=rectangle, style=solid];
+3[label="ShcIngress.sk.count_pkt_num_table", margin="", shape=ellipse, style=solid];
+4[label="ShcIngress.sk.get_hash_value_table", margin="", shape=ellipse, style=solid];
+5[label="ShcIngress.sk.update_pkt_1_table", margin="", shape=ellipse, style=solid];
+6[label="ig_md.hash_index_done == 1;", margin="", shape=rectangle, style=solid];
+7[label="ShcIngress.sk.update_pkt_num_1_table", margin="", shape=ellipse, style=solid];
+8[label="ig_md.cs_count == 15;", margin="", shape=rectangle, style=solid];
+9[label=tbl_shc_real_time_sketch266, margin="", shape=ellipse, style=solid];
+10[label=tbl_shc_real_time_sketch269, margin="", shape=ellipse, style=solid];
+11[label="ShcIngress.route_tbl", margin="", shape=ellipse, style=solid];
+12[label="ig_md.eflag == 1 && ig_tm_md.bypass_egress == 1;", margin="", shape=rectangle, style=solid];
+13[label=tbl_shc_real_time_sketch322, margin="", shape=ellipse, style=solid];
+14[label=tbl_shc_real_time_sketch325, margin="", shape=ellipse, style=solid];
+0 -> 2[label=""];
+2 -> 3[label=TRUE];
+2 -> 1[label=FALSE];
+3 -> 4[label=""];
+4 -> 5[label=""];
+5 -> 6[label=""];
+6 -> 7[label=TRUE];
+6 -> 11[label=FALSE];
+7 -> 8[label=""];
+8 -> 9[label=TRUE];
+8 -> 10[label=FALSE];
+9 -> 11[label=""];
+10 -> 11[label=""];
+11 -> 12[label=""];
+12 -> 13[label=TRUE];
+12 -> 14[label=FALSE];
+13 -> 1[label=""];
+14 -> 1[label=""];
+}
+}

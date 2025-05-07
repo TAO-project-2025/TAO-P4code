@@ -1,0 +1,1 @@
+cmd='cd;/share_test/build/thirdparty/p4/src/;&&;mkdir;-p;build;&&;cd;build;&&;cmake;/home/buildsde/bf-sde-9.7.0/p4studio/;-DCMAKE_INSTALL_PREFIX=/home/buildsde/bf-sde-9.7.0/install;-DCMAKE_MODULE_PATH=/home/buildsde/bf-sde-9.7.0/cmake;-DP4_NAME=shc_real_time_sketch;-DP4_PATH=/share_test/platform/p4src/shc_real_time_sketch.p4'

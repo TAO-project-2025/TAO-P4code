@@ -1,0 +1,555 @@
+Table Placement ignores container conflicts? 0
+table placement starting pipe
+ingress: [2212693]
+  cond-8(ingress::hdr.ipv4.$valid == 1; => $true, 1 => $false)
+    $true: [2212698] 1 10 111 0000 10000 111101 1111011 11110111
+      cond-9(ingress::hdr.inner_ipv4.$valid == 1; => $true, 1 => $false)
+        $true: [2212703]
+          tbl_shc_real_time_sketch449
+        $false: [2212778]
+          tbl_shc_real_time_sketch453
+      route_tbl_0{ E 54+1, 4 64K }
+        $hit: [2213033]
+          tbl_shc_real_time_sketch458
+      tbl_shc_real_time_sketch464
+      cond-10(ingress::hdr.cuckoo_hashes.$valid == 1; => $true, 1 => $false)
+        $true: [2213774]
+          cond-11(ingress::ig_md.table_hit == 1; => $true, 1 => $false)
+            $true: [2213636]
+              tbl_shc_real_time_sketch468
+            $false: [2213184]
+              cuckoo_hash_chose_table_0{ E -8+3, 0 0K }
+        $false: [2213638] 1
+          tbl_shc_real_time_sketch476
+          tbl_shc_real_time_sketch476_0
+      sk_count_pkt_num_table
+        stateful ShcIngress.sk.pkt_num    1
+      sk_get_fingerprint_table
+      sk_update_pkt_1_table
+        stateful ShcIngress.sk.hash1_1  66K
+      cond-12(ingress::ig_md.hash_index_done == 1; => $true, 1 => $false)
+        $true: [2214021] 1
+          sk_update_pkt_num_1_table
+            stateful ShcIngress.sk.hash1_1_n  66K
+          cond-13(ingress::ig_md.cs_count == 10; => $true, 1 => $false)
+            $true: [2214220]
+              tbl_shc_real_time_sketch296
+            $false: [2214222]
+              tbl_shc_real_time_sketch299
+      cond-14(ingress::ig_md.eflag == 1 && ingress::ig_md.table_hit == 0; => $true, 1 => $false)
+        $true: [2214347]
+          tbl_shc_real_time_sketch483
+        $false: [2214349]
+          tbl_shc_real_time_sketch491
+egress: [2221139]
+
+stage 0, work: [ 2212693 ], partly placed 0, placed 0
+    { id=0 ram=0 tcam=0 mram=0 eixb=0 tixb=0 malu=0 salu=0 }
+  Group table: cond-8
+try_place_table(cond-8, stage=0)
+  Merging with match table sk_count_pkt_num_table
+  Initial stage is 0, initial entries is 1
+  Selected stage: 0    Furthest stage: 0
+  try_place_table returning 1 of sk_count_pkt_num_table in stage 0
+    Pl vector: [ sk_count_pkt_num_table ]
+found 1 tables that could be placed: [ sk_count_pkt_num_table ]
+Initial best is first table seen: sk_count_pkt_num_table
+placing 1 entries of sk_count_pkt_num_table (with gw cond-8) in stage 0(0) FormatType(022)
+stage 0, work: [ 2212698 ], partly placed 0, placed 1
+    { id=0 ram=0 tcam=0 mram=0 eixb=0 tixb=0 malu=0 salu=0 }
+  Group table: cond-9
+  Group table: route_tbl_0
+  Group table: tbl_shc_real_time_sketch464
+  Group table: cond-10
+  Group table: sk_count_pkt_num_table
+  Group table: sk_get_fingerprint_table
+  Group table: sk_update_pkt_1_table
+  Group table: cond-12
+  Group table: cond-14
+try_place_table(cond-9, stage=0)
+  Merging with match table tbl_shc_real_time_sketch453
+  Initial stage is 0, initial entries is 1
+  Selected stage: 0    Furthest stage: 1
+  try_place_table returning 1 of tbl_shc_real_time_sketch453 in stage 0
+  Merging with match table tbl_shc_real_time_sketch449
+  Initial stage is 0, initial entries is 1
+  Selected stage: 0    Furthest stage: 1
+  try_place_table returning 1 of tbl_shc_real_time_sketch449 in stage 0
+    Pl vector: [ tbl_shc_real_time_sketch453, tbl_shc_real_time_sketch449 ]
+  - skipping route_tbl_0 due to in-sequence control dependence on cond-9
+  - skipping tbl_shc_real_time_sketch464 due to in-sequence control dependence on cond-9
+  - skipping cond-10 because it depends on tbl_shc_real_time_sketch464
+    - removing tbl_shc_real_time_sketch476 from merge list because it depends on tbl_shc_real_time_sketch464
+    - skipping gateway cond-10 until mergeable tables are available
+    - skipping sk_count_pkt_num_table as its already done
+  - skipping sk_get_fingerprint_table due to in-sequence control dependence on cond-9
+  - skipping sk_update_pkt_1_table due to in-sequence control dependence on cond-9
+  - skipping cond-12 due to in-sequence control dependence on cond-9
+  - skipping cond-14 due to in-sequence control dependence on cond-9
+found 2 tables that could be placed: [ tbl_shc_real_time_sketch453, tbl_shc_real_time_sketch449 ]
+Initial best is first table seen: tbl_shc_real_time_sketch453
+For trial t : tbl_shc_real_time_sketch449 with best: tbl_shc_real_time_sketch453
+    Updating best to tbl_shc_real_time_sketch449 from tbl_shc_real_time_sketch453 for reason: default choice
+placing 1 entries of tbl_shc_real_time_sketch449 (with gw cond-9) in stage 0(1) FormatType(02)
+stage 0, work: [ 2212778 ], partly placed 0, placed 2
+    { id=0 ram=0 tcam=0 mram=0 eixb=0 tixb=0 malu=0 salu=0 }
+  Group table: tbl_shc_real_time_sketch453
+tbl_shc_real_time_sketch453 is not a gateway! Aborting search for merge choices
+try_place_table(tbl_shc_real_time_sketch453, stage=0)
+  Initial stage is 0, initial entries is 1
+  Selected stage: 0    Furthest stage: 1
+  try_place_table returning 1 of tbl_shc_real_time_sketch453 in stage 0
+    Pl vector: [ tbl_shc_real_time_sketch453 ]
+found 1 tables that could be placed: [ tbl_shc_real_time_sketch453 ]
+Initial best is first table seen: tbl_shc_real_time_sketch453
+placing 1 entries of tbl_shc_real_time_sketch453 in stage 0(2) FormatType(02)
+stage 0, work: [ 2212698 ], partly placed 0, placed 3
+    { id=0 ram=0 tcam=0 mram=0 eixb=0 tixb=0 malu=0 salu=0 }
+  Group table: cond-9
+  Group table: route_tbl_0
+  Group table: tbl_shc_real_time_sketch464
+  Group table: cond-10
+  Group table: sk_count_pkt_num_table
+  Group table: sk_get_fingerprint_table
+  Group table: sk_update_pkt_1_table
+  Group table: cond-12
+  Group table: cond-14
+    - skipping cond-9 as its already done
+route_tbl_0 is not a gateway! Aborting search for merge choices
+try_place_table(route_tbl_0, stage=0)
+  - dependency between tbl_shc_real_time_sketch453 and table advances stage
+  Initial stage is 1, initial entries is 65536
+  Selected stage: 1    Furthest stage: 1
+  try_place_table returning 65536 of route_tbl_0 in stage 1
+    Pl vector: [ route_tbl_0 ]
+tbl_shc_real_time_sketch464 is not a gateway! Aborting search for merge choices
+try_place_table(tbl_shc_real_time_sketch464, stage=0)
+  - dependency between tbl_shc_real_time_sketch453 and table advances stage
+  Initial stage is 1, initial entries is 1
+  Selected stage: 1    Furthest stage: 1
+  try_place_table returning 1 of tbl_shc_real_time_sketch464 in stage 1
+    Pl vector: [ tbl_shc_real_time_sketch464 ]
+  - skipping cond-10 because it depends on tbl_shc_real_time_sketch464
+    - removing tbl_shc_real_time_sketch476 from merge list because it depends on tbl_shc_real_time_sketch464
+    - skipping gateway cond-10 until mergeable tables are available
+    - skipping sk_count_pkt_num_table as its already done
+sk_get_fingerprint_table is not a gateway! Aborting search for merge choices
+try_place_table(sk_get_fingerprint_table, stage=0)
+  - dependency between tbl_shc_real_time_sketch453 and table advances stage
+  Initial stage is 1, initial entries is 1
+  Selected stage: 1    Furthest stage: 1
+  try_place_table returning 1 of sk_get_fingerprint_table in stage 1
+    Pl vector: [ sk_get_fingerprint_table ]
+  - skipping sk_update_pkt_1_table due to in-sequence control dependence on route_tbl_0
+  - skipping cond-12 due to in-sequence control dependence on route_tbl_0
+  - skipping cond-14 due to in-sequence control dependence on route_tbl_0
+found 3 tables that could be placed: [ route_tbl_0, tbl_shc_real_time_sketch464, sk_get_fingerprint_table ]
+Initial best is first table seen: route_tbl_0
+For trial t : tbl_shc_real_time_sketch464 with best: route_tbl_0
+    Keeping best route_tbl_0 for reason: fewer total dependencies in dominance frontier
+For trial t : sk_get_fingerprint_table with best: route_tbl_0
+    Keeping best route_tbl_0 for reason: longer downward prop control-included dependence tail chain
+placing 65536 entries of route_tbl_0 in stage 1(10) FormatType(02)
+potential backfill tbl_shc_real_time_sketch464 before route_tbl_0
+potential backfill sk_get_fingerprint_table before route_tbl_0
+stage 1, work: [ 2213033 ], partly placed 0, placed 4
+    { id=1 ram=48 tcam=0 mram=16 eixb=8 tixb=0 malu=0 salu=0 }
+  Group table: tbl_shc_real_time_sketch458
+tbl_shc_real_time_sketch458 is not a gateway! Aborting search for merge choices
+try_place_table(tbl_shc_real_time_sketch458, stage=1)
+  - action dependency between route_tbl_0 and table tbl_shc_real_time_sketch458 due to PHV allocation advances stage to 2
+  Initial stage is 2, initial entries is 1
+  Selected stage: 2    Furthest stage: 2
+  try_place_table returning 1 of tbl_shc_real_time_sketch458 in stage 2
+    Pl vector: [ tbl_shc_real_time_sketch458 ]
+found 1 tables that could be placed: [ tbl_shc_real_time_sketch458 ]
+Initial best is first table seen: tbl_shc_real_time_sketch458
+try to backfill tbl_shc_real_time_sketch464 before route_tbl_0
+try to backfill sk_get_fingerprint_table before route_tbl_0
+placing 1 entries of tbl_shc_real_time_sketch458 in stage 2(20) FormatType(02)
+stage 2, work: [ 2212698 ], partly placed 0, placed 5
+    { id=0 ram=0 tcam=0 mram=0 eixb=0 tixb=0 malu=0 salu=0 }
+  Group table: cond-9
+  Group table: route_tbl_0
+  Group table: tbl_shc_real_time_sketch464
+  Group table: cond-10
+  Group table: sk_count_pkt_num_table
+  Group table: sk_get_fingerprint_table
+  Group table: sk_update_pkt_1_table
+  Group table: cond-12
+  Group table: cond-14
+    - skipping cond-9 as its already done
+    - skipping route_tbl_0 as its already done
+tbl_shc_real_time_sketch464 is not a gateway! Aborting search for merge choices
+try_place_table(tbl_shc_real_time_sketch464, stage=2)
+  Initial stage is 2, initial entries is 1
+  Selected stage: 2    Furthest stage: 3
+  try_place_table returning 1 of tbl_shc_real_time_sketch464 in stage 2
+    Pl vector: [ tbl_shc_real_time_sketch464 ]
+  - skipping cond-10 because it depends on tbl_shc_real_time_sketch464
+    - removing tbl_shc_real_time_sketch476 from merge list because it depends on tbl_shc_real_time_sketch464
+    - skipping gateway cond-10 until mergeable tables are available
+    - skipping sk_count_pkt_num_table as its already done
+sk_get_fingerprint_table is not a gateway! Aborting search for merge choices
+try_place_table(sk_get_fingerprint_table, stage=2)
+  Initial stage is 2, initial entries is 1
+  Selected stage: 2    Furthest stage: 3
+  try_place_table returning 1 of sk_get_fingerprint_table in stage 2
+    Pl vector: [ sk_get_fingerprint_table ]
+  - skipping sk_update_pkt_1_table due to in-sequence control dependence on tbl_shc_real_time_sketch464
+  - skipping cond-12 due to in-sequence control dependence on tbl_shc_real_time_sketch464
+  - skipping cond-14 due to in-sequence control dependence on tbl_shc_real_time_sketch464
+found 2 tables that could be placed: [ tbl_shc_real_time_sketch464, sk_get_fingerprint_table ]
+Initial best is first table seen: tbl_shc_real_time_sketch464
+For trial t : sk_get_fingerprint_table with best: tbl_shc_real_time_sketch464
+    Keeping best tbl_shc_real_time_sketch464 for reason: longer downward prop control-included dependence tail chain
+placing 1 entries of tbl_shc_real_time_sketch464 in stage 2(21) FormatType(02)
+stage 2, work: [ 2212698 ], partly placed 0, placed 6
+    { id=0 ram=0 tcam=0 mram=0 eixb=0 tixb=0 malu=0 salu=0 }
+  Group table: cond-9
+  Group table: route_tbl_0
+  Group table: tbl_shc_real_time_sketch464
+  Group table: cond-10
+  Group table: sk_count_pkt_num_table
+  Group table: sk_get_fingerprint_table
+  Group table: sk_update_pkt_1_table
+  Group table: cond-12
+  Group table: cond-14
+    - skipping cond-9 as its already done
+    - skipping route_tbl_0 as its already done
+    - skipping tbl_shc_real_time_sketch464 as its already done
+try_place_table(cond-10, stage=2)
+  Merging with match table tbl_shc_real_time_sketch476
+  Initial stage is 2, initial entries is 1
+  Selected stage: 2    Furthest stage: 3
+  try_place_table returning 1 of tbl_shc_real_time_sketch476 in stage 2
+    Pl vector: [ tbl_shc_real_time_sketch476 ]
+    - skipping sk_count_pkt_num_table as its already done
+sk_get_fingerprint_table is not a gateway! Aborting search for merge choices
+try_place_table(sk_get_fingerprint_table, stage=2)
+  Initial stage is 2, initial entries is 1
+  Selected stage: 2    Furthest stage: 3
+  try_place_table returning 1 of sk_get_fingerprint_table in stage 2
+    Pl vector: [ sk_get_fingerprint_table ]
+  - skipping sk_update_pkt_1_table due to in-sequence control dependence on cond-10
+  - skipping cond-12 due to in-sequence control dependence on cond-10
+  - skipping cond-14 due to in-sequence control dependence on cond-10
+found 2 tables that could be placed: [ tbl_shc_real_time_sketch476, sk_get_fingerprint_table ]
+Initial best is first table seen: tbl_shc_real_time_sketch476
+For trial t : sk_get_fingerprint_table with best: tbl_shc_real_time_sketch476
+    Updating best to sk_get_fingerprint_table from tbl_shc_real_time_sketch476 for reason: control dom set is placeable in this stage
+placing 1 entries of sk_get_fingerprint_table in stage 2(22) FormatType(02)
+stage 2, work: [ 2212698 ], partly placed 0, placed 7
+    { id=0 ram=0 tcam=0 mram=0 eixb=0 tixb=0 malu=0 salu=0 }
+  Group table: cond-9
+  Group table: route_tbl_0
+  Group table: tbl_shc_real_time_sketch464
+  Group table: cond-10
+  Group table: sk_count_pkt_num_table
+  Group table: sk_get_fingerprint_table
+  Group table: sk_update_pkt_1_table
+  Group table: cond-12
+  Group table: cond-14
+    - skipping cond-9 as its already done
+    - skipping route_tbl_0 as its already done
+    - skipping tbl_shc_real_time_sketch464 as its already done
+try_place_table(cond-10, stage=2)
+  Merging with match table tbl_shc_real_time_sketch476
+  Initial stage is 2, initial entries is 1
+  Selected stage: 2    Furthest stage: 3
+  try_place_table returning 1 of tbl_shc_real_time_sketch476 in stage 2
+    Pl vector: [ tbl_shc_real_time_sketch476 ]
+    - skipping sk_count_pkt_num_table as its already done
+    - skipping sk_get_fingerprint_table as its already done
+  - skipping sk_update_pkt_1_table due to in-sequence control dependence on cond-10
+  - skipping cond-12 due to in-sequence control dependence on cond-10
+  - skipping cond-14 due to in-sequence control dependence on cond-10
+found 1 tables that could be placed: [ tbl_shc_real_time_sketch476 ]
+Initial best is first table seen: tbl_shc_real_time_sketch476
+placing 1 entries of tbl_shc_real_time_sketch476 (with gw cond-10) in stage 2(23) FormatType(02)
+stage 2, work: [ 2213774, 2213638 ], partly placed 0, placed 8
+    { id=0 ram=0 tcam=0 mram=0 eixb=0 tixb=0 malu=0 salu=0 }
+  Group table: cond-11
+try_place_table(cond-11, stage=2)
+  Merging with match table cuckoo_hash_chose_table_0
+  - dependency between tbl_shc_real_time_sketch464 and table advances stage
+  Initial stage is 3, initial entries is 4
+  Selected stage: 3    Furthest stage: 3
+  try_place_table returning 1024 of cuckoo_hash_chose_table_0 in stage 3
+  Merging with match table tbl_shc_real_time_sketch468
+  - dependency between tbl_shc_real_time_sketch458 and table advances stage
+  Initial stage is 3, initial entries is 1
+  Selected stage: 3    Furthest stage: 3
+  try_place_table returning 1 of tbl_shc_real_time_sketch468 in stage 3
+    Pl vector: [ cuckoo_hash_chose_table_0, tbl_shc_real_time_sketch468 ]
+  Group table: tbl_shc_real_time_sketch476
+  Group table: tbl_shc_real_time_sketch476_0
+    - skipping tbl_shc_real_time_sketch476 as its already done
+tbl_shc_real_time_sketch476_0 is not a gateway! Aborting search for merge choices
+try_place_table(tbl_shc_real_time_sketch476_0, stage=2)
+  - dependency between tbl_shc_real_time_sketch464 and table advances stage
+  Initial stage is 3, initial entries is 1
+  Selected stage: 3    Furthest stage: 3
+  try_place_table returning 1 of tbl_shc_real_time_sketch476_0 in stage 3
+    Pl vector: [ tbl_shc_real_time_sketch476_0 ]
+found 3 tables that could be placed: [ cuckoo_hash_chose_table_0, tbl_shc_real_time_sketch468, tbl_shc_real_time_sketch476_0 ]
+Initial best is first table seen: cuckoo_hash_chose_table_0
+For trial t : tbl_shc_real_time_sketch468 with best: cuckoo_hash_chose_table_0
+    Updating best to tbl_shc_real_time_sketch468 from cuckoo_hash_chose_table_0 for reason: default choice
+For trial t : tbl_shc_real_time_sketch476_0 with best: tbl_shc_real_time_sketch468
+    Updating best to tbl_shc_real_time_sketch476_0 from tbl_shc_real_time_sketch468 for reason: longer control-excluded dependence tail chain
+placing 1 entries of tbl_shc_real_time_sketch476_0 in stage 3(30) FormatType(02)
+stage 3, work: [ 2213774 ], partly placed 0, placed 9
+    { id=0 ram=0 tcam=0 mram=0 eixb=0 tixb=0 malu=0 salu=0 }
+  Group table: cond-11
+try_place_table(cond-11, stage=3)
+  Merging with match table cuckoo_hash_chose_table_0
+  Initial stage is 3, initial entries is 4
+  Selected stage: 3    Furthest stage: 4
+  try_place_table returning 1024 of cuckoo_hash_chose_table_0 in stage 3
+  Merging with match table tbl_shc_real_time_sketch468
+  Initial stage is 3, initial entries is 1
+  Selected stage: 3    Furthest stage: 4
+  try_place_table returning 1 of tbl_shc_real_time_sketch468 in stage 3
+    Pl vector: [ cuckoo_hash_chose_table_0, tbl_shc_real_time_sketch468 ]
+found 2 tables that could be placed: [ cuckoo_hash_chose_table_0, tbl_shc_real_time_sketch468 ]
+Initial best is first table seen: cuckoo_hash_chose_table_0
+For trial t : tbl_shc_real_time_sketch468 with best: cuckoo_hash_chose_table_0
+    Updating best to tbl_shc_real_time_sketch468 from cuckoo_hash_chose_table_0 for reason: default choice
+placing 1 entries of tbl_shc_real_time_sketch468 (with gw cond-11) in stage 3(31) FormatType(02)
+stage 3, work: [ 2213184 ], partly placed 0, placed 10
+    { id=0 ram=0 tcam=0 mram=0 eixb=0 tixb=0 malu=0 salu=0 }
+  Group table: cuckoo_hash_chose_table_0
+cuckoo_hash_chose_table_0 is not a gateway! Aborting search for merge choices
+try_place_table(cuckoo_hash_chose_table_0, stage=3)
+  Initial stage is 3, initial entries is 4
+  Selected stage: 3    Furthest stage: 4
+  try_place_table returning 1024 of cuckoo_hash_chose_table_0 in stage 3
+    Pl vector: [ cuckoo_hash_chose_table_0 ]
+found 1 tables that could be placed: [ cuckoo_hash_chose_table_0 ]
+Initial best is first table seen: cuckoo_hash_chose_table_0
+placing 1024 entries of cuckoo_hash_chose_table_0 in stage 3(32) FormatType(02)
+stage 3, work: [ 2212698 ], partly placed 0, placed 11
+    { id=1 ram=1 tcam=0 mram=0 eixb=1 tixb=0 malu=0 salu=0 }
+  Group table: cond-9
+  Group table: route_tbl_0
+  Group table: tbl_shc_real_time_sketch464
+  Group table: cond-10
+  Group table: sk_count_pkt_num_table
+  Group table: sk_get_fingerprint_table
+  Group table: sk_update_pkt_1_table
+  Group table: cond-12
+  Group table: cond-14
+    - skipping cond-9 as its already done
+    - skipping route_tbl_0 as its already done
+    - skipping tbl_shc_real_time_sketch464 as its already done
+    - skipping cond-10 as its already done
+    - skipping sk_count_pkt_num_table as its already done
+    - skipping sk_get_fingerprint_table as its already done
+sk_update_pkt_1_table is not a gateway! Aborting search for merge choices
+try_place_table(sk_update_pkt_1_table, stage=3)
+  - dependency between cuckoo_hash_chose_table_0 and table advances stage
+  Initial stage is 4, initial entries is 1
+  Selected stage: 4    Furthest stage: 4
+  try_place_table returning 1 of sk_update_pkt_1_table in stage 4
+    Pl vector: [ sk_update_pkt_1_table ]
+  - skipping cond-12 due to in-sequence control dependence on sk_update_pkt_1_table
+  - skipping cond-14 due to in-sequence control dependence on sk_update_pkt_1_table
+found 1 tables that could be placed: [ sk_update_pkt_1_table ]
+Initial best is first table seen: sk_update_pkt_1_table
+placing 1 entries of sk_update_pkt_1_table in stage 4(40) FormatType(022)
+stage 4, work: [ 2212698 ], partly placed 0, placed 12
+    { id=0 ram=0 tcam=0 mram=0 eixb=0 tixb=0 malu=0 salu=0 }
+  Group table: cond-9
+  Group table: route_tbl_0
+  Group table: tbl_shc_real_time_sketch464
+  Group table: cond-10
+  Group table: sk_count_pkt_num_table
+  Group table: sk_get_fingerprint_table
+  Group table: sk_update_pkt_1_table
+  Group table: cond-12
+  Group table: cond-14
+    - skipping cond-9 as its already done
+    - skipping route_tbl_0 as its already done
+    - skipping tbl_shc_real_time_sketch464 as its already done
+    - skipping cond-10 as its already done
+    - skipping sk_count_pkt_num_table as its already done
+    - skipping sk_get_fingerprint_table as its already done
+    - skipping sk_update_pkt_1_table as its already done
+try_place_table(cond-12, stage=4)
+  Merging with match table sk_update_pkt_num_1_table
+  - dependency between sk_update_pkt_1_table and table advances stage
+  Initial stage is 5, initial entries is 1
+  Selected stage: 5    Furthest stage: 5
+  try_place_table returning 1 of sk_update_pkt_num_1_table in stage 5
+    Pl vector: [ sk_update_pkt_num_1_table ]
+  - skipping cond-14 due to in-sequence control dependence on cond-12
+found 1 tables that could be placed: [ sk_update_pkt_num_1_table ]
+Initial best is first table seen: sk_update_pkt_num_1_table
+placing 1 entries of sk_update_pkt_num_1_table (with gw cond-12) in stage 5(50) FormatType(022)
+stage 5, work: [ 2214021 ], partly placed 0, placed 13
+    { id=0 ram=0 tcam=0 mram=0 eixb=0 tixb=0 malu=0 salu=0 }
+  Group table: sk_update_pkt_num_1_table
+  Group table: cond-13
+    - skipping sk_update_pkt_num_1_table as its already done
+try_place_table(cond-13, stage=5)
+  Merging with match table tbl_shc_real_time_sketch299
+  - dependency between sk_update_pkt_num_1_table and table advances stage
+  Initial stage is 6, initial entries is 1
+  Selected stage: 6    Furthest stage: 6
+  try_place_table returning 1 of tbl_shc_real_time_sketch299 in stage 6
+  Merging with match table tbl_shc_real_time_sketch296
+  - dependency between sk_update_pkt_num_1_table and table advances stage
+  Initial stage is 6, initial entries is 1
+  Selected stage: 6    Furthest stage: 6
+  try_place_table returning 1 of tbl_shc_real_time_sketch296 in stage 6
+    Pl vector: [ tbl_shc_real_time_sketch299, tbl_shc_real_time_sketch296 ]
+found 2 tables that could be placed: [ tbl_shc_real_time_sketch299, tbl_shc_real_time_sketch296 ]
+Initial best is first table seen: tbl_shc_real_time_sketch299
+For trial t : tbl_shc_real_time_sketch296 with best: tbl_shc_real_time_sketch299
+    Updating best to tbl_shc_real_time_sketch296 from tbl_shc_real_time_sketch299 for reason: default choice
+placing 1 entries of tbl_shc_real_time_sketch296 (with gw cond-13) in stage 6(60) FormatType(02)
+stage 6, work: [ 2214222 ], partly placed 0, placed 14
+    { id=0 ram=0 tcam=0 mram=0 eixb=0 tixb=0 malu=0 salu=0 }
+  Group table: tbl_shc_real_time_sketch299
+tbl_shc_real_time_sketch299 is not a gateway! Aborting search for merge choices
+try_place_table(tbl_shc_real_time_sketch299, stage=6)
+  Initial stage is 6, initial entries is 1
+  Selected stage: 6    Furthest stage: 7
+  try_place_table returning 1 of tbl_shc_real_time_sketch299 in stage 6
+    Pl vector: [ tbl_shc_real_time_sketch299 ]
+found 1 tables that could be placed: [ tbl_shc_real_time_sketch299 ]
+Initial best is first table seen: tbl_shc_real_time_sketch299
+placing 1 entries of tbl_shc_real_time_sketch299 in stage 6(61) FormatType(02)
+stage 6, work: [ 2212698 ], partly placed 0, placed 15
+    { id=0 ram=0 tcam=0 mram=0 eixb=0 tixb=0 malu=0 salu=0 }
+  Group table: cond-9
+  Group table: route_tbl_0
+  Group table: tbl_shc_real_time_sketch464
+  Group table: cond-10
+  Group table: sk_count_pkt_num_table
+  Group table: sk_get_fingerprint_table
+  Group table: sk_update_pkt_1_table
+  Group table: cond-12
+  Group table: cond-14
+    - skipping cond-9 as its already done
+    - skipping route_tbl_0 as its already done
+    - skipping tbl_shc_real_time_sketch464 as its already done
+    - skipping cond-10 as its already done
+    - skipping sk_count_pkt_num_table as its already done
+    - skipping sk_get_fingerprint_table as its already done
+    - skipping sk_update_pkt_1_table as its already done
+    - skipping cond-12 as its already done
+try_place_table(cond-14, stage=6)
+  Merging with match table tbl_shc_real_time_sketch491
+  - dependency between tbl_shc_real_time_sketch299 and table advances stage
+  Initial stage is 7, initial entries is 1
+  Selected stage: 7    Furthest stage: 7
+  try_place_table returning 1 of tbl_shc_real_time_sketch491 in stage 7
+  Merging with match table tbl_shc_real_time_sketch483
+  - dependency between tbl_shc_real_time_sketch299 and table advances stage
+  Initial stage is 7, initial entries is 1
+  Selected stage: 7    Furthest stage: 7
+  try_place_table returning 1 of tbl_shc_real_time_sketch483 in stage 7
+    Pl vector: [ tbl_shc_real_time_sketch491, tbl_shc_real_time_sketch483 ]
+found 2 tables that could be placed: [ tbl_shc_real_time_sketch491, tbl_shc_real_time_sketch483 ]
+Initial best is first table seen: tbl_shc_real_time_sketch491
+For trial t : tbl_shc_real_time_sketch483 with best: tbl_shc_real_time_sketch491
+    Updating best to tbl_shc_real_time_sketch483 from tbl_shc_real_time_sketch491 for reason: default choice
+placing 1 entries of tbl_shc_real_time_sketch483 (with gw cond-14) in stage 7(70) FormatType(02)
+stage 7, work: [ 2214349 ], partly placed 0, placed 16
+    { id=0 ram=0 tcam=0 mram=0 eixb=0 tixb=0 malu=0 salu=0 }
+  Group table: tbl_shc_real_time_sketch491
+tbl_shc_real_time_sketch491 is not a gateway! Aborting search for merge choices
+try_place_table(tbl_shc_real_time_sketch491, stage=7)
+  Initial stage is 7, initial entries is 1
+  Selected stage: 7    Furthest stage: 8
+  try_place_table returning 1 of tbl_shc_real_time_sketch491 in stage 7
+    Pl vector: [ tbl_shc_real_time_sketch491 ]
+found 1 tables that could be placed: [ tbl_shc_real_time_sketch491 ]
+Initial best is first table seen: tbl_shc_real_time_sketch491
+placing 1 entries of tbl_shc_real_time_sketch491 in stage 7(71) FormatType(02)
+Table placement placed 17 tables in 8 stages
+  Table tbl_shc_real_time_sketch491 logical id 0x71 entries=1
+  Table tbl_shc_real_time_sketch483 logical id 0x70 entries=1
+  Gateway cond-14 is also logical id 0x70
+  Table tbl_shc_real_time_sketch299 logical id 0x61 entries=1
+  Table tbl_shc_real_time_sketch296 logical id 0x60 entries=1
+  Gateway cond-13 is also logical id 0x60
+  Table sk_update_pkt_num_1_table logical id 0x50 entries=1
+    attached table ShcIngress.sk.hash1_1_n entries=65536
+  Gateway cond-12 is also logical id 0x50
+  Table sk_update_pkt_1_table logical id 0x40 entries=1
+    attached table ShcIngress.sk.hash1_1 entries=65536
+  Table cuckoo_hash_chose_table_0 logical id 0x32 entries=1024
+  Table tbl_shc_real_time_sketch468 logical id 0x31 entries=1
+  Gateway cond-11 is also logical id 0x31
+  Table tbl_shc_real_time_sketch476_0 logical id 0x30 entries=1
+  Table tbl_shc_real_time_sketch476 logical id 0x23 entries=1
+  Gateway cond-10 is also logical id 0x23
+  Table sk_get_fingerprint_table logical id 0x22 entries=1
+  Table tbl_shc_real_time_sketch464 logical id 0x21 entries=1
+  Table tbl_shc_real_time_sketch458 logical id 0x20 entries=1
+  Table route_tbl_0 logical id 0x10 entries=65536
+    attached table route_tbl_0$idletime entries=65536
+  Table tbl_shc_real_time_sketch453 logical id 0x2 entries=1
+  Table tbl_shc_real_time_sketch449 logical id 0x1 entries=1
+  Gateway cond-9 is also logical id 0x1
+  Table sk_count_pkt_num_table logical id 0x0 entries=1
+    attached table ShcIngress.sk.pkt_num entries=1
+  Gateway cond-8 is also logical id 0x0
+Finished table placement decisions pipe
+folding gateway cond-8 onto sk_count_pkt_num_table
+  Adding Ternary Indirect table to sk_count_pkt_num_table
+folding gateway cond-9 onto tbl_shc_real_time_sketch449
+  Adding Ternary Indirect table to tbl_shc_real_time_sketch449
+  Adding Ternary Indirect table to tbl_shc_real_time_sketch453
+  Adding Action Data Table to route_tbl_0
+  Adding Ternary Indirect table to tbl_shc_real_time_sketch458
+folding gateway cond-10 onto tbl_shc_real_time_sketch476
+  Adding Ternary Indirect table to tbl_shc_real_time_sketch476
+folding gateway cond-11 onto tbl_shc_real_time_sketch468
+  Adding Ternary Indirect table to tbl_shc_real_time_sketch468
+  Adding Ternary Indirect table to tbl_shc_real_time_sketch476_0
+folding gateway cond-12 onto sk_update_pkt_num_1_table
+folding gateway cond-13 onto tbl_shc_real_time_sketch296
+  Adding Ternary Indirect table to tbl_shc_real_time_sketch296
+  Adding Ternary Indirect table to tbl_shc_real_time_sketch299
+folding gateway cond-14 onto tbl_shc_real_time_sketch483
+  Adding Ternary Indirect table to tbl_shc_real_time_sketch483
+  Adding Ternary Indirect table to tbl_shc_real_time_sketch491
+table placement completed pipe
+ingress: [2212693]
+  0: sk_count_pkt_num_table(ingress::hdr.ipv4.$valid == 1;, 1 => $false){ GE 0+10, 0 0K }
+    stateful ShcIngress.sk.pkt_num    1
+    $default: [2212698] 0 00 000 0000 00000 000000 0000000
+      1: tbl_shc_real_time_sketch449(ingress::hdr.inner_ipv4.$valid == 1;, 1 => $false)
+        $false: [2212778]
+          2: tbl_shc_real_time_sketch453
+      10: route_tbl_0{ E 54+1, 4 [1x2 16K 16K 16K 16K] }
+        $hit: [2213033]
+          20: tbl_shc_real_time_sketch458
+      21: tbl_shc_real_time_sketch464
+      22: sk_get_fingerprint_table
+      23: tbl_shc_real_time_sketch476(ingress::hdr.cuckoo_hashes.$valid == 1; => $true, 1)
+        $true: [2213774]
+          31: tbl_shc_real_time_sketch468(ingress::ig_md.table_hit == 1;, 1 => $false)
+            $false: [2213184]
+              32: cuckoo_hash_chose_table_0{ E -8+3, 0 [1x1 1K] }
+        $default: [2213638]
+          30: tbl_shc_real_time_sketch476_0{ E 0+16, 4 0K }
+      40: sk_update_pkt_1_table
+        stateful ShcIngress.sk.hash1_1  66K
+      50: sk_update_pkt_num_1_table(ingress::ig_md.hash_index_done == 1;, 1 => $false)
+        stateful ShcIngress.sk.hash1_1_n  66K
+        $default: [2214021]
+          60: tbl_shc_real_time_sketch296(ingress::ig_md.cs_count == 10;, 1 => $false)
+            $false: [2214222]
+              61: tbl_shc_real_time_sketch299
+        $false: [2339166]
+      70: tbl_shc_real_time_sketch483(ingress::ig_md.eflag == 1 && ingress::ig_md.table_hit == 0;, 1 => $false)
+        $false: [2214349]
+          71: tbl_shc_real_time_sketch491
+    $false: [2338445]
+egress: [2221139]
+

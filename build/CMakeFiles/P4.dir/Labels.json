@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/share_test/build/CMakeFiles/P4"
+		},
+		{
+			"file" : "/share_test/build/CMakeFiles/P4.rule"
+		},
+		{
+			"file" : "/share_test/build/CMakeFiles/P4-complete.rule"
+		},
+		{
+			"file" : "/share_test/build/thirdparty/p4/src/P4-stamp/P4-install.rule"
+		},
+		{
+			"file" : "/share_test/build/thirdparty/p4/src/P4-stamp/P4-mkdir.rule"
+		},
+		{
+			"file" : "/share_test/build/thirdparty/p4/src/P4-stamp/P4-download.rule"
+		},
+		{
+			"file" : "/share_test/build/thirdparty/p4/src/P4-stamp/P4-update.rule"
+		},
+		{
+			"file" : "/share_test/build/thirdparty/p4/src/P4-stamp/P4-patch.rule"
+		},
+		{
+			"file" : "/share_test/build/thirdparty/p4/src/P4-stamp/P4-configure.rule"
+		},
+		{
+			"file" : "/share_test/build/thirdparty/p4/src/P4-stamp/P4-build.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"P4"
+		],
+		"name" : "P4"
+	}
+}

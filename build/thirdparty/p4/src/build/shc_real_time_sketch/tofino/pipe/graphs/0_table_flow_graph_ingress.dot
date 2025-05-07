@@ -1,0 +1,148 @@
+digraph ingress {
+cond_8 [ shape=record, style="filled", fillcolor=cornsilk, label="hdr.ipv4.$valid == 1\l\l
+ "];
+cond_9 [ shape=record, style="filled", fillcolor=cornsilk, label="hdr.inner_ipv4.$valid == 1\l\l
+ "];
+tbl_shc_real_time_sketch449 [ shape=record, style="filled", fillcolor=cornsilk, label="tbl_shc_real_time_sketch449\l\l
+R:\l
+ hdr.inner_ipv4.src_addr\l
+ hdr.inner_ipv4.dst_addr\l
+\lW:\l
+ ig_md.src_addr\l
+ ig_md.dst_addr\l
+ "];
+tbl_shc_real_time_sketch453 [ shape=record, style="filled", fillcolor=cornsilk, label="tbl_shc_real_time_sketch453\l\l
+R:\l
+ hdr.ipv4.src_addr\l
+ hdr.ipv4.dst_addr\l
+\lW:\l
+ ig_md.src_addr\l
+ ig_md.dst_addr\l
+ "];
+route_tbl_0 [ shape=record, style="filled", fillcolor=cornsilk, label="route_tbl_0\l\l
+M:\l
+ ig_md.src_addr\l
+ ig_md.dst_addr\l
+\lR:\l
+ ig_intr_md.ingress_port\l
+\lW:\l
+ ig_md.nhop_id\l
+ ig_intr_md_for_tm.ucast_egress_port\l
+ ig_intr_md_for_tm.bypass_egress\l
+ ig_md.table_hit\l
+ "];
+tbl_shc_real_time_sketch458 [ shape=record, style="filled", fillcolor=cornsilk, label="tbl_shc_real_time_sketch458\l\l
+W:\l
+ ig_md.table_hit\l
+ "];
+tbl_shc_real_time_sketch464 [ shape=record, style="filled", fillcolor=cornsilk, label="tbl_shc_real_time_sketch464\l\l
+W:\l
+ ig_md.cuckoo_hash_tmp\l
+ "];
+cond_10 [ shape=record, style="filled", fillcolor=cornsilk, label="hdr.cuckoo_hashes.$valid == 1\l\l
+ "];
+cond_11 [ shape=record, style="filled", fillcolor=cornsilk, label="ig_md.table_hit == 1\l\l
+ "];
+tbl_shc_real_time_sketch476 [ shape=record, style="filled", fillcolor=cornsilk, label="tbl_shc_real_time_sketch476\l\l
+W:\l
+ ig_md.cuckoo_hash_index\l
+ "];
+tbl_shc_real_time_sketch468 [ shape=record, style="filled", fillcolor=cornsilk, label="tbl_shc_real_time_sketch468\l\l
+R:\l
+ ig_md.nhop_id\l
+\lW:\l
+ ig_md.cuckoo_hash_index\l
+ "];
+cuckoo_hash_chose_table_0 [ shape=record, style="filled", fillcolor=cornsilk, label="cuckoo_hash_chose_table_0\l\l
+M:\l
+ ig_md.cuckoo_hash_tmp\l
+\lR:\l
+ hdr.cuckoo_hashes.cuckoo_hash1\l
+ hdr.cuckoo_hashes.cuckoo_hash2\l
+ hdr.cuckoo_hashes.cuckoo_hash3\l
+ hdr.cuckoo_hashes.cuckoo_hash4\l
+\lW:\l
+ ig_md.cuckoo_hash_index\l
+ "];
+sk_count_pkt_num_table [ shape=record, style="filled", fillcolor=cornsilk, label="sk_count_pkt_num_table\l\l
+ "];
+tbl_shc_real_time_sketch476_0 [ shape=record, style="filled", fillcolor=cornsilk, label="tbl_shc_real_time_sketch476_0\l\l
+R:\l
+ ig_md.cuckoo_hash_tmp\l
+\lW:\l
+ ig_md.cuckoo_hash_index\l
+ "];
+sk_get_fingerprint_table [ shape=record, style="filled", fillcolor=cornsilk, label="sk_get_fingerprint_table\l\l
+W:\l
+ ig_md.fingerprint\l
+ "];
+sk_update_pkt_1_table [ shape=record, style="filled", fillcolor=cornsilk, label="sk_update_pkt_1_table\l\l
+R:\l
+ ig_md.fingerprint\l
+\lW:\l
+ ig_md.fp_cmp_re\l
+ ig_md.hash_index_done\l
+ "];
+cond_12 [ shape=record, style="filled", fillcolor=cornsilk, label="ig_md.hash_index_done == 1\l\l
+ "];
+sk_update_pkt_num_1_table [ shape=record, style="filled", fillcolor=cornsilk, label="sk_update_pkt_num_1_table\l\l
+R:\l
+ ig_md.fp_cmp_re\l
+\lW:\l
+ ig_md.cs_count\l
+ "];
+cond_14 [ shape=record, style="filled", fillcolor=cornsilk, label="ig_md.eflag == 1 && ig_md.table_hit == 0\l\l
+ "];
+cond_13 [ shape=record, style="filled", fillcolor=cornsilk, label="ig_md.cs_count == 10\l\l
+ "];
+tbl_shc_real_time_sketch296 [ shape=record, style="filled", fillcolor=cornsilk, label="tbl_shc_real_time_sketch296\l\l
+W:\l
+ ig_md.eflag\l
+ "];
+tbl_shc_real_time_sketch299 [ shape=record, style="filled", fillcolor=cornsilk, label="tbl_shc_real_time_sketch299\l\l
+W:\l
+ ig_md.eflag\l
+ "];
+tbl_shc_real_time_sketch483 [ shape=record, style="filled", fillcolor=cornsilk, label="tbl_shc_real_time_sketch483\l\l
+W:\l
+ ig_intr_md_for_dprsr.digest_type\l
+ "];
+tbl_shc_real_time_sketch491 [ shape=record, style="filled", fillcolor=cornsilk, label="tbl_shc_real_time_sketch491\l\l
+W:\l
+ ig_intr_md_for_dprsr.digest_type\l
+ "];
+    PARSER -> cond_8
+    cond_8 -> cond_9
+    PARSER -> cond_8
+    cond_8 -> DEPARSER
+    cond_9 -> tbl_shc_real_time_sketch449
+    cond_9 -> tbl_shc_real_time_sketch453
+    tbl_shc_real_time_sketch449 -> route_tbl_0
+    tbl_shc_real_time_sketch453 -> route_tbl_0
+    route_tbl_0 -> tbl_shc_real_time_sketch458
+    route_tbl_0 -> tbl_shc_real_time_sketch464
+    tbl_shc_real_time_sketch458 -> tbl_shc_real_time_sketch464
+    tbl_shc_real_time_sketch464 -> cond_10
+    cond_10 -> cond_11
+    cond_10 -> tbl_shc_real_time_sketch476
+    cond_11 -> tbl_shc_real_time_sketch468
+    cond_11 -> cuckoo_hash_chose_table_0
+    tbl_shc_real_time_sketch468 -> sk_count_pkt_num_table
+    cuckoo_hash_chose_table_0 -> sk_count_pkt_num_table
+    tbl_shc_real_time_sketch476 -> tbl_shc_real_time_sketch476_0
+    tbl_shc_real_time_sketch476_0 -> sk_count_pkt_num_table
+    sk_count_pkt_num_table -> sk_get_fingerprint_table
+    sk_get_fingerprint_table -> sk_update_pkt_1_table
+    sk_update_pkt_1_table -> cond_12
+    cond_12 -> sk_update_pkt_num_1_table
+    cond_12 -> cond_14
+    sk_update_pkt_num_1_table -> cond_13
+    cond_13 -> tbl_shc_real_time_sketch296
+    cond_13 -> tbl_shc_real_time_sketch299
+    tbl_shc_real_time_sketch296 -> cond_14
+    tbl_shc_real_time_sketch299 -> cond_14
+    cond_14 -> tbl_shc_real_time_sketch483
+    cond_14 -> tbl_shc_real_time_sketch491
+    tbl_shc_real_time_sketch483 -> DEPARSER
+    tbl_shc_real_time_sketch491 -> DEPARSER
+}

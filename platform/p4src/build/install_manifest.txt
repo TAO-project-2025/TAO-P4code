@@ -1,0 +1,6 @@
+/home/buildsde/bf-sde-9.7.0/install/share/p4/targets/tofino/shc_real_time_sketch.conf
+/home/buildsde/bf-sde-9.7.0/install/share/tofinopd/shc_real_time_sketch/source.json
+/home/buildsde/bf-sde-9.7.0/install/share/tofinopd/shc_real_time_sketch/events.json
+/home/buildsde/bf-sde-9.7.0/install/share/tofinopd/shc_real_time_sketch/bf-rt.json
+/home/buildsde/bf-sde-9.7.0/install/share/tofinopd/shc_real_time_sketch/pipe/tofino.bin
+/home/buildsde/bf-sde-9.7.0/install/share/tofinopd/shc_real_time_sketch/pipe/context.json
